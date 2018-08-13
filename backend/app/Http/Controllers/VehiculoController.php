@@ -59,4 +59,7 @@ class VehiculoController extends Controller
         }
         return response()->json($response, 200);
     }
+    /*
+     * example
+     * */
 }
