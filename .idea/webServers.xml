@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="faf8bb6b-d373-4543-bc5e-ab45c05afe2c" name="automania" url="http://codasrl.com">
+        <fileTransfer host="codasrl.com" port="22" privateKey="C:\Users\HP User\OneDrive\Documents\coda\id_rsa_automania" rootFolder="/home/codasrlc" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

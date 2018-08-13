@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62bb6f7e-8933-4693-b869-655f128be901" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/VehiculoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/VehiculoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="62bb6f7e-8933-4693-b869-655f128be901" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +186,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/VehiculoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
+            <state relative-caret-position="447">
               <caret line="62" column="14" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
@@ -348,8 +340,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="SearchEverywhereHistoryKey" value="vehiculo&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/app/Http/Controllers/VehiculoController.php&#10;api&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/routes/api.php&#10;.env&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/.env&#10;vehicul&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/app/Http/Controllers/VehiculoController.php" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="remote&#9;ACTION&#9;WebDeployment.BrowseServers&#10;vehiculo&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/app/Http/Controllers/VehiculoController.php&#10;api&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/routes/api.php&#10;.env&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/.env&#10;vehicul&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/app/Http/Controllers/VehiculoController.php" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -389,16 +386,15 @@
       <workItem from="1533691666911" duration="7223000" />
       <workItem from="1533773687420" duration="379000" />
       <workItem from="1534167312907" duration="2526000" />
-      <workItem from="1534170121294" duration="769000" />
+      <workItem from="1534170121294" duration="2155000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11144000" />
+    <option name="totallyTimeSpent" value="12530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992908" weight="0.25506073" />
       <window_info id="Structure" order="1" sideWeight="0.50070924" side_tool="true" weight="0.2536913" />
@@ -415,10 +411,11 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.84626645" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.329429" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067115" side_tool="true" weight="0.75474083" />
+      <window_info active="true" anchor="right" id="Remote Host" visible="true" weight="0.3299595" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.33063427" />
+      <window_info anchor="right" id="Database" order="3" weight="0.33063427" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +660,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/VehiculoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
+        <state relative-caret-position="447">
           <caret line="62" column="14" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
