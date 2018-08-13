@@ -1,0 +1,23 @@
+<mat-card class="card-md">
+  <mat-card-content>
+    <form (submit)="store()" [formGroup]="estacionServicioGroup">
+      <legend>CREAR ESTACION DE SERVICIO</legend>
+      <mat-form-field class="divider">
+        <input matInput formControlName="razon_social" placeholder="Razon social" #razon_social maxlength="150">
+        <mat-hint align="end">{{razon_social.value?.length || 0}}/150</mat-hint>
+        <mat-error *ngIf="estacionServicioGroup.get('razon_social').status == 'INVALID'">La razon social es obligatoria</mat-error>
+      </mat-form-field>
+      <mat-form-field class="divider">
+        <input matInput formControlName="nit" placeholder="NIT" #nit maxlength="15">
+        <mat-hint align="end">{{nit.value?.length || 0}}/15</mat-hint>
+        <mat-error *ngIf="estacionServicioGroup.get('nit').status == 'INVALID'">El NIT es obligatorio</mat-error>
+      </mat-form-field>
+      <mat-form-field class="divider">
+        <input matInput formControlName="propietario" placeholder="Carnet" #propietario maxlength="100">
+        <mat-hint align="end">{{propietario.value?.length || 0}}/100</mat-hint>
+        <mat-error *ngIf="estacionServicioGroup.get('propietario').status == 'INVALID'">El propietario es obligatorio</mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary" [disabled]="estacionServicioGroup.status == 'INVALID'">GUARDAR</button>
+    </form>
+  </mat-card-content>
+</mat-card>

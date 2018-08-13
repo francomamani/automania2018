@@ -1,0 +1,77 @@
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row>
+    <span>
+      <mat-icon>directions_car</mat-icon>
+      AUTOMANIA</span>
+    <span class="spacer"></span>
+<!--
+    <button mat-icon-button routerLink="/slider" *ngIf="authService.isAuthenticated()">
+      <mat-icon>photo_camera</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="notificaciones" *ngIf="authService.isAuthenticated()">
+      <mat-icon>textsms</mat-icon>
+    </button>
+    <mat-menu #notificaciones="matMenu">
+      <button mat-menu-item routerLink="/categoria">
+        <mat-icon>dashboard</mat-icon>
+        <span>CATEGORIAS</span>
+      </button>
+      <button mat-menu-item routerLink="/notificacion">
+        <mat-icon>textsms</mat-icon>
+        <span>NOTIFICACIONES</span>
+      </button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="ubicaciones" *ngIf="authService.isAuthenticated()">
+      <mat-icon>location_on</mat-icon>
+    </button>
+    <mat-menu #ubicaciones="matMenu">
+      <button mat-menu-item routerLink="/categoria-ubicacion">
+        <mat-icon>dashboard</mat-icon>
+        <span>CATEGORIAS</span>
+      </button>
+      <button mat-menu-item routerLink="/ubicacion">
+        <mat-icon>location_on</mat-icon>
+        <span>UBICACIONES</span>
+      </button>
+    </mat-menu>-->
+    <button mat-icon-button routerLink="/asignacion-vehiculo"  matTooltip="Asignacion de Vehiculos" *ngIf="authService.isAuthenticated()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/vehiculo"  matTooltip="Vehiculos" *ngIf="authService.isAuthenticated()">
+      <mat-icon>drive_eta</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/mantenimiento" matTooltip="Mantenimientos" *ngIf="authService.isAuthenticated()">
+      <mat-icon>local_car_wash</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/chofer" matTooltip="Choferes" *ngIf="authService.isAuthenticated()">
+      <mat-icon>face</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/estacion-servicio" matTooltip="Estaciones de Servicio" *ngIf="authService.isAuthenticated()">
+      <mat-icon>assignment</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/taller-mecanico" matTooltip="Talleres Mecanicos" *ngIf="authService.isAuthenticated()">
+      <mat-icon>build</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="usuarios" matTooltip="Administracion" *ngIf="authService.isAuthenticated()">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #usuarios="matMenu">
+      <button mat-menu-item routerLink="/usuario">
+        <mat-icon>dashboard</mat-icon>
+        <span>USUARIOS</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>notifications_off</mat-icon>
+        <span>CERRAR SESION</span>
+      </button>
+    </mat-menu>
+    <!--
+    <a routerLink="/categoria">CATEGORIAS</a>
+    <a routerLink="/ubicacion">NOTIFICACIONES</a>
+    <a routerLink="/ubicacion">USUARIOS</a>-->
+    <!--<mat-icon class="icon">account_circle</mat-icon>-->
+
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

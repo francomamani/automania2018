@@ -1,0 +1,22 @@
+<mat-card class="card-md">
+  <mat-card-content>
+    <form (submit)="store()" [formGroup]="asignacionVehiculoGroup" class="form">
+      <legend>ASIGNAR VEHICULO</legend>
+      <mat-form-field>
+        <mat-select formControlName="chofer_id" placeholder="Elegir chofer">
+          <mat-option *ngFor="let chofer of choferes" [value]="chofer.id">
+            {{ chofer.apellidos }} {{ chofer.nombres }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select formControlName="vehiculo_id" placeholder="Elegir vehiculo">
+          <mat-option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.id">
+            {{ vehiculo.placa }} {{ vehiculo.marca }} {{ vehiculo.modelo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary" [disabled]="asignacionVehiculoGroup.status == 'INVALID'">GUARDAR</button>
+    </form>
+  </mat-card-content>
+</mat-card>

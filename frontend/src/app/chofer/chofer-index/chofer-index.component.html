@@ -1,0 +1,52 @@
+<div class="fni-container mat-elevation-z8">
+  <div class="fni-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar...">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="choferes" matSort>
+    <ng-container matColumnDef="nombres">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombres </mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.nombres | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="apellidos">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.apellidos | uppercase }} </mat-cell>
+    </ng-container>
+     <ng-container matColumnDef="carnet">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Carnet </mat-header-cell>
+        <mat-cell *matCellDef="let col"> {{ col.carnet }} </mat-cell>
+     </ng-container>
+     <ng-container matColumnDef="tipo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </mat-header-cell>
+        <mat-cell *matCellDef="let col"> {{ col.tipo | uppercase }} </mat-cell>
+     </ng-container>
+     <ng-container matColumnDef="fecha_inicio_contrato">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Inicio de Contrato</mat-header-cell>
+        <mat-cell *matCellDef="let col"> {{ col.fecha_inicio_contrato | date: 'dd/MM/yyyy' }} </mat-cell>
+     </ng-container>
+     <ng-container matColumnDef="fecha_fin_contrato">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Fin de Contrato </mat-header-cell>
+        <mat-cell *matCellDef="let col"> {{ col.fecha_fin_contrato | date: 'dd/MM/yyyy' }} </mat-cell>
+     </ng-container>
+     <ng-container matColumnDef="activo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Activo </mat-header-cell>
+        <mat-cell *matCellDef="let col"> {{ col.activo }} </mat-cell>
+     </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
+      <mat-cell *matCellDef="let col; let i = index">
+        <button mat-icon-button mat-button color="accent" routerLink="/chofer/editar/{{col.id}}"><mat-icon>border_color</mat-icon></button>
+        <button mat-icon-button mat-button color="warn" (click)="openDialog(col.id, i)"><mat-icon>delete</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>

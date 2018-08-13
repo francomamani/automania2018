@@ -1,0 +1,41 @@
+<mat-card class="card-md">
+  <mat-card-content>
+    <form (submit)="store()" [formGroup]="vehiculoGroup">
+      <legend>CREAR VEHICULO</legend>
+      <mat-radio-group formControlName="activo" class="mat-radio-group">
+        <mat-radio-button [value]=1>Activo</mat-radio-button>
+        <mat-radio-button [value]=0>Inactivo</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field class="divider">
+        <input matInput formControlName="placa" placeholder="Placa" #placa maxlength="150">
+        <mat-hint align="end">{{placa.value?.length || 0}}/150</mat-hint>
+        <mat-error *ngIf="vehiculoGroup.get('placa').status == 'INVALID'">La placa es obligatoria</mat-error>
+      </mat-form-field>
+      <mat-form-field class="divider">
+        <input matInput formControlName="marca" placeholder="Marca" #marca maxlength="150">
+        <mat-hint align="end">{{marca.value?.length || 0}}/150</mat-hint>
+        <mat-error *ngIf="vehiculoGroup.get('marca').status == 'INVALID'">La marca es obligatoria</mat-error>
+      </mat-form-field>
+      <mat-form-field class="divider">
+        <input matInput formControlName="modelo" placeholder="Modelo" #modelo maxlength="10">
+        <mat-hint align="end">{{modelo.value?.length || 0}}/10</mat-hint>
+        <mat-error *ngIf="vehiculoGroup.get('modelo').status == 'INVALID'">El modelo es obligatorio</mat-error>
+      </mat-form-field>
+      <mat-form-field class="divider">
+        <input matInput formControlName="color" placeholder="Color" #color maxlength="10">
+        <mat-hint align="end">{{color.value?.length || 0}}/10</mat-hint>
+        <mat-error *ngIf="vehiculoGroup.get('color').status == 'INVALID'">El color es obligatorio</mat-error>
+      </mat-form-field>
+      <mat-form-field class="divider">
+        <input matInput formControlName="cilindrada" placeholder="Cilindrada" type="number" #cilindrada >
+        <mat-error *ngIf="vehiculoGroup.get('cilindrada').status == 'INVALID'">El cilindrada es obligatorio</mat-error>
+      </mat-form-field>
+      <mat-form-field class="divider">
+        <input matInput formControlName="gestion" placeholder="Gestion" #gestion maxlength="10">
+        <mat-hint align="end">{{gestion.value?.length || 0}}/10</mat-hint>
+        <mat-error *ngIf="vehiculoGroup.get('gestion').status == 'INVALID'">La gestion es obligatoria</mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary" [disabled]="vehiculoGroup.status == 'INVALID'">GUARDAR</button>
+    </form>
+  </mat-card-content>
+</mat-card>

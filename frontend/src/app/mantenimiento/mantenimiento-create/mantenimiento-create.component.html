@@ -1,0 +1,58 @@
+<mat-card class="card-md">
+  <mat-card-content>
+    <form (submit)="store()" [formGroup]="mantenimientoGroup" class="form">
+      <legend>REGISTRAR MANTENIMIENTO</legend>
+      <mat-form-field>
+        <mat-select placeholder="Elegir tipo de mantenimiento *">
+          <mat-option *ngFor="let tipo of tipoMantenimiento" [value]="tipo.value">
+            {{tipo.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Elegir taller mecanico *">
+          <mat-option *ngFor="let tallerMecanico of tallerMecanicos" [value]="tallerMecanico.id">
+            {{ tallerMecanico.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Elegir vehiculo y chofer *">
+          <mat-option *ngFor="let asignacion of asignaciones" [value]="asignacion.id">
+            {{ asignacion.chofer.apellidos }} {{ asignacion.chofer.nombres }} | {{ asignacion.vehiculo.placa }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput formControlName="descripcion" placeholder="Descripción *" #descripcion maxlength="190">
+        </textarea>
+        <mat-hint align="end">{{descripcion.value?.length || 0}}/150</mat-hint>
+        <mat-error *ngIf="mantenimientoGroup.get('descripcion').status == 'INVALID'">La descripcion es obligatoria</mat-error>
+      </mat-form-field>
+      <!--
+      <mat-form-field class="half">
+        <input matInput formControlName="numero_factura" placeholder="Numero de factura" #numero_factura maxlength="150">
+        <mat-hint align="end">{{numero_factura.value?.length || 0}}/150</mat-hint>
+        <mat-error *ngIf="mantenimientoGroup.get('numero_factura').status == 'INVALID'">El numero de factura es obligatoria</mat-error>
+      </mat-form-field>
+      <mat-form-field class="half">
+        <input matInput type="number" skip="00000.00" formControlName="monto" placeholder="Monto" #monto>
+        <mat-error *ngIf="mantenimientoGroup.get('monto').status == 'INVALID'">El monto es obligatorio</mat-error>
+      </mat-form-field>
+      <mat-form-field class="half">
+        <input matInput type="date" formControlName="fecha_inicio" placeholder="Fecha de inicio" #fecha_inicio>
+      </mat-form-field>
+      <mat-form-field class="half">
+        <input matInput type="date" formControlName="fecha_fin" placeholder="Fecha de fin" #fecha_fin>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput formControlName="descripcion_servicio"
+                  placeholder="Descripción de servicio (respuesta al trabajo realizado)"
+                  #descripcion_servicio maxlength="190">
+        </textarea>
+      </mat-form-field> -->
+      <button mat-raised-button type="submit" color="primary">GUARDAR</button>
+<!--      <button mat-raised-button type="submit" color="primary" [disabled]="mantenimientoGroup.status == 'INVALID'">GUARDAR</button>-->
+    </form>
+  </mat-card-content>
+</mat-card>
