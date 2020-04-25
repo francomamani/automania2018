@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    base : 'http://127.0.0.1:8000/api/'
+    base : 'http://54.85.218.91/automania2018/backend/public/api/'
 };
