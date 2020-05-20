@@ -54,7 +54,7 @@ table {
 }
 .container{
     width: 100%;
-    margin-top: 8vh;
+    margin-top: 9vh;
     height: 92vh;
     box-sizing: border-box;
     position: fixed;
@@ -120,7 +120,9 @@ table {
     text-align: center;
 }
 .bg{
-    background-color: #a5b4ff;
+  background: url("./assets/autos.jpg");
+  background-size: cover;
+/*    background-color: #a5b4ff;*/
 }
 .map{
     z-index: 1;

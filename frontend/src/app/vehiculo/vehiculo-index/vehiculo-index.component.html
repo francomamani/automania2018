@@ -7,19 +7,19 @@
 
   <mat-table #table [dataSource]="vehiculos" matSort>
     <ng-container matColumnDef="placa">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Placa </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Placa</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{col.placa | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="marca">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Marca </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Marca</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{col.marca | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="modelo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Modelo </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Modelo</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{ col.modelo }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="color">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Color</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{ col.color }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="cilindrada">
@@ -31,15 +31,19 @@
       <mat-cell *matCellDef="let col"> {{ col.gestion }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="activo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Activo </mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.activo }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Activo</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{ col.activo === 1 ? 'ACTIVO' : 'INACTIVO' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acciones">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">
-        <button mat-icon-button mat-button color="accent" routerLink="/vehiculo/editar/{{col.id}}"><mat-icon>border_color</mat-icon></button>
-        <button mat-icon-button mat-button color="warn" (click)="openDialog(col.id, i)"><mat-icon>delete</mat-icon></button>
+        <button mat-icon-button mat-button color="accent" routerLink="/vehiculo/editar/{{col.id}}">
+          <mat-icon>border_color</mat-icon>
+        </button>
+        <button mat-icon-button mat-button color="warn" (click)="openDialog(col.id, i)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-cell>
     </ng-container>
 

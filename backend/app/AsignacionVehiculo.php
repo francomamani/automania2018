@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class AsignacionVehiculo extends Model
 {
     use SoftDeletes;
+
     protected $table = 'asignacion_vehiculos';
     protected $fillable = [
         'asignacion_vehiculo_id',
@@ -15,14 +16,32 @@ class AsignacionVehiculo extends Model
         'vehiculo_id'
     ];
     protected $dates = ['deleted_at'];
-    public function servicioGeneral(){
+
+    protected $appends = ['chofer', 'vehiculo'];
+
+    public function servicioGeneral()
+    {
         return $this->belongsTo('App\ServicioGeneral');
     }
-    public function chofer(){
+
+    public function chofer()
+    {
         return $this->belongsTo('App\Chofer');
     }
-    public function vehiculo(){
+
+    public function vehiculo()
+    {
         return $this->belongsTo('App\Vehiculo');
+    }
+
+    public function getChoferAttribute()
+    {
+        return Vehiculo::find($this->chofer_id);
+    }
+
+    public function getVehiculoAttribute()
+    {
+        return Vehiculo::find($this->vehiculo_id);
     }
 
 }

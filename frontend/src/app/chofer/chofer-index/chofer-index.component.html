@@ -32,7 +32,7 @@
     </ng-container>
     <ng-container matColumnDef="activo">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Activo</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.activo }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{ col.activo === 1 ? 'ACTIVO' : 'INACTIVO' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acciones">

@@ -1,7 +1,9 @@
 <section class="container bg">
+  <br><br><br><br>
   <mat-card class="card-md">
     <mat-card-content>
-      <form (submit)="login()" [formGroup]="loginGroup">
+      <form (submit)="login()" [formGroup]="loginGroup" class="text-center">
+        <img src="../../assets/logo_oep.jpeg" alt="180">
         <mat-form-field class="divider">
           <input matInput placeholder="Cuenta" formControlName="cuenta">
         </mat-form-field>

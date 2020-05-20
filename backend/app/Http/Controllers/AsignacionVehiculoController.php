@@ -7,14 +7,17 @@ use App\ServicioGeneral;
 
 class AsignacionVehiculoController extends Controller
 {
-    public function index(){
-        $asignaciones = AsignacionVehiculo::with(['chofer', 'vehiculo'])->orderBy('vehiculo_id', 'asc')->get();
+    public function index()
+    {
+        $asignaciones = AsignacionVehiculo::orderBy('vehiculo_id', 'asc')->get();
         return response()->json($asignaciones, 200);
     }
-    public function store(){
+
+    public function store()
+    {
         $asignaciones = AsignacionVehiculo::where('chofer_id', request()->input('chofer_id'))
-                          ->where('vehiculo_id', request()->input('vehiculo_id'))
-                          ->count();
+            ->where('vehiculo_id', request()->input('vehiculo_id'))
+            ->count();
         if ($asignaciones == 0) {
             $servicio_general = ServicioGeneral::where('user_id', request()->input('user_id'))->first();
             $asignacion_vehiculo = new AsignacionVehiculo();
@@ -35,14 +38,18 @@ class AsignacionVehiculoController extends Controller
             ], 201);
         }
     }
-    public function update($id){
+
+    public function update($id)
+    {
         $asignacion_vehiculo = AsignacionVehiculo::find($id);
         $asignacion_vehiculo->update(request()->all());
-        return response()->json($asignacion_vehiculo , 200);
+        return response()->json($asignacion_vehiculo, 200);
     }
-    public function destroy($id){
+
+    public function destroy($id)
+    {
         $asignacion_vehiculo = AsignacionVehiculo::find($id);
         $asignacion_vehiculo->delete();
-        return response()->json(['exito'=>'Vehiculo eliminado exitosamente con id: ' . $asignacion_vehiculo ->id], 200);
+        return response()->json(['exito' => 'Vehiculo eliminado exitosamente con id: ' . $asignacion_vehiculo->id], 200);
     }
 }

@@ -62,6 +62,7 @@ import {AsignacionVehiculoCreateComponent} from './asignacion-vehiculo/asignacio
 import {AsignacionVehiculoIndexComponent} from './asignacion-vehiculo/asignacion-vehiculo-index/asignacion-vehiculo-index.component';
 import {AsignacionVehiculoEditComponent} from './asignacion-vehiculo/asignacion-vehiculo-edit/asignacion-vehiculo-edit.component';
 import {AsignacionVehiculoService} from './asignacion-vehiculo/asignacion-vehiculo.service';
+import {MatSortModule} from '@angular/material/sort';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -164,29 +165,30 @@ const appRoutes: Routes = [
     AsignacionVehiculoIndexComponent,
     AsignacionVehiculoEditComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatInputModule,
-    MatCardModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatMenuModule,
-    MatRadioModule,
-    MatTooltipModule,
-    MatNativeDateModule,
-    RouterModule.forRoot(appRoutes)
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatButtonModule,
+        MatInputModule,
+        MatCardModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        MatMenuModule,
+        MatRadioModule,
+        MatTooltipModule,
+        MatNativeDateModule,
+        RouterModule.forRoot(appRoutes),
+        MatSortModule
+    ],
   entryComponents: [MensajeDialogComponent],
   providers: [AuthGuard,
     AuthService,
