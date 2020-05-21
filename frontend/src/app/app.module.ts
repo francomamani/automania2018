@@ -187,7 +187,9 @@ const appRoutes: Routes = [
     MatRadioModule,
     MatTooltipModule,
     MatNativeDateModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {
+      useHash: true
+    }),
     MatSortModule
   ],
   entryComponents: [MensajeDialogComponent],

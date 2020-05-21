@@ -139,7 +139,7 @@ table {
 }
 
 .bg {
-  background: url("./assets/toyota2.webp");
+  background: url("assets/toyota2.webp");
   background-size: cover;
   /*    background-color: #a5b4ff;*/
 }
