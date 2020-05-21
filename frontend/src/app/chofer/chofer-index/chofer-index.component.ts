@@ -3,6 +3,7 @@ import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.compon
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {environment} from '../../../environments/environment.prod';
 import {ChoferService} from '../chofer.service';
+import {ExcelService} from '../../services/excel.service';
 
 @Component({
   selector: 'app-chofer-index',
@@ -27,7 +28,8 @@ export class ChoferIndexComponent implements OnInit {
 
   constructor(
     private choferService: ChoferService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private excelService: ExcelService
   ) {
     this.choferService.index().subscribe(res => {
       this.list = res;
@@ -70,4 +72,21 @@ export class ChoferIndexComponent implements OnInit {
       console.log(res);
     });
   }
+
+  exportExcel() {
+    const lista = this.list.map((item, index) => {
+      return {
+        n: index + 1,
+        nombres: item.nombres,
+        apellidos: item.apellidos,
+        carnet: item.carnet,
+        tipo: item.tipo,
+        fecha_inicio_contrato: new Date(item.fecha_inicio_contrato),
+        fecha_fin_contrato: new Date(item.fecha_fin_contrato),
+        activo: item.activo === 1 ? 'si' : 'no'
+      };
+    });
+    this.excelService.exportarExcel(lista, 'choferes');
+  }
+
 }
