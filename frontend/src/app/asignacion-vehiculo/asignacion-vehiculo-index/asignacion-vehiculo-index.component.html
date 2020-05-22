@@ -5,34 +5,54 @@
     </mat-form-field>
   </div>
 
-  <mat-table #table [dataSource]="vehiculos" matSort>
+  <mat-table #table [dataSource]="asignaciones" matSort>
+    <ng-container matColumnDef="nombres">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombres</mat-header-cell>
+      <mat-cell *matCellDef="let  col"> {{col.chofer.nombres | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="apellidos">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.chofer.apellidos | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="carnet">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Carnet</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.chofer.carnet | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="tipo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Chofer</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.chofer.tipo | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="chofer_activo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Chofer Activo</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.chofer.activo === 1 ? 'SI' : 'NO' }} </mat-cell>
+    </ng-container>
     <ng-container matColumnDef="placa">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Placa</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.placa | uppercase }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{col.vehiculo.placa | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="marca">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Marca</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.marca | uppercase }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{col.vehiculo.marca | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="modelo">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Modelo</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.modelo }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{ col.vehiculo.modelo }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="color">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Color</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.color }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{ col.vehiculo.color }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="cilindrada">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Cilindrada</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.cilindrada }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{ col.vehiculo.cilindrada }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="gestion">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Gestión</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.gestion }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{ col.vehiculo.gestion }} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="activo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Activo</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.activo === 1 ? 'ACTIVO' : 'INACTIVO' }} </mat-cell>
+    <ng-container matColumnDef="vehiculo_activo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Vehiculo Activo</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{ col.vehiculo.activo === 1 ? 'SI' : 'NO' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acciones">

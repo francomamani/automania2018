@@ -17,8 +17,6 @@ class AsignacionVehiculo extends Model
     ];
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['activo'];
-
     public function servicioGeneral()
     {
         return $this->belongsTo('App\ServicioGeneral');
@@ -42,18 +40,6 @@ class AsignacionVehiculo extends Model
     public function getVehiculoAttribute()
     {
         return Vehiculo::find($this->vehiculo_id);
-    }
-
-    public function getActivoAttribute()
-    {
-        $activo = Chofer::find($this->chofer_id)->activo && Vehiculo::find($this->vehiculo_id)->activo;
-        if ($activo) {
-            AsignacionVehiculo::find($this->getKey())->restore();
-            return 'si';
-        } else {
-            AsignacionVehiculo::destroy($this->getKey());
-            return 'no';
-        }
     }
 
 }
