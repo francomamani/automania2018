@@ -48,6 +48,7 @@ class AsignacionVehiculo extends Model
     {
         $activo = Chofer::find($this->chofer_id)->activo && Vehiculo::find($this->vehiculo_id)->activo;
         if ($activo) {
+            AsignacionVehiculo::find($this->getKey())->restore();
             return 'si';
         } else {
             AsignacionVehiculo::destroy($this->getKey());
