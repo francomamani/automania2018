@@ -21,7 +21,6 @@ class CreateVehiculosTable extends Migration
             $table->string('color');
             $table->float('cilindrada');
             $table->integer('gestion');
-            $table->boolean('activo')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });

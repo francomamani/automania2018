@@ -15,8 +15,8 @@ class Vehiculo extends Model
         'modelo',
         'color',
         'cilindrada',
-        'gestion',
-        'activo'];
+        'gestion'
+    ];
     protected $dates = ['deleted_at'];
     public function kilometrajes(){
         return $this->hasMany('App\Kilometraje');

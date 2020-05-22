@@ -22,10 +22,6 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Chofer</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{col.chofer.tipo | uppercase }} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="chofer_activo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Chofer Activo</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.chofer.activo === 1 ? 'SI' : 'NO' }} </mat-cell>
-    </ng-container>
     <ng-container matColumnDef="placa">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Placa</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{col.vehiculo.placa | uppercase }} </mat-cell>
@@ -49,10 +45,6 @@
     <ng-container matColumnDef="gestion">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Gestión</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{ col.vehiculo.gestion }} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="vehiculo_activo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Vehiculo Activo</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.vehiculo.activo === 1 ? 'SI' : 'NO' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acciones">
