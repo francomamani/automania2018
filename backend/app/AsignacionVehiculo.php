@@ -17,7 +17,7 @@ class AsignacionVehiculo extends Model
     ];
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['chofer', 'vehiculo'];
+/*    protected $appends = ['chofer', 'vehiculo'];*/
 
     public function servicioGeneral()
     {

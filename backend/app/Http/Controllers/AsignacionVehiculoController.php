@@ -9,7 +9,7 @@ class AsignacionVehiculoController extends Controller
 {
     public function index()
     {
-        $asignaciones = AsignacionVehiculo::orderBy('vehiculo_id', 'asc')->get();
+        $asignaciones = AsignacionVehiculo::with(['chofer', 'vehiculo'])->orderBy('vehiculo_id', 'asc')->get();
         return response()->json($asignaciones, 200);
     }
 
