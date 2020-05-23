@@ -27,6 +27,10 @@ export class AsignacionVehiculoService {
     return this.http.post(environment.base + 'asignacion_vehiculos', form, {headers: this.headers});
   }
 
+  search(data) {
+    return this.http.post(environment.base + 'asignaciones-search', data, {headers: this.headers});
+  }
+
   update(form, id) {
     return this.http.put(environment.base + 'asignacion_vehiculos/' + id, form, {headers: this.headers});
   }

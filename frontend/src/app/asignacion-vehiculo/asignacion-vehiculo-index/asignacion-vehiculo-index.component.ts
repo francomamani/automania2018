@@ -70,6 +70,17 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
     });
   }
 
+  search(data) {
+    this.asignacionVehiculoService.search({
+      valor: data
+    }).subscribe((asignaciones: any[]) => {
+      this.list = asignaciones;
+      this.asignaciones = new MatTableDataSource(this.list);
+      this.asignaciones.sort = this.sort;
+      this.asignaciones.paginator = this.paginator;
+    });
+  }
+
   destroy(id, index) {
     this.asignacionVehiculoService.destroy(id).subscribe(res => {
       this.list.splice(index, 1);

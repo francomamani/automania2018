@@ -30,8 +30,8 @@ class AsignacionVehiculoController extends Controller
             ->orWhere('modelo', 'like', "%{$valor}%")
             ->pluck('id');
         $asignaciones = AsignacionVehiculo::with(['chofer', 'vehiculo'])
-            ->whereIn('chofer_id', $choferes_id)
-            ->whereIn('vehiculo_id', $vehiculos_id)
+            ->orWhereIn('chofer_id', $choferes_id)
+            ->orWhereIn('vehiculo_id', $vehiculos_id)
             ->orderBy('vehiculo_id', 'asc')
             ->get();
         return response()->json($asignaciones, 200);
