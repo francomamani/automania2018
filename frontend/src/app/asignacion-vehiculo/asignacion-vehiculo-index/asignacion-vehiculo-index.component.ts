@@ -22,16 +22,13 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
     'nombres',
     'apellidos',
     'carnet',
-
     'tipo',
-    'chofer_activo',
     'placa',
     'marca',
     'modelo',
     'color',
     'cilindrada',
     'gestion',
-    'vehiculo_activo',
     'acciones'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -55,6 +52,7 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   openDialog(id, index) {

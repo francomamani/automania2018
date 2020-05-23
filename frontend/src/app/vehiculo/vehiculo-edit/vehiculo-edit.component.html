@@ -2,10 +2,10 @@
   <mat-card-content>
     <form (submit)="update()" [formGroup]="vehiculoGroup">
       <legend>ACTUALIZAR VEHICULO</legend>
-      <mat-radio-group formControlName="activo" class="mat-radio-group">
-        <mat-radio-button [value]=1>Activo</mat-radio-button>
-        <mat-radio-button [value]=0>Inactivo</mat-radio-button>
-      </mat-radio-group>
+      <!--      <mat-radio-group formControlName="activo" class="mat-radio-group">
+              <mat-radio-button [value]=1>Activo</mat-radio-button>
+              <mat-radio-button [value]=0>Inactivo</mat-radio-button>
+            </mat-radio-group>-->
       <mat-form-field class="divider">
         <input matInput formControlName="placa" placeholder="Placa" #placa maxlength="150">
         <mat-hint align="end">{{placa.value?.length || 0}}/150</mat-hint>

@@ -21,7 +21,6 @@ export class ChoferIndexComponent implements OnInit {
     'tipo',
     'fecha_inicio_contrato',
     'fecha_fin_contrato',
-    'activo',
     'acciones'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -82,8 +81,7 @@ export class ChoferIndexComponent implements OnInit {
         carnet: item.carnet,
         tipo: item.tipo,
         fecha_inicio_contrato: new Date(item.fecha_inicio_contrato),
-        fecha_fin_contrato: new Date(item.fecha_fin_contrato),
-        activo: item.activo === 1 ? 'si' : 'no'
+        fecha_fin_contrato: new Date(item.fecha_fin_contrato)
       };
     });
     this.excelService.exportarExcel(lista, 'choferes');

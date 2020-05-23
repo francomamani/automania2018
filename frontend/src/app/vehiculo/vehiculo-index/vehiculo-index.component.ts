@@ -23,7 +23,6 @@ export class VehiculoIndexComponent implements OnInit {
     'color',
     'cilindrada',
     'gestion',
-    'activo',
     'acciones'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -84,8 +83,7 @@ export class VehiculoIndexComponent implements OnInit {
         modelo: item.modelo,
         color: item.color,
         cilindrada: item.cilindrada,
-        gestion: item.gestion,
-        activo: item.activo === 1 ? 'si' : 'no'
+        gestion: item.gestion
       };
     });
     this.excelService.exportarExcel(lista, 'vehiculos');

@@ -19,9 +19,16 @@ class Chofer extends Model
         'fecha_fin_contrato',
     ];
     protected $dates = ["deleted_at"];
+    protected $appends = ['resumen'];
 
     public function asignacionVehiculos()
     {
         return $this->hasMany('App\AsignacionVehiculo');
+    }
+
+    public function getResumenAttribute()
+    {
+        $chofer = Chofer::find($this->getKey());
+        return "{$chofer->nombres} {$chofer->apellidos}";
     }
 }

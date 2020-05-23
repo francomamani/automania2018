@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Vehiculo extends Model
 {
     use SoftDeletes;
+
     protected $table = "vehiculos";
     protected $fillable = [
         'placa',
@@ -18,20 +19,36 @@ class Vehiculo extends Model
         'gestion'
     ];
     protected $dates = ['deleted_at'];
-    public function kilometrajes(){
+    protected $appends = ['resumen'];
+
+    public function kilometrajes()
+    {
         return $this->hasMany('App\Kilometraje');
     }
-    public function valeGasolinas(){
+
+    public function valeGasolinas()
+    {
         return $this->hasMany('App\ValeGasolina');
     }
-    public function tallerMecanicos(){
+
+    public function tallerMecanicos()
+    {
         return $this->hasMany('App\TallerMecanico');
     }
-    public function mantenimientos(){
+
+    public function mantenimientos()
+    {
         return $this->hasMany('App\Mantenimiento');
     }
-    public function asignacionVehiculos() {
+
+    public function asignacionVehiculos()
+    {
         return $this->hasMany('App\AsignacionVehiculo');
     }
 
+    public function getResumenAttribute()
+    {
+        $vehiculo = Vehiculo::find($this->getKey());
+        return "{$vehiculo->placa} {$vehiculo->marca} {$vehiculo->modelo}";
+    }
 }

@@ -2,21 +2,36 @@
   <mat-card-content>
     <form (submit)="store()" [formGroup]="asignacionVehiculoGroup" class="form">
       <legend>ASIGNAR VEHICULO</legend>
-      <mat-form-field>
-        <mat-select formControlName="chofer_id" placeholder="Elegir chofer">
-          <mat-option *ngFor="let chofer of choferes" [value]="chofer.id">
-            {{ chofer.apellidos }} {{ chofer.nombres }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-select formControlName="vehiculo_id" placeholder="Elegir vehiculo">
-          <mat-option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.id">
-            {{ vehiculo.placa }} {{ vehiculo.marca }} {{ vehiculo.modelo }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button mat-raised-button type="submit" color="primary" [disabled]="asignacionVehiculoGroup.status == 'INVALID'">GUARDAR</button>
+      <div class="form-group">
+        <label for="chofer_id">Seleccionar Chofer</label>
+        <ng-select [items]="choferes"
+                   bindLabel="resumen"
+                   bindValue="id"
+                   formControlName="chofer_id"
+                   id="chofer_id"></ng-select>
+      </div>
+      <div class="form-group">
+        <label for="vehiculo_id">Seleccionar Vehiculo</label>
+        <ng-select [items]="vehiculos"
+                   bindLabel="resumen"
+                   bindValue="id"
+                   formControlName="vehiculo_id"
+                   id="vehiculo_id"></ng-select>
+      </div>
+
+      <!--      <mat-form-field>
+              <mat-select formControlName="vehiculo_id" placeholder="Elegir vehiculo">
+                <mat-option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.id">
+                  {{ vehiculo.placa }} {{ vehiculo.marca }} {{ vehiculo.modelo }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>-->
+      <div class="form-group">
+        <button [disabled]="asignacionVehiculoGroup.status == 'INVALID'" color="primary" mat-raised-button
+                type="submit">
+          GUARDAR
+        </button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

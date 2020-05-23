@@ -64,6 +64,8 @@ import {AsignacionVehiculoEditComponent} from './asignacion-vehiculo/asignacion-
 import {AsignacionVehiculoService} from './asignacion-vehiculo/asignacion-vehiculo.service';
 import {MatSortModule} from '@angular/material/sort';
 import {ExcelService} from './services/excel.service';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -190,7 +192,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {
       useHash: true
     }),
-    MatSortModule
+    MatSortModule,
+    MatAutocompleteModule,
+    NgSelectModule
   ],
   entryComponents: [MensajeDialogComponent],
   providers: [AuthGuard,

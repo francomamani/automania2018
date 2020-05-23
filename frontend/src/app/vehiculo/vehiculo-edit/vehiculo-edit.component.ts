@@ -40,8 +40,7 @@ export class VehiculoEditComponent implements OnInit {
             'modelo': new FormControl(vehiculo.modelo, Validators.required),
             'color': new FormControl(vehiculo.color, Validators.required),
             'cilindrada': new FormControl(vehiculo.cilindrada, Validators.required),
-            'gestion': new FormControl(vehiculo.gestion, Validators.required),
-            'activo': new FormControl(vehiculo.activo, Validators.required)
+            'gestion': new FormControl(vehiculo.gestion, Validators.required)
         });
     }
 

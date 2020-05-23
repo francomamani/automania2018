@@ -1,4 +1,5 @@
 @import '../node_modules/@angular/material/theming';
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 @include mat-core();
 
@@ -16,4 +17,16 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 
 .mat-row:not(:nth-child(4n+1)) {
   background-color: #ffffff;
+}
+
+/*bootstrap customized*/
+.form-group {
+  display: block;
+  width: 100%;
+  padding: 0.25em 0;
+  label {
+    display: block;
+    padding: 1em 0;
+    font-weight: bold;
+  }
 }

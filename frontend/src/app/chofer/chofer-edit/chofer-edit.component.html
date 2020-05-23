@@ -1,49 +1,50 @@
-<mat-card class="card-md" *ngIf="chofer !== null">
+<mat-card *ngIf="chofer !== null" class="card-md">
   <mat-card-content>
     <form (submit)="update()" [formGroup]="choferGroup">
       <legend>ACTUALIZAR CHOFER</legend>
-      <mat-radio-group formControlName="activo" class="mat-radio-group">
-        <mat-radio-button [value]=1>Activo</mat-radio-button>
-        <mat-radio-button [value]=0>Inactivo</mat-radio-button>
-      </mat-radio-group>
+      <!--      <mat-radio-group formControlName="activo" class="mat-radio-group">
+              <mat-radio-button [value]=1>Activo</mat-radio-button>
+              <mat-radio-button [value]=0>Inactivo</mat-radio-button>
+            </mat-radio-group>-->
       <mat-form-field class="divider">
-        <input matInput formControlName="nombres" placeholder="Nombres" #nombres maxlength="150">
+        <input #nombres formControlName="nombres" matInput maxlength="150" placeholder="Nombres">
         <mat-hint align="end">{{nombres.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="choferGroup.get('nombres').status == 'INVALID'">El nombre es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="apellidos" placeholder="Apellidos" #apellidos maxlength="150">
+        <input #apellidos formControlName="apellidos" matInput maxlength="150" placeholder="Apellidos">
         <mat-hint align="end">{{apellidos.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="choferGroup.get('apellidos').status == 'INVALID'">El apellido es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="carnet" placeholder="Carnet" #carnet maxlength="10">
+        <input #carnet formControlName="carnet" matInput maxlength="10" placeholder="Carnet">
         <mat-hint align="end">{{carnet.value?.length || 0}}/10</mat-hint>
         <mat-error *ngIf="choferGroup.get('carnet').status == 'INVALID'">El carnet es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
         <label class="label">Tipo</label>
-        <mat-select name="tipo" formControlName="tipo" class="full-width">
-          <mat-option *ngFor="let tipo of tipos" [value]="tipo.key" >
+        <mat-select class="full-width" formControlName="tipo" name="tipo">
+          <mat-option *ngFor="let tipo of tipos" [value]="tipo.key">
             {{ tipo.value }}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput [matDatepicker]="fecha_inicio_contrato" placeholder="Fecha de inicio de contrato"
-               formControlName="fecha_inicio_contrato">
-        <mat-datepicker-toggle matSuffix [for]="fecha_inicio_contrato"></mat-datepicker-toggle>
+        <input [matDatepicker]="fecha_inicio_contrato" formControlName="fecha_inicio_contrato" matInput
+               placeholder="Fecha de inicio de contrato">
+        <mat-datepicker-toggle [for]="fecha_inicio_contrato" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #fecha_inicio_contrato></mat-datepicker>
       </mat-form-field>
       <mat-datepicker #fecha_inicio_contrato></mat-datepicker>
       <mat-form-field class="full-width">
-        <input matInput [matDatepicker]="fecha_fin_contrato" placeholder="Fecha de fin de contrato"
-               formControlName="fecha_fin_contrato">
-        <mat-datepicker-toggle matSuffix [for]="fecha_fin_contrato"></mat-datepicker-toggle>
+        <input [matDatepicker]="fecha_fin_contrato" formControlName="fecha_fin_contrato" matInput
+               placeholder="Fecha de fin de contrato">
+        <mat-datepicker-toggle [for]="fecha_fin_contrato" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #fecha_fin_contrato></mat-datepicker>
       </mat-form-field>
       <mat-datepicker #fecha_fin_contrato></mat-datepicker>
-      <button mat-raised-button type="submit" color="accent" [disabled]="choferGroup.status == 'INVALID'">ACTUALIZAR</button>
+      <button [disabled]="choferGroup.status == 'INVALID'" color="accent" mat-raised-button type="submit">ACTUALIZAR
+      </button>
     </form>
   </mat-card-content>
 </mat-card>
