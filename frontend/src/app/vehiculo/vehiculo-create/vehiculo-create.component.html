@@ -1,7 +1,7 @@
 <mat-card class="card-md">
+  <mat-card-header>CREAR VEHICULO</mat-card-header>
   <mat-card-content>
-    <form (submit)="store()" [formGroup]="vehiculoGroup">
-      <legend>CREAR VEHICULO</legend>
+    <form [formGroup]="vehiculoGroup">
       <!--      <mat-radio-group formControlName="activo" class="mat-radio-group">
               <mat-radio-button [value]=1>Activo</mat-radio-button>
               <mat-radio-button [value]=0>Inactivo</mat-radio-button>
@@ -35,8 +35,15 @@
         <mat-hint align="end">{{gestion.value?.length || 0}}/10</mat-hint>
         <mat-error *ngIf="vehiculoGroup.get('gestion').status == 'INVALID'">La gestion es obligatoria</mat-error>
       </mat-form-field>
-      <button [disabled]="vehiculoGroup.status == 'INVALID'" color="primary" mat-raised-button type="submit">GUARDAR
-      </button>
+      <div class="form-group">
+        <button [routerLink]="['/vehiculo/listar']" color="default" mat-flat-button>
+          CANCELAR
+        </button>
+
+        <button (click)="store()" [disabled]="vehiculoGroup.status == 'INVALID'" color="primary" mat-raised-button>
+          GUARDAR
+        </button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

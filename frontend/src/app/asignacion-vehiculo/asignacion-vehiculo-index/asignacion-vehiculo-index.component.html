@@ -1,8 +1,27 @@
+<!--<div class="flex-container-center">
+  <a><mat-icon>add</mat-icon></a><a>Asignaciones / listar</a>
+</div>-->
+<div class="flex-container">
+  <button (click)="exportExcel()"
+          color="accent"
+          mat-raised-button>
+    <mat-icon>import_export</mat-icon>
+    Exportar en Excel
+  </button>
+  <span class="spacer"></span>
+  <button [routerLink]="['/asignacion-vehiculo/crear']"
+          color="primary"
+          mat-mini-fab
+          matTooltip="Nueva asignación"
+          tooltip-position="left">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
 <div class="fni-container mat-elevation-z8">
   <div class="fni-header">
     <mat-form-field>
       <input (keyup)="search($event.target.value)" matInput placeholder="Buscar asignacion de vehiculos...">
-<!--      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar asignacion de vehiculos...">-->
     </mat-form-field>
   </div>
 
@@ -51,9 +70,9 @@
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">
-<!--        <button color="accent" mat-button mat-icon-button routerLink="/vehiculo/editar/{{col.id}}">
-          <mat-icon>border_color</mat-icon>
-        </button>-->
+        <!--        <button color="accent" mat-button mat-icon-button routerLink="/vehiculo/editar/{{col.id}}">
+                  <mat-icon>border_color</mat-icon>
+                </button>-->
         <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
           <mat-icon>delete</mat-icon>
         </button>

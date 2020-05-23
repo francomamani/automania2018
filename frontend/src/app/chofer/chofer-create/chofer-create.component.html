@@ -1,7 +1,9 @@
 <mat-card class="card-md">
+  <mat-card-header>
+    CREAR CHOFER
+  </mat-card-header>
   <mat-card-content>
-    <form (submit)="store()" [formGroup]="choferGroup">
-      <legend>CREAR CHOFER</legend>
+    <form [formGroup]="choferGroup">
       <mat-form-field class="divider">
         <input #nombres formControlName="nombres" matInput maxlength="150"
                oninput="this.value = this.value.toUpperCase()" placeholder="Nombres">
@@ -43,8 +45,15 @@
       </mat-form-field>
       <mat-datepicker #fecha_fin_contrato></mat-datepicker>
 
-      <button [disabled]="choferGroup.status == 'INVALID'" color="primary" mat-raised-button type="submit">GUARDAR
-      </button>
+      <div class="form-group">
+        <button [routerLink]="['/chofer/listar']" color="default" mat-flat-button>
+          CANCELAR
+        </button>
+
+        <button (click)="store()" [disabled]="choferGroup.status == 'INVALID'" color="primary" mat-raised-button>
+          GUARDAR
+        </button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

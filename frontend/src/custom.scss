@@ -3,7 +3,7 @@
 
 @include mat-core();
 
-$custom-theme-primary: mat-palette($mat-indigo, 900);
+$custom-theme-primary: mat-palette($mat-gray, 900);
 $custom-theme-accent: mat-palette($mat-blue, A200, A100, A400);
 $custom-theme-warn: mat-palette($mat-red);
 
@@ -12,11 +12,32 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 @include angular-material-theme($custom-theme);
 
 .mat-row:nth-child(2n+1) {
-  background-color: #e4f0ec;
+  background-color: #3e4240;
 }
 
 .mat-row:not(:nth-child(4n+1)) {
   background-color: #ffffff;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    text-decoration-color: snow;
+    font-size: 0.8em;
+    user-select: none;
+  }
 }
 
 /*bootstrap customized*/
@@ -24,6 +45,7 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
   display: block;
   width: 100%;
   padding: 0.25em 0;
+
   label {
     display: block;
     padding: 1em 0;

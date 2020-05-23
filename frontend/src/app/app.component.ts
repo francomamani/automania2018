@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class AppComponent {
   constructor(
     public authService: AuthService,
-    private router: Router) {
+    public router: Router) {
   }
 
   logout() {

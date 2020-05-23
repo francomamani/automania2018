@@ -1,9 +1,20 @@
-<button (click)="exportExcel()"
-        color="accent"
-        mat-raised-button>
-  <mat-icon>import_export</mat-icon>
-  Exportar en Excel
-</button>
+<div class="flex-container">
+  <button (click)="exportExcel()"
+          color="accent"
+          mat-raised-button>
+    <mat-icon>import_export</mat-icon>
+    Exportar en Excel
+  </button>
+  <span class="spacer"></span>
+  <button [routerLink]="['/vehiculo/crear']"
+          color="primary"
+          mat-mini-fab
+          matTooltip="Nuevo vehículo"
+          tooltip-position="left">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
 <div class="fni-container mat-elevation-z8">
   <div class="fni-header">
     <mat-form-field>

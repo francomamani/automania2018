@@ -43,10 +43,10 @@
     <button *ngIf="authService.isAuthenticated()" mat-icon-button matTooltip="Vehiculos" routerLink="/vehiculo">
       <mat-icon>drive_eta</mat-icon>
     </button>
-    <button *ngIf="authService.isAuthenticated()" mat-icon-button matTooltip="Mantenimientos"
-            routerLink="/mantenimiento">
-      <mat-icon>local_car_wash</mat-icon>
-    </button>
+    <!--    <button *ngIf="authService.isAuthenticated()" mat-icon-button matTooltip="Mantenimientos"
+                routerLink="/mantenimiento">
+          <mat-icon>local_car_wash</mat-icon>
+        </button>-->
     <button *ngIf="authService.isAuthenticated()" mat-icon-button matTooltip="Choferes" routerLink="/chofer">
       <mat-icon>face</mat-icon>
     </button>
@@ -77,8 +77,7 @@
     <a routerLink="/ubicacion">NOTIFICACIONES</a>
     <a routerLink="/ubicacion">USUARIOS</a>-->
     <!--<mat-icon class="icon">account_circle</mat-icon>-->
-
-
   </mat-toolbar-row>
 </mat-toolbar>
+<div *ngIf="router.url !== '/login'" class="secondary-menu"></div>
 <router-outlet></router-outlet>

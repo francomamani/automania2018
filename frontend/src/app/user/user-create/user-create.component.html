@@ -1,7 +1,7 @@
 <mat-card class="card-md">
+  <mat-card-header>CREAR USUARIO</mat-card-header>
   <mat-card-content>
     <form (submit)="store()" [formGroup]="userGroup" class="form">
-      <legend>CREAR USUARIO</legend>
       <mat-form-field>
         <mat-select formControlName="tipo_usuario" placeholder="Elegir vehiculo asignado">
           <mat-option *ngFor="let tipo of tipoUsuario" [value]="tipo.key">
@@ -10,32 +10,36 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <input matInput formControlName="nombres" placeholder="Nombres" #nombres maxlength="150">
+        <input #nombres formControlName="nombres" matInput maxlength="150" placeholder="Nombres">
         <mat-hint align="end">{{nombres.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="userGroup.get('nombres').status == 'INVALID'">El nombre es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput formControlName="apellidos" placeholder="Apellidos" #apellidos maxlength="150">
+        <input #apellidos formControlName="apellidos" matInput maxlength="150" placeholder="Apellidos">
         <mat-hint align="end">{{apellidos.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="userGroup.get('apellidos').status == 'INVALID'">El apellido es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput formControlName="carnet" placeholder="Carnet" #carnet maxlength="10">
+        <input #carnet formControlName="carnet" matInput maxlength="10" placeholder="Carnet">
         <mat-hint align="end">{{carnet.value?.length || 0}}/10</mat-hint>
         <mat-error *ngIf="userGroup.get('carnet').status == 'INVALID'">El carnet es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput formControlName="cuenta" placeholder="Cuenta" #cuenta maxlength="20">
+        <input #cuenta formControlName="cuenta" matInput maxlength="20" placeholder="Cuenta">
         <mat-hint align="end">{{cuenta.value?.length || 0}}/20</mat-hint>
         <mat-error *ngIf="userGroup.get('cuenta').status == 'INVALID'">La cuenta es obligatoria</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput formControlName="password" placeholder="Password" #password maxlength="20" [type]="hide ? 'password' : 'text'">
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <input #password [type]="hide ? 'password' : 'text'" formControlName="password" matInput maxlength="20"
+               placeholder="Password">
+        <mat-icon (click)="hide = !hide" matSuffix>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         <mat-hint align="end">{{password.value?.length || 0}}/20</mat-hint>
         <mat-error *ngIf="userGroup.get('password').status == 'INVALID'">El password es obligatorio</mat-error>
       </mat-form-field>
-      <button mat-raised-button type="submit" color="primary" [disabled]="userGroup.status == 'INVALID'">GUARDAR</button>
+      <div class="form-group">
+        <button [routerLink]="['/usuario/listar']" color="default" mat-flat-button>CANCELAR</button>
+        <button [disabled]="userGroup.invalid" color="primary" mat-raised-button>GUARDAR</button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

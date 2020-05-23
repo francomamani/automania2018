@@ -1,13 +1,23 @@
-<button (click)="exportExcel()"
-        color="accent"
-        mat-raised-button>
-  <mat-icon>import_export</mat-icon>
-  Exportar en Excel
-</button>
+<div class="flex-container">
+  <button (click)="exportExcel()"
+          color="accent"
+          mat-raised-button>
+    <mat-icon>import_export</mat-icon>
+    Exportar en Excel
+  </button>
+  <span class="spacer"></span>
+  <button [routerLink]="['/estacion-servicio/crear']"
+          color="primary"
+          mat-mini-fab
+          matTooltip="Nueva estación de servicio"
+          tooltip-position="left">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
 <div class="fni-container mat-elevation-z8">
   <div class="fni-header">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar estaciones de servicio...">
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar estaciones de servicio...">
     </mat-form-field>
   </div>
 
@@ -17,23 +27,27 @@
       <mat-cell *matCellDef="let col"> {{col.razon_social | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="nit">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> NIT </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> NIT</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{col.nit | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="propietario">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Propietario </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Propietario</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{ col.propietario }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="activo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Activo </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Activo</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{ col.activo }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acciones">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">
-        <button mat-icon-button mat-button color="accent" routerLink="/estacion-servicio/editar/{{col.id}}"><mat-icon>border_color</mat-icon></button>
-        <button mat-icon-button mat-button color="warn" (click)="openDialog(col.id, i)"><mat-icon>delete</mat-icon></button>
+        <button color="accent" mat-button mat-icon-button routerLink="/estacion-servicio/editar/{{col.id}}">
+          <mat-icon>border_color</mat-icon>
+        </button>
+        <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-cell>
     </ng-container>
 
@@ -41,6 +55,6 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
-  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10">
   </mat-paginator>
 </div>
