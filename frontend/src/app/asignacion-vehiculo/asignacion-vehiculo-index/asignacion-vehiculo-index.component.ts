@@ -16,7 +16,7 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
 
   list: any = [];
   environment = environment;
-  asignaciones: MatTableDataSource<any>;
+  asignaciones: MatTableDataSource<any[]>;
 
   displayedColumns = [
     'nombres',
@@ -37,6 +37,10 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
     private asignacionVehiculoService: AsignacionVehiculoService,
     private dialog: MatDialog
   ) {
+  }
+
+  ngOnInit() {
+
     this.asignacionVehiculoService.index().subscribe(res => {
       this.list = res;
       this.asignaciones = new MatTableDataSource(this.list);
@@ -49,10 +53,6 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.asignaciones.filter = filterValue;
-  }
-
-  ngOnInit() {
-
   }
 
   openDialog(id, index) {
@@ -76,7 +76,6 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
       this.asignaciones.data = this.list;
       this.asignaciones.sort = this.sort;
       this.asignaciones.paginator = this.paginator;
-      console.log(res);
     });
   }
 

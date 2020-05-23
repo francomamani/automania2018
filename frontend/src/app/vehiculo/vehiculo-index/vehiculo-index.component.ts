@@ -14,7 +14,7 @@ export class VehiculoIndexComponent implements OnInit {
 
   list: any = [];
   environment = environment;
-  vehiculos: MatTableDataSource<any>;
+  vehiculos: MatTableDataSource<any[]>;
 
   displayedColumns = [
     'placa',
@@ -32,12 +32,6 @@ export class VehiculoIndexComponent implements OnInit {
     private dialog: MatDialog,
     private excelService: ExcelService
   ) {
-    this.vehiculoService.index().subscribe(res => {
-      this.list = res;
-      this.vehiculos = new MatTableDataSource(this.list);
-      this.vehiculos.sort = this.sort;
-      this.vehiculos.paginator = this.paginator;
-    });
   }
 
   applyFilter(filterValue: string) {
@@ -47,6 +41,12 @@ export class VehiculoIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.vehiculoService.index().subscribe(res => {
+      this.list = res;
+      this.vehiculos = new MatTableDataSource(this.list);
+      this.vehiculos.sort = this.sort;
+      this.vehiculos.paginator = this.paginator;
+    });
   }
 
   openDialog(id, index) {

@@ -19,15 +19,8 @@
                    id="vehiculo_id"></ng-select>
       </div>
 
-      <!--      <mat-form-field>
-              <mat-select formControlName="vehiculo_id" placeholder="Elegir vehiculo">
-                <mat-option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.id">
-                  {{ vehiculo.placa }} {{ vehiculo.marca }} {{ vehiculo.modelo }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>-->
       <div class="form-group">
-        <button [disabled]="asignacionVehiculoGroup.status == 'INVALID'" color="primary" mat-raised-button
+        <button [disabled]="asignacionVehiculoGroup.invalid" color="primary" mat-raised-button
                 type="submit">
           GUARDAR
         </button>

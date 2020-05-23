@@ -3,13 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\AsignacionVehiculo;
+use App\Chofer;
 use App\ServicioGeneral;
+use App\Vehiculo;
 
 class AsignacionVehiculoController extends Controller
 {
     public function index()
     {
         $asignaciones = AsignacionVehiculo::with(['chofer', 'vehiculo'])
+            ->orderBy('vehiculo_id', 'asc')
+            ->get();
+        return response()->json($asignaciones, 200);
+    }
+
+
+    public function search()
+    {
+        $valor = request()->input('valor');
+        $choferes_id = Chofer::where('nombres', 'like', "%{$valor}%")
+            ->orWhere('apellidos', 'like', "%{$valor}%")
+            ->pluck('id');
+        $vehiculos_id = Vehiculo::where('color', 'like', "%{$valor}%")
+            ->orWhere('placa', 'like', "%{$valor}%")
+            ->orWhere('marca', 'like', "%{$valor}%")
+            ->orWhere('modelo', 'like', "%{$valor}%")
+            ->pluck('id');
+        $asignaciones = AsignacionVehiculo::with(['chofer', 'vehiculo'])
+            ->whereIn('chofer_id', $choferes_id)
+            ->whereIn('vehiculo_id', $vehiculos_id)
             ->orderBy('vehiculo_id', 'asc')
             ->get();
         return response()->json($asignaciones, 200);

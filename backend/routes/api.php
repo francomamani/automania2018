@@ -46,4 +46,6 @@ Route::post('create-user', 'AutenticacionController@createUser');
     Route::post('vehiculos-filtrar', 'VehiculoController@filtrar');
     Route::post('kilometrajes-search', 'KilometrajeController@search');
     Route::post('kilometrajes-filtrar', 'KilometrajeController@filtrar');
+
+    Route::post('asignaciones-search', 'AsignacionVehiculoController@search');
 //});

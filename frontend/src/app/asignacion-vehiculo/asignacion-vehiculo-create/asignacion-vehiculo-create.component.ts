@@ -62,10 +62,10 @@ export class AsignacionVehiculoCreateComponent implements OnInit {
 
   store() {
     console.log(this.asignacionVehiculoGroup.value);
-    /*    this.asignacionVehiculoService.store(this.asignacionVehiculoGroup.value).subscribe(res => {
-          this.openDialog(res);
-        }, (error) => {
-          this.openDialog(error.error);
-        });*/
+    this.asignacionVehiculoService.store(this.asignacionVehiculoGroup.value).subscribe(res => {
+      this.openDialog(res);
+    }, (error) => {
+      this.openDialog(error.error);
+    });
   }
 }

@@ -50,9 +50,9 @@
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">
-        <button color="accent" mat-button mat-icon-button routerLink="/vehiculo/editar/{{col.id}}">
+<!--        <button color="accent" mat-button mat-icon-button routerLink="/vehiculo/editar/{{col.id}}">
           <mat-icon>border_color</mat-icon>
-        </button>
+        </button>-->
         <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
           <mat-icon>delete</mat-icon>
         </button>
