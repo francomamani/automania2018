@@ -2,12 +2,8 @@
   <a><mat-icon>add</mat-icon></a><a>Asignaciones / listar</a>
 </div>-->
 <div class="flex-container">
-  <button (click)="exportExcel()"
-          color="accent"
-          mat-raised-button>
-    <mat-icon>import_export</mat-icon>
-    Exportar en Excel
-  </button>
+  <span class="titulo">Lista-Asignacion Vehículos</span>
+  
   <span class="spacer"></span>
   <button [routerLink]="['/asignacion-vehiculo/crear']"
           color="primary"
@@ -15,6 +11,13 @@
           matTooltip="Nueva asignación"
           tooltip-position="left">
     <mat-icon>add</mat-icon>
+  </button>
+  &nbsp;&nbsp;&nbsp;
+  <button (click)="exportExcel()"
+          color="accent"
+          mat-raised-button>
+    <mat-icon>import_export</mat-icon>
+    Exportar en Excel
   </button>
 </div>
 

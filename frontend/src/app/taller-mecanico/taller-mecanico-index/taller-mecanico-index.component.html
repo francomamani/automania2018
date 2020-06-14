@@ -1,10 +1,5 @@
 <div class="flex-container">
-  <button (click)="exportExcel()"
-          color="accent"
-          mat-raised-button>
-    <mat-icon>import_export</mat-icon>
-    Exportar en Excel
-  </button>
+  <span class="titulo">Lista Talleres Mecanicos</span>
   <span class="spacer"></span>
   <button [routerLink]="['/taller-mecanico/crear']"
           color="primary"
@@ -13,6 +8,13 @@
           tooltip-position="left">
     <mat-icon>add</mat-icon>
   </button>
+  &nbsp;&nbsp;&nbsp;
+  <button (click)="exportExcel()"
+  color="accent"
+  mat-raised-button>
+<mat-icon>import_export</mat-icon>
+Exportar en Excel
+</button>
 </div>
 
 <div class="fni-container mat-elevation-z8">

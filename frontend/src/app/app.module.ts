@@ -17,7 +17,9 @@ import {
   MatSelectModule,
   MatTableModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatGridListModule,
+  MatListModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -189,6 +191,8 @@ const appRoutes: Routes = [
     MatRadioModule,
     MatTooltipModule,
     MatNativeDateModule,
+    MatGridListModule,
+    MatListModule,
     RouterModule.forRoot(appRoutes, {
       useHash: true
     }),

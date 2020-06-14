@@ -1,8 +1,10 @@
 <section class="container bg">
-  <mat-card class="card-md">
+  <mat-card class="card-md" style="background-color: rgba(255, 255, 255, 0.623)">
     <mat-card-content>
       <form (submit)="login()" [formGroup]="loginGroup" class="text-center">
-        <img alt="180" src="assets/logo_oep.jpeg">
+        <img alt="180" src="assets/logo.png" width="150px">
+        <hr>
+        <strong>System | Gestión de Uso Vehícular</strong>
         <mat-form-field class="divider">
           <input formControlName="cuenta" matInput placeholder="Cuenta">
         </mat-form-field>
@@ -13,6 +15,7 @@
           <mat-icon (click)="hide = !hide" matSuffix>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         </mat-form-field>
         <div class="text-center">
+          <br><br>
           <button color="primary"
                   mat-raised-button
                   type="submit">INICIAR SESIÓN

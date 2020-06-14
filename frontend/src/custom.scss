@@ -52,3 +52,12 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     font-weight: bold;
   }
 }
+
+.titulo {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    text-decoration-color: snow;
+    font-size: 1em;
+    user-select: none;
+}
