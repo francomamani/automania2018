@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62bb6f7e-8933-4693-b869-655f128be901" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/automania.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/automania.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/07e66e4d-7336-40ee-83dc-049a7a202181.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/07e66e4d-7336-40ee-83dc-049a7a202181.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/asignacion-vehiculo/asignacion-vehiculo-index/asignacion-vehiculo-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/asignacion-vehiculo/asignacion-vehiculo-index/asignacion-vehiculo-index.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/estacion-servicio/estacion-servicio-index/estacion-servicio-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/estacion-servicio/estacion-servicio-index/estacion-servicio-index.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/taller-mecanico/taller-mecanico-index/taller-mecanico-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/taller-mecanico/taller-mecanico-index/taller-mecanico-index.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-index/vehiculo-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-index/vehiculo-index.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +166,7 @@
       <workItem from="1533773687420" duration="379000" />
       <workItem from="1534167312907" duration="2526000" />
       <workItem from="1534170121294" duration="2777000" />
-      <workItem from="1592486936812" duration="3193000" />
+      <workItem from="1592486936812" duration="4129000" />
     </task>
     <servers />
   </component>
@@ -191,10 +174,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1592491439651">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1592492196547">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592491439651" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592492196547" />
     <state x="408" y="278" width="540" height="166" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1592486964550">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
