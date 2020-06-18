@@ -1,5 +1,10 @@
 <mat-card class="card-md">
-  <mat-card-header>CREAR ESTACIÓN DE SERVICIO</mat-card-header>
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>local_gas_station</mat-icon>
+    </button>
+    CREAR ESTACIÓN DE SERVICIO
+  </mat-card-header>
   <mat-card-content>
     <form [formGroup]="estacionServicioGroup">
       <mat-form-field class="divider">
@@ -20,16 +25,18 @@
         <mat-error *ngIf="estacionServicioGroup.get('propietario').status == 'INVALID'">El propietario es obligatorio
         </mat-error>
       </mat-form-field>
-      <div class="form-group">
-        <button [routerLink]="['/estacion-servicio/listar']" color="default" mat-flat-button>
-          CANCELAR
+      <div class="form-group" fxLayout="row" fxLayoutGap="5px">
+        <button [routerLink]="['/estacion-servicio/listar']" fxFlex="auto" mat-raised-button>
+          <mat-icon color="warn">undo</mat-icon>
+          ATRÁS
         </button>
-
-        <button (click)="store()" [disabled]="estacionServicioGroup.status == 'INVALID'" color="primary"
+        <button (click)="store()" [disabled]="estacionServicioGroup.invalid" fxFlex="auto"
                 mat-raised-button>
+          <mat-icon color="accent">save</mat-icon>
           GUARDAR
         </button>
       </div>
+
     </form>
   </mat-card-content>
 </mat-card>

@@ -1,38 +1,49 @@
-<mat-card class="card-md" *ngIf="taller_mecanico !== null">
+<mat-card *ngIf="taller_mecanico !== null" class="card-md">
+  <mat-card-header>
+    EDITAR TALLER MECÁNICO
+  </mat-card-header>
   <mat-card-content>
     <form (submit)="update()" [formGroup]="tallerMecanicoGroup">
-      <legend>ACTUALIZAR TALLER DE MECANICO</legend>
       <mat-form-field class="divider">
-        <input matInput formControlName="identificacion" placeholder="Identificacion" #identificacion maxlength="150">
+        <input #identificacion formControlName="identificacion" matInput maxlength="150" placeholder="Identificacion">
         <mat-hint align="end">{{identificacion.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="tallerMecanicoGroup.get('identificacion').status == 'INVALID'">La identificación es obligatoria</mat-error>
+        <mat-error *ngIf="tallerMecanicoGroup.get('identificacion').status == 'INVALID'">La identificación es
+          obligatoria
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="nombre" placeholder="Nombre" #nombre maxlength="150">
+        <input #nombre formControlName="nombre" matInput maxlength="150" placeholder="Nombre">
         <mat-hint align="end">{{nombre.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="tallerMecanicoGroup.get('nombre').status == 'INVALID'">El nombre es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="direccion" placeholder="Dirección" #direccion maxlength="150">
+        <input #direccion formControlName="direccion" matInput maxlength="150" placeholder="Dirección">
         <mat-hint align="end">{{direccion.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="tallerMecanicoGroup.get('direccion').status == 'INVALID'">La dirección es obligatoria</mat-error>
+        <mat-error *ngIf="tallerMecanicoGroup.get('direccion').status == 'INVALID'">La dirección es obligatoria
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="telefono" placeholder="Telefono" #telefono maxlength="15">
+        <input #telefono formControlName="telefono" matInput maxlength="15" placeholder="Telefono">
         <mat-hint align="end">{{telefono.value?.length || 0}}/15</mat-hint>
-        <mat-error *ngIf="tallerMecanicoGroup.get('telefono').status == 'INVALID'">El telefono es obligatorio</mat-error>
+        <mat-error *ngIf="tallerMecanicoGroup.get('telefono').status == 'INVALID'">El telefono es obligatorio
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="nit" placeholder="NIT" #nit maxlength="150">
+        <input #nit formControlName="nit" matInput maxlength="150" placeholder="NIT">
         <mat-hint align="end">{{nit.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="tallerMecanicoGroup.get('nit').status == 'INVALID'">El NIT es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="nombre_propietario" placeholder="Nombre del propietario" #nombre_propietario maxlength="150">
+        <input #nombre_propietario formControlName="nombre_propietario" matInput maxlength="150"
+               placeholder="Nombre del propietario">
         <mat-hint align="end">{{nit.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="tallerMecanicoGroup.get('nombre_propietario').status == 'INVALID'">El nombre del propietario es obligatorio</mat-error>
+        <mat-error *ngIf="tallerMecanicoGroup.get('nombre_propietario').status == 'INVALID'">El nombre del propietario
+          es obligatorio
+        </mat-error>
       </mat-form-field>
-      <button mat-raised-button type="submit" color="accent" [disabled]="tallerMecanicoGroup.status == 'INVALID'">ACTUALIZAR</button>
+      <button [disabled]="tallerMecanicoGroup.status == 'INVALID'" color="accent" mat-raised-button type="submit">
+        ACTUALIZAR
+      </button>
     </form>
   </mat-card-content>
 </mat-card>

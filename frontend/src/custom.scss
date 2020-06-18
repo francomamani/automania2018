@@ -44,7 +44,7 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 .form-group {
   display: block;
   width: 100%;
-  padding: 0.25em 0;
+  padding: 0.5em 0;
 
   label {
     display: block;
@@ -55,9 +55,9 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 
 .titulo {
   font-family: Roboto, "Helvetica Neue", sans-serif;
-    text-transform: uppercase;
-    color: white;
-    text-decoration-color: snow;
-    font-size: 1em;
-    user-select: none;
+  text-transform: uppercase;
+  color: white;
+  text-decoration-color: snow;
+  font-size: 1em;
+  user-select: none;
 }

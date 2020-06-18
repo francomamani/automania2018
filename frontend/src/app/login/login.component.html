@@ -1,27 +1,36 @@
 <section class="container bg">
   <mat-card class="card-md" style="background-color: rgba(255, 255, 255, 0.623)">
-    <mat-card-content>
+    <mat-dialog-content>
       <form (submit)="login()" [formGroup]="loginGroup" class="text-center">
-        <img alt="180" src="assets/logo.png" width="150px">
+        <img alt="SISTEMA GUV" src="assets/logo.png" width="150px">
         <hr>
-        <strong>System | Gestión de Uso Vehícular</strong>
-        <mat-form-field class="divider">
-          <input formControlName="cuenta" matInput placeholder="Cuenta">
-        </mat-form-field>
-        <mat-form-field class="divider">
-          <input [type]="hide ? 'password' : 'text'" formControlName="password"
-                 matInput
-                 placeholder="Password">
-          <mat-icon (click)="hide = !hide" matSuffix>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-        </mat-form-field>
+        <strong>Sistema de Gestión de Uso Vehícular y Control de Gasolina</strong>
+        <div fxLayout="column">
+          <mat-form-field>
+            <mat-label>Cuenta de Usuario</mat-label>
+            <input formControlName="cuenta" matInput oninput="this.value = this.value.toLowerCase()"
+                   placeholder="Cuenta">
+            <mat-error>La cuenta es obligatoria</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Contraseña de Usuario</mat-label>
+            <input [type]="hide ? 'password' : 'text'" formControlName="password"
+                   matInput
+                   placeholder="Password">
+            <mat-icon (click)="hide = !hide" matSuffix>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error>La contraseña es obligatoria</mat-error>
+          </mat-form-field>
+        </div>
         <div class="text-center">
-          <br><br>
-          <button color="primary"
+          <button [disabled]="loginGroup.invalid"
+                  color="primary"
                   mat-raised-button
-                  type="submit">INICIAR SESIÓN
+                  style="width: 100%;"
+                  type="submit">
+            INGRESAR AL SISTEMA
           </button>
         </div>
       </form>
-    </mat-card-content>
+    </mat-dialog-content>
   </mat-card>
 </section>

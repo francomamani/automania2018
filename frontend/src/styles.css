@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+/*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -35,6 +36,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
+  background-color: #fcfcfc;
 }
 
 ol, ul {
@@ -153,20 +155,22 @@ table {
 }
 
 .mat-card {
-  margin-top: 3em;
+  margin-top: 5em;
 }
 
+.mat-card-content {
+  padding: 0 1em;
+}
 .mat-card-header {
   background-color: #e5e5e5;
   width: 100%;
-  top: -32px;
+  top: -62px;
   left: 0;
-  padding: 1em 0.5em;
+  padding: 1em 0;
   box-sizing: border-box;
   position: absolute;
   margin-bottom: 100px;
 }
-
 
 .spacer {
   flex: 1 1 auto;
@@ -320,4 +324,13 @@ table {
 .mat-radio-group {
   margin-top: 1em;
   display: block;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

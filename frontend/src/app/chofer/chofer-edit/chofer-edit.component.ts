@@ -3,7 +3,7 @@ import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.compon
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ChoferService} from '../../chofer/chofer.service';
-import {MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-chofer-edit',

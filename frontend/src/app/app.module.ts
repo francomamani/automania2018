@@ -2,25 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatPaginatorModule,
-  MatRadioModule,
-  MatSelectModule,
-  MatTableModule,
-  MatToolbarModule,
-  MatTooltipModule,
-  MatGridListModule,
-  MatListModule
-} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
@@ -66,8 +47,23 @@ import {AsignacionVehiculoEditComponent} from './asignacion-vehiculo/asignacion-
 import {AsignacionVehiculoService} from './asignacion-vehiculo/asignacion-vehiculo.service';
 import {MatSortModule} from '@angular/material/sort';
 import {ExcelService} from './services/excel.service';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {NgSelectModule} from '@ng-select/ng-select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {_MatMenuDirectivesModule, MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -119,14 +115,14 @@ const appRoutes: Routes = [
       {path: '', redirectTo: 'listar', pathMatch: 'full'}
     ]
   },
-/*  {
-    path: 'mantenimiento', component: MantenimientoComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: MantenimientoCreateComponent},
-      {path: 'listar', component: MantenimientoIndexComponent},
-      {path: 'editar/:id', component: MantenimientoEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },*/
+  /*  {
+      path: 'mantenimiento', component: MantenimientoComponent, canActivate: [AuthGuard], children: [
+        {path: 'crear', component: MantenimientoCreateComponent},
+        {path: 'listar', component: MantenimientoIndexComponent},
+        {path: 'editar/:id', component: MantenimientoEditComponent},
+        {path: '', redirectTo: 'listar', pathMatch: 'full'}
+      ]
+    },*/
   {path: '**', redirectTo: 'login', pathMatch: 'full'},
   {
     path: '',
@@ -178,27 +174,26 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatButtonModule,
     MatInputModule,
-    MatCardModule,
-    MatDatepickerModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatToolbarModule,
     MatIconModule,
-    MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatMenuModule,
-    MatRadioModule,
     MatTooltipModule,
     MatNativeDateModule,
-    MatGridListModule,
-    MatListModule,
     RouterModule.forRoot(appRoutes, {
       useHash: true
     }),
     MatSortModule,
-    MatAutocompleteModule,
-    NgSelectModule
+    NgSelectModule,
+    MatCardModule,
+    MatToolbarModule,
+    _MatMenuDirectivesModule,
+    MatMenuModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    FlexLayoutModule
   ],
   entryComponents: [MensajeDialogComponent],
   providers: [AuthGuard,

@@ -1,5 +1,10 @@
 <mat-card class="card-md">
-  <mat-card-header>CREAR USUARIO</mat-card-header>
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>person</mat-icon>
+    </button>
+    CREAR USUARIO
+  </mat-card-header>
   <mat-card-content>
     <form (submit)="store()" [formGroup]="userGroup" class="form">
       <mat-form-field>
@@ -36,10 +41,19 @@
         <mat-hint align="end">{{password.value?.length || 0}}/20</mat-hint>
         <mat-error *ngIf="userGroup.get('password').status == 'INVALID'">El password es obligatorio</mat-error>
       </mat-form-field>
-      <div class="form-group">
-        <button [routerLink]="['/usuario/listar']" color="default" mat-flat-button>CANCELAR</button>
-        <button [disabled]="userGroup.invalid" color="primary" mat-raised-button>GUARDAR</button>
+
+      <div class="form-group" fxLayout="row" fxLayoutGap="5px">
+        <button [routerLink]="['/usuario/listar']" fxFlex="auto" mat-raised-button>
+          <mat-icon color="warn">undo</mat-icon>
+          ATRÁS
+        </button>
+        <button (click)="store()" [disabled]="userGroup.invalid" fxFlex="auto"
+                mat-raised-button>
+          <mat-icon color="accent">save</mat-icon>
+          GUARDAR
+        </button>
       </div>
+
     </form>
   </mat-card-content>
 </mat-card>

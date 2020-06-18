@@ -1,43 +1,47 @@
-<mat-card class="card-md" *ngIf="vehiculo !== null">
+<mat-card *ngIf="vehiculo !== null" class="card-md">
+  <mat-card-header>
+    EDITAR VEHÍCULO
+  </mat-card-header>
+
   <mat-card-content>
     <form (submit)="update()" [formGroup]="vehiculoGroup">
-      <legend>ACTUALIZAR VEHICULO</legend>
       <!--      <mat-radio-group formControlName="activo" class="mat-radio-group">
               <mat-radio-button [value]=1>Activo</mat-radio-button>
               <mat-radio-button [value]=0>Inactivo</mat-radio-button>
             </mat-radio-group>-->
       <mat-form-field class="divider">
-        <input matInput formControlName="placa" placeholder="Placa" #placa maxlength="150">
+        <input #placa formControlName="placa" matInput maxlength="150" placeholder="Placa">
         <mat-hint align="end">{{placa.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="vehiculoGroup.get('placa').status == 'INVALID'">La placa es obligatoria</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="marca" placeholder="Marca" #marca maxlength="150">
+        <input #marca formControlName="marca" matInput maxlength="150" placeholder="Marca">
         <mat-hint align="end">{{marca.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="vehiculoGroup.get('marca').status == 'INVALID'">La marca es obligatoria</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="modelo" placeholder="Modelo" #modelo maxlength="150">
+        <input #modelo formControlName="modelo" matInput maxlength="150" placeholder="Modelo">
         <mat-hint align="end">{{modelo.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="vehiculoGroup.get('modelo').status == 'INVALID'">La modelo es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="color" placeholder="Color" #color maxlength="150">
+        <input #color formControlName="color" matInput maxlength="150" placeholder="Color">
         <mat-hint align="end">{{color.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="vehiculoGroup.get('color').status == 'INVALID'">La color es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="cilindrada" placeholder="Cilindrada" #cilindrada maxlength="150">
+        <input #cilindrada formControlName="cilindrada" matInput maxlength="150" placeholder="Cilindrada">
         <mat-hint align="end">{{cilindrada.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="vehiculoGroup.get('cilindrada').status == 'INVALID'">La cilindrada es obligatoria</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="gestion" placeholder="Gestión" #gestion maxlength="150">
+        <input #gestion formControlName="gestion" matInput maxlength="150" placeholder="Gestión">
         <mat-hint align="end">{{gestion.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="vehiculoGroup.get('gestion').status == 'INVALID'">La gestión es obligatoria</mat-error>
       </mat-form-field>
 
-      <button mat-raised-button type="submit" color="accent" [disabled]="vehiculoGroup.status == 'INVALID'">ACTUALIZAR</button>
+      <button [disabled]="vehiculoGroup.status == 'INVALID'" color="accent" mat-raised-button type="submit">ACTUALIZAR
+      </button>
     </form>
   </mat-card-content>
 </mat-card>

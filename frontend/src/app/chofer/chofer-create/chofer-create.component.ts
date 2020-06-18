@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.component';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
 import {ChoferService} from '../chofer.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-chofer-create',

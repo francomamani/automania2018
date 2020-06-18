@@ -1,27 +1,36 @@
-<mat-card class="card-md" *ngIf="estacion_servicio !== null">
+<mat-card *ngIf="estacion_servicio !== null" class="card-md">
+  <mat-card-header>
+    <mat-icon>local_gas_station</mat-icon>
+    EDITAR ESTACIÓN DE SERVICIO
+  </mat-card-header>
+
   <mat-card-content>
     <form (submit)="update()" [formGroup]="estacionServicioGroup">
-      <legend>ACTUALIZAR ESTACIÓN DE SERVICIO</legend>
-      <mat-radio-group formControlName="activo" class="mat-radio-group">
+      <mat-radio-group class="mat-radio-group" formControlName="activo">
         <mat-radio-button [value]=1>Activo</mat-radio-button>
         <mat-radio-button [value]=0>Inactivo</mat-radio-button>
       </mat-radio-group>
       <mat-form-field class="divider">
-        <input matInput formControlName="razon_social" placeholder="Razon social" #razon_social maxlength="150">
+        <input #razon_social formControlName="razon_social" matInput maxlength="150" placeholder="Razon social">
         <mat-hint align="end">{{razon_social.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="estacionServicioGroup.get('razon_social').status == 'INVALID'">La razon social es obligatoria</mat-error>
+        <mat-error *ngIf="estacionServicioGroup.get('razon_social').status == 'INVALID'">La razon social es
+          obligatoria
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="nit" placeholder="NIT" #nit maxlength="15">
+        <input #nit formControlName="nit" matInput maxlength="15" placeholder="NIT">
         <mat-hint align="end">{{nit.value?.length || 0}}/15</mat-hint>
         <mat-error *ngIf="estacionServicioGroup.get('nit').status == 'INVALID'">La nit es obligatoria</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input matInput formControlName="propietario" placeholder="Propietario" #propietario maxlength="150">
+        <input #propietario formControlName="propietario" matInput maxlength="150" placeholder="Propietario">
         <mat-hint align="end">{{propietario.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="estacionServicioGroup.get('propietario').status == 'INVALID'">La propietario es obligatorio</mat-error>
+        <mat-error *ngIf="estacionServicioGroup.get('propietario').status == 'INVALID'">La propietario es obligatorio
+        </mat-error>
       </mat-form-field>
-      <button mat-raised-button type="submit" color="accent" [disabled]="estacionServicioGroup.status == 'INVALID'">ACTUALIZAR</button>
+      <button [disabled]="estacionServicioGroup.status == 'INVALID'" color="accent" mat-raised-button type="submit">
+        ACTUALIZAR
+      </button>
     </form>
   </mat-card-content>
 </mat-card>

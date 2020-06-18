@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.component';
-import {MatDialog} from '@angular/material';
 import {Router} from '@angular/router';
 import {AsignacionVehiculoService} from '../asignacion-vehiculo.service';
 import {ChoferService} from '../../chofer/chofer.service';
 import {VehiculoService} from '../../vehiculo/vehiculo.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-asignacion-vehiculo-create',

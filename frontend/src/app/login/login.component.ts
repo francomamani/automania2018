@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
 import {AuthService} from '../auth.service';
 import {MensajeDialogComponent} from '../mensaje-dialog/mensaje-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -46,8 +46,8 @@ export class LoginComponent implements OnInit {
 
   createForm() {
     this.loginGroup = this.fb.group({
-      'cuenta': new FormControl('', Validators.required),
-      'password': new FormControl('', Validators.required)
+      cuenta: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
   }
 

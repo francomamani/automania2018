@@ -24,10 +24,11 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput formControlName="descripcion" placeholder="Descripción *" #descripcion maxlength="190">
+        <textarea #descripcion formControlName="descripcion" matInput maxlength="190" placeholder="Descripción *">
         </textarea>
         <mat-hint align="end">{{descripcion.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="mantenimientoGroup.get('descripcion').status == 'INVALID'">La descripcion es obligatoria</mat-error>
+        <mat-error *ngIf="mantenimientoGroup.get('descripcion').status == 'INVALID'">La descripcion es obligatoria
+        </mat-error>
       </mat-form-field>
       <!--
       <mat-form-field class="half">
@@ -51,8 +52,8 @@
                   #descripcion_servicio maxlength="190">
         </textarea>
       </mat-form-field> -->
-      <button mat-raised-button type="submit" color="primary">GUARDAR</button>
-<!--      <button mat-raised-button type="submit" color="primary" [disabled]="mantenimientoGroup.status == 'INVALID'">GUARDAR</button>-->
+      <button color="primary" mat-raised-button type="submit">GUARDAR</button>
+      <!--      <button mat-raised-button type="submit" color="primary" [disabled]="mantenimientoGroup.status == 'INVALID'">GUARDAR</button>-->
     </form>
   </mat-card-content>
 </mat-card>

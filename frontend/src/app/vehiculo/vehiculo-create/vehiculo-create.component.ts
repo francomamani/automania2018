@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.component';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
 import {VehiculoService} from '../vehiculo.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-vehiculo-create',
@@ -26,12 +26,12 @@ export class VehiculoCreateComponent implements OnInit {
 
   createForm() {
     this.vehiculoGroup = this.fb.group({
-      'placa': new FormControl('', Validators.required),
-      'marca': new FormControl('', Validators.required),
-      'modelo': new FormControl('', Validators.required),
-      'color': new FormControl('', Validators.required),
-      'cilindrada': new FormControl(3000, Validators.required),
-      'gestion': new FormControl(2000, Validators.required),
+      placa: new FormControl('', Validators.required),
+      marca: new FormControl('', Validators.required),
+      modelo: new FormControl('', Validators.required),
+      color: new FormControl('', Validators.required),
+      cilindrada: new FormControl(3000, Validators.required),
+      gestion: new FormControl(2000, Validators.required),
     });
   }
 

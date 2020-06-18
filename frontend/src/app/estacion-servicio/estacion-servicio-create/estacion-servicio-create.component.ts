@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.component';
-import {MatDialog} from '@angular/material';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {EstacionServicioService} from '../estacion-servicio.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-estacion-servicio-create',
@@ -11,46 +11,49 @@ import {EstacionServicioService} from '../estacion-servicio.service';
   styleUrls: ['./estacion-servicio-create.component.css']
 })
 export class EstacionServicioCreateComponent implements OnInit {
-    estacionServicioGroup: FormGroup;
-    constructor(
-        private router: Router,
-        private estacionServicioService: EstacionServicioService,
-        private fb: FormBuilder,
-        private dialog: MatDialog) { }
+  estacionServicioGroup: FormGroup;
 
-    ngOnInit() {
-        this.createForm();
-    }
-    createForm() {
-        this.estacionServicioGroup = this.fb.group({
-            'razon_social': new FormControl('', Validators.required),
-            'nit': new FormControl('', Validators.required),
-            'propietario': new FormControl('', Validators.required)
-        });
-    }
+  constructor(
+    private router: Router,
+    private estacionServicioService: EstacionServicioService,
+    private fb: FormBuilder,
+    private dialog: MatDialog) {
+  }
 
-    openDialog(res) {
-        const dialogRef = this.dialog.open(MensajeDialogComponent, {
-            width: '500px',
-            data: {
-                info: res.mensaje ,
-                has_action: res.has_action
-            }
-        });
+  ngOnInit() {
+    this.createForm();
+  }
 
-        dialogRef.afterClosed().subscribe(response => {
-            if (response === true) {
-                this.router.navigate(['/estacion-servicio/listar']);
-            }
-        });
-    }
+  createForm() {
+    this.estacionServicioGroup = this.fb.group({
+      'razon_social': new FormControl('', Validators.required),
+      'nit': new FormControl('', Validators.required),
+      'propietario': new FormControl('', Validators.required)
+    });
+  }
 
-    store() {
-        this.estacionServicioService.store(this.estacionServicioGroup.value).subscribe(res => {
-            this.openDialog(res);
-            this.estacionServicioGroup.reset();
-        }, (error) => {
-            this.openDialog(error.error);
-        });
-    }
+  openDialog(res) {
+    const dialogRef = this.dialog.open(MensajeDialogComponent, {
+      width: '500px',
+      data: {
+        info: res.mensaje,
+        has_action: res.has_action
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(response => {
+      if (response === true) {
+        this.router.navigate(['/estacion-servicio/listar']);
+      }
+    });
+  }
+
+  store() {
+    this.estacionServicioService.store(this.estacionServicioGroup.value).subscribe(res => {
+      this.openDialog(res);
+      this.estacionServicioGroup.reset();
+    }, (error) => {
+      this.openDialog(error.error);
+    });
+  }
 }

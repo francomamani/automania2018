@@ -10,11 +10,11 @@
   </button>
   &nbsp;&nbsp;&nbsp;
   <button (click)="exportExcel()"
-  color="accent"
-  mat-raised-button>
-<mat-icon>import_export</mat-icon>
-Exportar en Excel
-</button>
+          color="accent"
+          mat-raised-button>
+    <mat-icon>import_export</mat-icon>
+    Exportar en Excel
+  </button>
 </div>
 <div class="fni-container mat-elevation-z8">
   <div class="fni-header">
@@ -38,7 +38,10 @@ Exportar en Excel
     </ng-container>
     <ng-container matColumnDef="activo">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Activo</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.activo }} </mat-cell>
+      <mat-cell *matCellDef="let col">
+        <mat-icon *ngIf="col.activo" color="primary">check</mat-icon>
+        <mat-icon *ngIf="!col.activo" color="warn">visibility_off</mat-icon>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acciones">

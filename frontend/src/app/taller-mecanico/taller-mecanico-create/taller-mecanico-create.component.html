@@ -1,37 +1,42 @@
 <mat-card class="card-md">
-  <mat-card-header>CREAR TALLER MECÁNICO</mat-card-header>
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>builds</mat-icon>
+    </button>
+    CREAR TALLER MECÁNICO
+  </mat-card-header>
   <mat-card-content>
     <form [formGroup]="tallerMecanicoGroup">
-      <mat-form-field class="divider">
+      <mat-form-field>
         <input #identificacion formControlName="identificacion" matInput maxlength="150" placeholder="Identificación">
         <mat-hint align="end">{{identificacion.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="tallerMecanicoGroup.get('identificacion').status == 'INVALID'">La identificación es
           obligatoria
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="divider">
+      <mat-form-field>
         <input #nombre formControlName="nombre" matInput maxlength="150" placeholder="Nombre">
         <mat-hint align="end">{{nombre.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="tallerMecanicoGroup.get('nombre').status == 'INVALID'">El nombre es obligatorio</mat-error>
       </mat-form-field>
-      <mat-form-field class="divider">
+      <mat-form-field>
         <input #direccion formControlName="direccion" matInput maxlength="100" placeholder="Dirección">
         <mat-hint align="end">{{direccion.value?.length || 0}}/100</mat-hint>
         <mat-error *ngIf="tallerMecanicoGroup.get('direccion').status == 'INVALID'">La dirección es obligatoria
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="divider">
+      <mat-form-field>
         <input #telefono formControlName="telefono" matInput maxlength="20" placeholder="Teléfono">
         <mat-hint align="end">{{telefono.value?.length || 0}}/20</mat-hint>
         <mat-error *ngIf="tallerMecanicoGroup.get('telefono').status == 'INVALID'">El teléfono es obligatorio
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="divider">
+      <mat-form-field>
         <input #nit formControlName="nit" matInput maxlength="20" placeholder="NIT">
         <mat-hint align="end">{{nit.value?.length || 0}}/20</mat-hint>
         <mat-error *ngIf="tallerMecanicoGroup.get('nit').status == 'INVALID'">El NIT es obligatorio</mat-error>
       </mat-form-field>
-      <mat-form-field class="divider">
+      <mat-form-field>
         <input #nombre_propietario formControlName="nombre_propietario" matInput maxlength="190"
                placeholder="Nombre del propietario">
         <mat-hint align="end">{{nombre_propietario.value?.length || 0}}/190</mat-hint>
@@ -39,12 +44,15 @@
           es obligatorio
         </mat-error>
       </mat-form-field>
-      <div class="form-group">
-        <button [routerLink]="['/taller-mecanico/listar']" color="default" mat-flat-button>
-          CANCELAR
+
+      <div class="form-group" fxLayout="row" fxLayoutGap="5px">
+        <button [routerLink]="['/taller-mecanico/listar']" fxFlex="auto" mat-raised-button>
+          <mat-icon color="warn">undo</mat-icon>
+          ATRÁS
         </button>
-        <button (click)="store()" [disabled]="tallerMecanicoGroup.invalid" color="primary"
+        <button (click)="store()" [disabled]="tallerMecanicoGroup.invalid" fxFlex="auto"
                 mat-raised-button>
+          <mat-icon color="accent">save</mat-icon>
           GUARDAR
         </button>
       </div>

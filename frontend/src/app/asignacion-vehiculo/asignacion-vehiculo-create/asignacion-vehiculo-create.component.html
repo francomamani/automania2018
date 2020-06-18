@@ -2,7 +2,10 @@
   <a><mat-icon>add</mat-icon></a><a>ASIGNACIONES / CREAR</a>
 </div>-->
 <mat-card class="card-md">
-  <mat-card-header class="card-header">
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>person_add</mat-icon>
+    </button>
     ASIGNAR VEHICULO
   </mat-card-header>
   <mat-card-content>
@@ -23,13 +26,14 @@
                    formControlName="vehiculo_id"
                    id="vehiculo_id"></ng-select>
       </div>
-
-      <div class="form-group">
-        <button [routerLink]="['/asignacion-vehiculo/listar']" color="default" mat-flat-button>
-          CANCELAR
+      <div class="form-group" fxLayout="row" fxLayoutGap="5px">
+        <button [routerLink]="['/asignacion-vehiculo/listar']" fxFlex="auto" mat-raised-button>
+          <mat-icon color="warn">undo</mat-icon>
+          ATRÁS
         </button>
-        <button (click)="store()" [disabled]="asignacionVehiculoGroup.invalid" color="primary" mat-raised-button
-                type="submit">
+        <button (click)="store()" [disabled]="asignacionVehiculoGroup.invalid" fxFlex="auto"
+                mat-raised-button>
+          <mat-icon color="accent">save</mat-icon>
           GUARDAR
         </button>
       </div>

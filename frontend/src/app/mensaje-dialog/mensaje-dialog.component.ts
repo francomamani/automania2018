@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-mensaje-dialog',
@@ -8,26 +8,29 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 })
 export class MensajeDialogComponent implements OnInit {
 
-    mensaje: any = null;
-    has_action = false;
-    constructor(public dialogRef: MatDialogRef<MensajeDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
-        this.mensaje = data;
-        if(this.mensaje.has_action === true){
-            this.has_action = true;
-        }
-        console.log(data);
-    }
+  mensaje: any = null;
+  has_action = false;
 
-    ngOnInit() {
+  constructor(public dialogRef: MatDialogRef<MensajeDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.mensaje = data;
+    if (this.mensaje.has_action === true) {
+      this.has_action = true;
     }
-    cancel(){
-        this.dialogRef.close();
+    console.log(data);
+  }
+
+  ngOnInit() {
+  }
+
+  cancel() {
+    this.dialogRef.close();
+  }
+
+  close() {
+    if (this.mensaje.has_action === true) {
+      this.dialogRef.close(true);
+    } else {
+      this.dialogRef.close(false);
     }
-    close() {
-        if (this.mensaje.has_action === true){
-            this.dialogRef.close(true);
-        } else {
-            this.dialogRef.close(false);
-        }
-    }
+  }
 }

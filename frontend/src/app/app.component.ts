@@ -16,14 +16,5 @@ export class AppComponent {
   logout() {
     this.authService.logout();
     this.router.navigate(['']);
-    /*        this.authService.logout()
-                .subscribe((res: any) => {
-                    if (res.deslogueo) {
-                        localStorage.removeItem('token');
-                        this.router.navigate(['']);
-                    }
-                }, (error: any) => {
-                    console.log(error.error.mensaje);
-                });*/
   }
 }

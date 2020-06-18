@@ -1,5 +1,8 @@
 <mat-card class="card-md">
-  <mat-card-header>
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>face</mat-icon>
+    </button>
     CREAR CHOFER
   </mat-card-header>
   <mat-card-content>
@@ -45,15 +48,18 @@
       </mat-form-field>
       <mat-datepicker #fecha_fin_contrato></mat-datepicker>
 
-      <div class="form-group">
-        <button [routerLink]="['/chofer/listar']" color="default" mat-flat-button>
-          CANCELAR
+      <div class="form-group" fxLayout="row" fxLayoutGap="5px">
+        <button [routerLink]="['/chofer/listar']" fxFlex="auto" mat-raised-button>
+          <mat-icon color="warn">undo</mat-icon>
+          ATRÁS
         </button>
-
-        <button (click)="store()" [disabled]="choferGroup.status == 'INVALID'" color="primary" mat-raised-button>
+        <button (click)="store()" [disabled]="choferGroup.invalid" fxFlex="auto"
+                mat-raised-button>
+          <mat-icon color="accent">save</mat-icon>
           GUARDAR
         </button>
       </div>
+
     </form>
   </mat-card-content>
 </mat-card>

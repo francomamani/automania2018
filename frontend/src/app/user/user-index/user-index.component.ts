@@ -1,9 +1,12 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {UserService} from '../user.service';
 import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.component';
 import {environment} from '../../../environments/environment.prod';
 import {ExcelService} from '../../services/excel.service';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-index',
