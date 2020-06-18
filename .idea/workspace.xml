@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62bb6f7e-8933-4693-b869-655f128be901" name="Default" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="62bb6f7e-8933-4693-b869-655f128be901" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/automania.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/automania.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/07e66e4d-7336-40ee-83dc-049a7a202181.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/07e66e4d-7336-40ee-83dc-049a7a202181.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/asignacion-vehiculo/asignacion-vehiculo-index/asignacion-vehiculo-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/asignacion-vehiculo/asignacion-vehiculo-index/asignacion-vehiculo-index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/estacion-servicio/estacion-servicio-index/estacion-servicio-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/estacion-servicio/estacion-servicio-index/estacion-servicio-index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/taller-mecanico/taller-mecanico-index/taller-mecanico-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/taller-mecanico/taller-mecanico-index/taller-mecanico-index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-index/vehiculo-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-index/vehiculo-index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +29,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
+    <execution />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -41,198 +61,8 @@
     </expand>
     <select />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1814660382">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="php" value="16" />
-          <entry key="txt" value="10" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PHP" value="16" />
-          <entry key="PLAIN_TEXT" value="10" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="SCHEMA:automania" value="1" />
-          <entry key="php" value="1" />
-          <entry key="sql" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="PHP" value="1" />
-          <entry key="Scratch" value="1" />
-          <entry key="UML" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/07e66e4d-7336-40ee-83dc-049a7a202181/console.sql">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="uml://DATABASE/07e66e4d-7336-40ee-83dc-049a7a202181.SCHEMA:automania">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>DATABASE</ID>
-              <OriginalElement>07e66e4d-7336-40ee-83dc-049a7a202181.SCHEMA:automania</OriginalElement>
-              <nodes>
-                <node x="754.4545454545455" y="622.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.taller_mecanicos</node>
-                <node x="696.9545454545455" y="366.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.administradores</node>
-                <node x="1252.4545454545455" y="0.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.password_resets</node>
-                <node x="502.9545454545455" y="300.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vehiculos</node>
-                <node x="385.06060606060606" y="0.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.users</node>
-                <node x="1031.4545454545455" y="0.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.migrations</node>
-                <node x="518.0795454545455" y="922.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.mantenimientos</node>
-                <node x="69.75" y="966.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vale_gasolinas</node>
-                <node x="208.00000000000006" y="655.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos</node>
-                <node x="257.9545454545455" y="300.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.choferes</node>
-                <node x="52.67616707616713" y="366.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.servicio_generales</node>
-                <node x="532.4545454545455" y="644.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.kilometrajes</node>
-                <node x="0.0" y="644.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.estacion_servicios</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.choferes">
-                  <point x="0.0" y="-92.0" />
-                  <point x="330.50000000000006" y="597.0" />
-                  <point x="370.4545454545455" y="597.0" />
-                  <point x="0.0" y="136.0" />
-                </edge>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vale_gasolinas" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos">
-                  <point x="66.5" y="-136.0" />
-                  <point x="-61.25" y="92.0" />
-                </edge>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vehiculos">
-                  <point x="81.66666666666663" y="-92.0" />
-                  <point x="412.1666666666667" y="597.0" />
-                  <point x="546.4545454545455" y="597.0" />
-                  <point x="-43.5" y="136.0" />
-                </edge>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.kilometrajes" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vehiculos">
-                  <point x="0.0" y="-103.0" />
-                  <point x="43.5" y="136.0" />
-                </edge>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.servicio_generales">
-                  <point x="-81.66666666666674" y="-92.0" />
-                  <point x="248.83333333333331" y="597.0" />
-                  <point x="147.9545454545455" y="597.0" />
-                  <point x="0.0" y="70.0" />
-                </edge>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.mantenimientos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos">
-                  <point x="-66.5" y="-180.0" />
-                  <point x="584.5795454545455" y="897.0" />
-                  <point x="391.75000000000006" y="897.0" />
-                  <point x="61.25" y="92.0" />
-                </edge>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.administradores" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.users">
-                  <point x="0.0" y="-70.0" />
-                  <point x="786.9545454545455" y="275.0" />
-                  <point x="547.0606060606061" y="275.0" />
-                  <point x="54.0" y="125.0" />
-                </edge>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.servicio_generales" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.users">
-                  <point x="0.0" y="-70.0" />
-                  <point x="147.9545454545455" y="275.0" />
-                  <point x="439.06060606060606" y="275.0" />
-                  <point x="-54.0" y="125.0" />
-                </edge>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vale_gasolinas" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.estacion_servicios">
-                  <point x="-66.5" y="-136.0" />
-                  <point x="136.25" y="897.0" />
-                  <point x="94.0" y="897.0" />
-                  <point x="0.0" y="103.0" />
-                </edge>
-                <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.mantenimientos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.taller_mecanicos">
-                  <point x="66.5" y="-180.0" />
-                  <point x="717.5795454545455" y="897.0" />
-                  <point x="870.4545454545455" y="897.0" />
-                  <point x="0.0" y="125.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="1.0683563748079874" x="437.3401911173505" y="439.730790181932" />
-              <SelectedNodes />
-              <Categories>
-                <Category>Key columns</Category>
-                <Category>Columns</Category>
-              </Categories>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/VehiculoController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="62" column="14" lean-forward="true" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
-              <folding>
-                <element signature="e#40#57#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Dumpler</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/export.php" />
-        <option value="$PROJECT_DIR$/backend/app/Libraries/Shuttle_Dumper.php" />
-        <option value="$PROJECT_DIR$/backend/app/MySQLDump.php" />
-        <option value="$PROJECT_DIR$/backend/routes/api.php" />
-        <option value="$PROJECT_DIR$/backend/.gitattributes" />
-        <option value="$PROJECT_DIR$/backend/.gitignore" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/VehiculoController.php" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/frontend/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/backend/package.json" />
-      <path value="$PROJECT_DIR$/frontend/package.json" />
-    </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -302,44 +132,15 @@
       <path value="$PROJECT_DIR$/backend/vendor/monolog/monolog" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1100" />
-  </component>
+  <component name="ProjectId" id="1dUkCkYUrfGjPEB5rncvycDxKhd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="automania" type="b2602c69:ProjectViewProjectNode" />
-              <item name="automania" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="automania" type="b2602c69:ProjectViewProjectNode" />
-              <item name="automania" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="automania" type="b2602c69:ProjectViewProjectNode" />
-              <item name="automania" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="remote&#9;ACTION&#9;WebDeployment.BrowseServers&#10;vehiculo&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/app/Http/Controllers/VehiculoController.php&#10;api&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/routes/api.php&#10;.env&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/.env&#10;vehicul&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/app/Http/Controllers/VehiculoController.php" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -349,28 +150,23 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\HP User\Documents\coda\automania\backend\app\Libraries" />
       <recent name="C:\Users\HP User\Documents\coda\automania\backend\app" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -387,287 +183,21 @@
       <workItem from="1533773687420" duration="379000" />
       <workItem from="1534167312907" duration="2526000" />
       <workItem from="1534170121294" duration="2777000" />
+      <workItem from="1592486936812" duration="3193000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13152000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992908" weight="0.25506073" />
-      <window_info id="Structure" order="1" sideWeight="0.50070924" side_tool="true" weight="0.2536913" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.84626645" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.329429" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067115" side_tool="true" weight="0.75474083" />
-      <window_info anchor="right" id="Remote Host" visible="true" weight="0.3299595" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.33063427" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="734" column="6" lean-forward="true" selection-start-line="734" selection-start-column="6" selection-end-line="734" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Libraries/Shuttle_Dumper.php" />
-    <entry file="file://$PROJECT_DIR$/backend/.env">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/EstacionServicio.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/MySQLDump.php" />
-    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/51c87099-7897-4639-93e6-2df7e808fe26/console.sql" />
-    <entry file="uml://DATABASE/51c87099-7897-4639-93e6-2df7e808fe26.SCHEMA:automania">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>51c87099-7897-4639-93e6-2df7e808fe26.SCHEMA:automania</OriginalElement>
-          <nodes>
-            <node x="109.5" y="366.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.administradores</node>
-            <node x="263.8484848484849" y="0.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.users</node>
-            <node x="767.0681818181818" y="644.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.estacion_servicios</node>
-            <node x="192.625" y="922.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.mantenimientos</node>
-            <node x="619.3181818181818" y="966.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.vale_gasolinas</node>
-            <node x="506.5" y="366.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.servicio_generales</node>
-            <node x="252.0" y="644.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.kilometrajes</node>
-            <node x="706.5" y="300.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.choferes</node>
-            <node x="1000.0681818181818" y="0.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.migrations</node>
-            <node x="502.0681818181818" y="655.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.asignacion_vehiculos</node>
-            <node x="309.5" y="300.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.vehiculos</node>
-            <node x="0.0" y="622.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.taller_mecanicos</node>
-            <node x="1221.0681818181818" y="0.0">51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.password_resets</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.kilometrajes" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.vehiculos">
-              <point x="0.0" y="-103.0" />
-              <point x="-43.5" y="136.0" />
-            </edge>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.administradores" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.users">
-              <point x="0.0" y="-70.0" />
-              <point x="199.5" y="275.0" />
-              <point x="317.8484848484849" y="275.0" />
-              <point x="-54.0" y="125.0" />
-            </edge>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.asignacion_vehiculos" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.servicio_generales">
-              <point x="0.0" y="-92.0" />
-              <point x="624.5681818181818" y="597.0" />
-              <point x="596.5" y="597.0" />
-              <point x="0.0" y="70.0" />
-            </edge>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.asignacion_vehiculos" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.vehiculos">
-              <point x="-81.66666666666669" y="-92.0" />
-              <point x="542.9015151515151" y="597.0" />
-              <point x="440.0" y="597.0" />
-              <point x="43.5" y="136.0" />
-            </edge>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.vale_gasolinas" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.estacion_servicios">
-              <point x="66.5" y="-136.0" />
-              <point x="818.8181818181818" y="897.0" />
-              <point x="861.0681818181818" y="897.0" />
-              <point x="0.0" y="103.0" />
-            </edge>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.mantenimientos" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.asignacion_vehiculos">
-              <point x="66.5" y="-180.0" />
-              <point x="392.125" y="897.0" />
-              <point x="563.3181818181818" y="897.0" />
-              <point x="-61.25" y="92.0" />
-            </edge>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.asignacion_vehiculos" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.choferes">
-              <point x="81.66666666666669" y="-92.0" />
-              <point x="706.2348484848485" y="597.0" />
-              <point x="819.0" y="597.0" />
-              <point x="0.0" y="136.0" />
-            </edge>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.servicio_generales" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.users">
-              <point x="0.0" y="-70.0" />
-              <point x="596.5" y="275.0" />
-              <point x="425.8484848484849" y="275.0" />
-              <point x="54.0" y="125.0" />
-            </edge>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.mantenimientos" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.taller_mecanicos">
-              <point x="-66.5" y="-180.0" />
-              <point x="259.125" y="897.0" />
-              <point x="116.0" y="897.0" />
-              <point x="0.0" y="125.0" />
-            </edge>
-            <edge source="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.vale_gasolinas" target="51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.asignacion_vehiculos">
-              <point x="-66.5" y="-136.0" />
-              <point x="61.25" y="92.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.423963133640553" x="243.0" y="977.0" />
-          <SelectedNodes>
-            <node>51c87099-7897-4639-93e6-2df7e808fe26.TABLE:automania.taller_mecanicos</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/07e66e4d-7336-40ee-83dc-049a7a202181/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="uml://DATABASE/07e66e4d-7336-40ee-83dc-049a7a202181.SCHEMA:automania">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>07e66e4d-7336-40ee-83dc-049a7a202181.SCHEMA:automania</OriginalElement>
-          <nodes>
-            <node x="754.4545454545455" y="622.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.taller_mecanicos</node>
-            <node x="696.9545454545455" y="366.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.administradores</node>
-            <node x="1252.4545454545455" y="0.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.password_resets</node>
-            <node x="502.9545454545455" y="300.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vehiculos</node>
-            <node x="385.06060606060606" y="0.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.users</node>
-            <node x="1031.4545454545455" y="0.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.migrations</node>
-            <node x="518.0795454545455" y="922.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.mantenimientos</node>
-            <node x="69.75" y="966.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vale_gasolinas</node>
-            <node x="208.00000000000006" y="655.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos</node>
-            <node x="257.9545454545455" y="300.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.choferes</node>
-            <node x="52.67616707616713" y="366.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.servicio_generales</node>
-            <node x="532.4545454545455" y="644.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.kilometrajes</node>
-            <node x="0.0" y="644.0">07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.estacion_servicios</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.choferes">
-              <point x="0.0" y="-92.0" />
-              <point x="330.50000000000006" y="597.0" />
-              <point x="370.4545454545455" y="597.0" />
-              <point x="0.0" y="136.0" />
-            </edge>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vale_gasolinas" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos">
-              <point x="66.5" y="-136.0" />
-              <point x="-61.25" y="92.0" />
-            </edge>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vehiculos">
-              <point x="81.66666666666663" y="-92.0" />
-              <point x="412.1666666666667" y="597.0" />
-              <point x="546.4545454545455" y="597.0" />
-              <point x="-43.5" y="136.0" />
-            </edge>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.kilometrajes" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vehiculos">
-              <point x="0.0" y="-103.0" />
-              <point x="43.5" y="136.0" />
-            </edge>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.servicio_generales">
-              <point x="-81.66666666666674" y="-92.0" />
-              <point x="248.83333333333331" y="597.0" />
-              <point x="147.9545454545455" y="597.0" />
-              <point x="0.0" y="70.0" />
-            </edge>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.mantenimientos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.asignacion_vehiculos">
-              <point x="-66.5" y="-180.0" />
-              <point x="584.5795454545455" y="897.0" />
-              <point x="391.75000000000006" y="897.0" />
-              <point x="61.25" y="92.0" />
-            </edge>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.administradores" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.users">
-              <point x="0.0" y="-70.0" />
-              <point x="786.9545454545455" y="275.0" />
-              <point x="547.0606060606061" y="275.0" />
-              <point x="54.0" y="125.0" />
-            </edge>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.servicio_generales" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.users">
-              <point x="0.0" y="-70.0" />
-              <point x="147.9545454545455" y="275.0" />
-              <point x="439.06060606060606" y="275.0" />
-              <point x="-54.0" y="125.0" />
-            </edge>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.vale_gasolinas" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.estacion_servicios">
-              <point x="-66.5" y="-136.0" />
-              <point x="136.25" y="897.0" />
-              <point x="94.0" y="897.0" />
-              <point x="0.0" y="103.0" />
-            </edge>
-            <edge source="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.mantenimientos" target="07e66e4d-7336-40ee-83dc-049a7a202181.TABLE:automania.taller_mecanicos">
-              <point x="66.5" y="-180.0" />
-              <point x="717.5795454545455" y="897.0" />
-              <point x="870.4545454545455" y="897.0" />
-              <point x="0.0" y="125.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0683563748079874" x="437.3401911173505" y="439.730790181932" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/VehiculoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="62" column="14" lean-forward="true" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1592491439651">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592491439651" />
+    <state x="408" y="278" width="540" height="166" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1592486964550">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="408" y="278" width="540" height="166" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1366.728@0.0.1366.728" timestamp="1592486964550" />
   </component>
 </project>

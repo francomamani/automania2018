@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="codasrl.com" id="b273169b-991c-4511-becf-d0b0d78518b4" keyPath="C:\Users\HP User\OneDrive\Documents\coda\id_rsa_automania" port="22" customName="automania" nameFormat="CUSTOM" />
+    </configs>
+  </component>
+</project>
