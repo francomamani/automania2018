@@ -13,19 +13,20 @@ use JWTAuth;
 
 class AutenticacionController extends Controller
 {
-    public function authenticate(Request $request){
+    public function authenticate(Request $request)
+    {
         $credenciales = $request->only('cuenta', 'password');
         $token = null;
-        try{
-            if (!$token = JWTAuth::attempt($credenciales)){
+        try {
+            if (!$token = JWTAuth::attempt($credenciales)) {
                 return response()->json([
                     'autenticado' => false,
                     'mensaje' => 'Credenciales invalidas'
                 ], 401);
             }
-        }catch (JWTException $e){
+        } catch (JWTException $e) {
             return response()->json([
-                'error'=> 'can_not_create_token'
+                'error' => 'can_not_create_token'
             ], 500);
         }
 //        $user = JWTAuth::toUser($token);
@@ -37,10 +38,11 @@ class AutenticacionController extends Controller
             'mensaje' => 'El usuario fue autenticado exitosamente'
 
         ], 200);
-/*        return response()->json(compact('token', 'user'));*/
+        /*        return response()->json(compact('token', 'user'));*/
     }
 
-    public function createUser(){
+    public function createUser()
+    {
         $tipoUsuario = '';
         $data = [
             "cuenta" => request()->input('cuenta'),
@@ -68,7 +70,7 @@ class AutenticacionController extends Controller
             return response()->json([
                 'has_action' => true,
                 'creado' => $user,
-                'mensaje' => 'El usuario ' . $tipoUsuario .' ' .  $user->cuenta . ' fue registrado exitosamente. 
+                'mensaje' => 'El usuario ' . $tipoUsuario . ' ' . $user->cuenta . ' fue registrado exitosamente. 
                 ¿Desea ir al listado de usuarios?'
             ], 201);
         }
@@ -78,19 +80,27 @@ class AutenticacionController extends Controller
             'mensaje' => 'Error: Ya existe una cuenta con los datos ingresados'
         ], 500);
 
-  /*      $token = JWTAuth::fromUser($user);
-        return response()->json(compact('token'), 201);*/
+        /*      $token = JWTAuth::fromUser($user);
+              return response()->json(compact('token'), 201);*/
     }
-    public function user($token){
+
+    public function user($token)
+    {
         return response()->json(JWTAuth::toUser($token), 200);
     }
-    public function index(){
+
+    public function index()
+    {
         return response()->json(User::orderBy('cuenta')->with(['administrador', 'servicioGeneral'])->get(), 200);
     }
-    public function show($id){
+
+    public function show($id)
+    {
         return response()->json(User::find($id), 200);
     }
-    public function destroy($id) {
+
+    public function destroy($id)
+    {
         $user = User::find($id);
         $user->delete();
         return response()->json([
@@ -98,7 +108,9 @@ class AutenticacionController extends Controller
             'mensaje' => 'El usuario ' . $user->cuenta . ' fue eliminado exitosamente'
         ], 200);
     }
-    public function update($id){
+
+    public function update($id)
+    {
 
         $validator = Validator::make(request()->all(), [
             'cuenta' => 'required|unique:users'
@@ -123,25 +135,27 @@ class AutenticacionController extends Controller
                 return response()->json([
                     'has_action' => false,
                     'actualizado' => false,
-                    'mensaje' => 'Error: El usuario con cuenta ' . request()->input('cuenta'). ' ya existe en el sistema'
+                    'mensaje' => 'Error: El usuario con cuenta ' . request()->input('cuenta') . ' ya existe en el sistema'
                 ], 500);
             }
         }
 
 
     }
-    public function logout(){
+
+    public function logout()
+    {
         $authorization = request()->header('Authorization');
         $segments = explode(" ", $authorization);
 
         JWTAuth::setToken($segments[1]);
-        try{
+        try {
             JWTAuth::invalidate();
             return response()->json([
                 'deslogueo' => true,
                 'mensaje' => 'Sesion cerrada exitosamente'
             ], 200);
-        }catch (JWTException $e) {
+        } catch (JWTException $e) {
             return response()->json([
                 'deslogueo' => false,
                 'mensaje' => 'Fallo el cierre de sesion, por favor intente de nuevo'
@@ -149,11 +163,14 @@ class AutenticacionController extends Controller
         }
     }
 
-    public function refreshToken($token){
+    public function refreshToken($token)
+    {
         $token = JWTAuth::refresh($token);
         return response()->json(compact($token));
     }
-    public function refreshTokenExpired() {
+
+    public function refreshTokenExpired()
+    {
         $token = JWTAuth::refresh(request()->input('token'));
         return response()->json(compact($token));
     }

@@ -31,12 +31,12 @@ export class UserCreateComponent implements OnInit {
 
   createForm() {
     this.userGroup = this.fb.group({
-      'tipo_usuario': new FormControl('', Validators.required),
-      'nombres': new FormControl('', Validators.required),
-      'apellidos': new FormControl('', Validators.required),
-      'cuenta': new FormControl('', Validators.required),
-      'password': new FormControl('', Validators.required),
-      'carnet': new FormControl('', Validators.required)
+      tipo_usuario: new FormControl('', Validators.required),
+      nombres: new FormControl('', Validators.required),
+      apellidos: new FormControl('', Validators.required),
+      cuenta: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      carnet: new FormControl('', Validators.required)
     });
   }
 
@@ -59,8 +59,6 @@ export class UserCreateComponent implements OnInit {
   store() {
     this.userService.store(this.userGroup.value).subscribe(res => {
       this.openDialog(res);
-    }, (error) => {
-      this.openDialog(error.error);
     });
   }
 }

@@ -5,7 +5,7 @@ export class MyHttpLogInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (req.url.search('/login') === -1) {
       if (localStorage.getItem('token') !== null) {
-        const token = atob(localStorage.getItem('token'));
+        const token = `Bearer ${atob(localStorage.getItem('token'))}`;
         const customReq = req.clone({
           headers: new HttpHeaders().set('Authorization', token)
         });
