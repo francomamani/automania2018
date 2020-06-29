@@ -1,44 +1,94 @@
-<mat-card *ngIf="vehiculo !== null" class="card-md">
-  <mat-card-header>
-    EDITAR VEHÍCULO
-  </mat-card-header>
-
+  <mat-card class="card-md" style="width: 700px;" *ngIf="vehiculo !== null && tipo_vehiculos !== null">
+    <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+      <button color="accent" mat-button mat-icon-button>
+        <mat-icon>drive_eta</mat-icon>
+      </button>
+      EDITAR VEHÍCULO
+    </mat-card-header>
   <mat-card-content>
     <form (submit)="update()" [formGroup]="vehiculoGroup">
-      <!--      <mat-radio-group formControlName="activo" class="mat-radio-group">
+     <!--      <mat-radio-group formControlName="activo" class="mat-radio-group">
               <mat-radio-button [value]=1>Activo</mat-radio-button>
               <mat-radio-button [value]=0>Inactivo</mat-radio-button>
             </mat-radio-group>-->
-      <mat-form-field class="divider">
-        <input #placa formControlName="placa" matInput maxlength="150" placeholder="Placa">
-        <mat-hint align="end">{{placa.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('placa').status == 'INVALID'">La placa es obligatoria</mat-error>
-      </mat-form-field>
-      <mat-form-field class="divider">
-        <input #marca formControlName="marca" matInput maxlength="150" placeholder="Marca">
-        <mat-hint align="end">{{marca.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('marca').status == 'INVALID'">La marca es obligatoria</mat-error>
-      </mat-form-field>
-      <mat-form-field class="divider">
-        <input #modelo formControlName="modelo" matInput maxlength="150" placeholder="Modelo">
-        <mat-hint align="end">{{modelo.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('modelo').status == 'INVALID'">La modelo es obligatorio</mat-error>
-      </mat-form-field>
-      <mat-form-field class="divider">
-        <input #color formControlName="color" matInput maxlength="150" placeholder="Color">
-        <mat-hint align="end">{{color.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('color').status == 'INVALID'">La color es obligatorio</mat-error>
-      </mat-form-field>
-      <mat-form-field class="divider">
-        <input #cilindrada formControlName="cilindrada" matInput maxlength="150" placeholder="Cilindrada">
-        <mat-hint align="end">{{cilindrada.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('cilindrada').status == 'INVALID'">La cilindrada es obligatoria</mat-error>
-      </mat-form-field>
-      <mat-form-field class="divider">
-        <input #gestion formControlName="gestion" matInput maxlength="150" placeholder="Gestión">
-        <mat-hint align="end">{{gestion.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('gestion').status == 'INVALID'">La gestión es obligatoria</mat-error>
-      </mat-form-field>
+            <div class="form-group">
+              <label for="tipo_vehiculo">Seleccionar Tipo de Vehiculo</label>
+              <ng-select [items]="tipo_vehiculos"
+                         bindLabel="descripcion"
+                         bindValue="descripcion"
+                         formControlName="tipo_vehiculo"
+                         id="tipo_vehiculo"></ng-select>
+            </div>
+      
+            <div class="flexbox-container">
+              <div>      
+                <mat-form-field>
+                <input #placa formControlName="placa" matInput maxlength="150" placeholder="Placa">
+                <mat-hint align="end">{{placa.value?.length || 0}}/150</mat-hint>
+                <mat-error *ngIf="vehiculoGroup.get('placa').status == 'INVALID'">La placa es obligatoria</mat-error>
+              </mat-form-field>
+            </div>
+              <div>
+                <mat-form-field>
+                  <input #marca formControlName="marca" matInput maxlength="150" placeholder="Marca">
+                  <mat-hint align="end">{{marca.value?.length || 0}}/150</mat-hint>
+                  <mat-error *ngIf="vehiculoGroup.get('marca').status == 'INVALID'">La marca es obligatoria</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="flexbox-container">
+              <div>
+                <mat-form-field>
+                  <input #modelo formControlName="modelo" matInput maxlength="10" placeholder="Modelo">
+                  <mat-hint align="end">{{modelo.value?.length || 0}}/10</mat-hint>
+                  <mat-error *ngIf="vehiculoGroup.get('modelo').status == 'INVALID'">El modelo es obligatorio</mat-error>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                  <input #color formControlName="color" matInput maxlength="10" placeholder="Color">
+                  <mat-hint align="end">{{color.value?.length || 0}}/10</mat-hint>
+                  <mat-error *ngIf="vehiculoGroup.get('color').status == 'INVALID'">El color es obligatorio</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="flexbox-container">
+              <div>      
+                <mat-form-field>
+                <input #cilindrada formControlName="cilindrada" matInput placeholder="Cilindrada" type="number">
+                <mat-error *ngIf="vehiculoGroup.get('cilindrada').status == 'INVALID'">El cilindrada es obligatorio</mat-error>
+                </mat-form-field> 
+              </div>
+              <div>
+                <mat-form-field>
+                  <input #gestion formControlName="gestion" matInput maxlength="10" placeholder="Gestion">
+                  <mat-hint ali-gn="end">{{gestion.value?.length || 0}}/10</mat-hint>
+                  <mat-error *ngIf="vehiculoGroup.get('gestion').status == 'INVALID'">La gestion es obligatoria</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="flexbox-container">
+              <div> 
+                  <mat-form-field>
+                    <mat-label>Estado vehÍculo</mat-label>
+                    <mat-select #estado_vehiculo formControlName="estado_vehiculo">
+                      <mat-option value="NUEVO">NUEVO </mat-option>
+                      <mat-option value="REGULAR">REGULAR </mat-option>
+                      <mat-option value="MALO">MALO </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              </div>
+              <div> 
+                <mat-form-field>
+                  <mat-label>Disponibilidad</mat-label>
+                  <mat-select #disponibilidad formControlName="disponibilidad">
+                    <mat-option value="ACTIVO ASIGNADO">ACTIVO ASIGNADO </mat-option>
+                    <mat-option value="ACTIVO NO ASIGNADO">ACTIVO NO ASIGNADO </mat-option>
+                    <mat-option value="INAGTIVO EN REPARACION">INAGTIVO EN REPARACION </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>  
 
       <button [disabled]="vehiculoGroup.status == 'INVALID'" color="accent" mat-raised-button type="submit">ACTUALIZAR
       </button>

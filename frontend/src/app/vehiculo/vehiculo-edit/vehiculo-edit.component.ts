@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {VehiculoService} from '../vehiculo.service';
 import {MatDialog} from '@angular/material/dialog';
+import { TipoVehiculo } from 'src/app/models/tipo-vehiculo';
+import { TipoVehiculoService } from 'src/app/services/tipo-vehiculo.service';
 
 @Component({
   selector: 'app-vehiculo-edit',
@@ -12,9 +14,11 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class VehiculoEditComponent implements OnInit {
   vehiculoGroup: FormGroup;
+  tipo_vehiculos: TipoVehiculo[];
   vehiculo: any = null;
 
   constructor(
+    private tipoVehiculoService: TipoVehiculoService,
     private vehiculoService: VehiculoService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -31,17 +35,25 @@ export class VehiculoEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.tipoVehiculoService.index()
+    .subscribe((tipo_vehiculos: TipoVehiculo[]) => {
+      this.tipo_vehiculos = tipo_vehiculos;
+    });
   }
 
   createForm(vehiculo) {
     this.vehiculoGroup = this.fb.group({
       'id': new FormControl(vehiculo.id, Validators.required),
+      'tipo_vehiculo': new FormControl(vehiculo.tipo_vehiculo, Validators.required),
       'placa': new FormControl(vehiculo.placa, Validators.required),
       'marca': new FormControl(vehiculo.marca, Validators.required),
       'modelo': new FormControl(vehiculo.modelo, Validators.required),
       'color': new FormControl(vehiculo.color, Validators.required),
       'cilindrada': new FormControl(vehiculo.cilindrada, Validators.required),
-      'gestion': new FormControl(vehiculo.gestion, Validators.required)
+      'gestion': new FormControl(vehiculo.gestion, Validators.required),
+      'estado_vehiculo': new FormControl(vehiculo.estado_vehiculo, Validators.required),
+      'disponibilidad': new FormControl(vehiculo.disponibilidad, Validators.required),
+      'observaciones': new FormControl(vehiculo.observaciones)
     });
   }
 
