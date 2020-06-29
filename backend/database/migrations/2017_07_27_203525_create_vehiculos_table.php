@@ -32,7 +32,7 @@ class CreateVehiculosTable extends Migration
                 'ACTIVO NO ASIGNADO',
                 'INACTIVO EN REPARACIÓN',
             ])->default('ACTIVO NO ASIGNADO');
-            $table->text('obsevaciones')->nullable();
+            $table->text('observaciones')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -1,4 +1,4 @@
-<mat-card class="card-md">
+<mat-card class="card-md" style="width: 700px;">
   <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
     <button color="accent" mat-button mat-icon-button>
       <mat-icon>drive_eta</mat-icon>
@@ -19,36 +19,80 @@
                    formControlName="tipo_vehiculo"
                    id="tipo_vehiculo"></ng-select>
       </div>
-      <mat-form-field>
-        <input #placa formControlName="placa" matInput maxlength="150" placeholder="Placa">
-        <mat-hint align="end">{{placa.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('placa').status == 'INVALID'">La placa es obligatoria</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input #marca formControlName="marca" matInput maxlength="150" placeholder="Marca">
-        <mat-hint align="end">{{marca.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('marca').status == 'INVALID'">La marca es obligatoria</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input #modelo formControlName="modelo" matInput maxlength="10" placeholder="Modelo">
-        <mat-hint align="end">{{modelo.value?.length || 0}}/10</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('modelo').status == 'INVALID'">El modelo es obligatorio</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input #color formControlName="color" matInput maxlength="10" placeholder="Color">
-        <mat-hint align="end">{{color.value?.length || 0}}/10</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('color').status == 'INVALID'">El color es obligatorio</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input #cilindrada formControlName="cilindrada" matInput placeholder="Cilindrada" type="number">
-        <mat-error *ngIf="vehiculoGroup.get('cilindrada').status == 'INVALID'">El cilindrada es obligatorio</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input #gestion formControlName="gestion" matInput maxlength="10" placeholder="Gestion">
-        <mat-hint ali-gn="end">{{gestion.value?.length || 0}}/10</mat-hint>
-        <mat-error *ngIf="vehiculoGroup.get('gestion').status == 'INVALID'">La gestion es obligatoria</mat-error>
-      </mat-form-field>
 
+      <div class="flexbox-container">
+        <div>      
+          <mat-form-field>
+          <input #placa formControlName="placa" matInput maxlength="150" placeholder="Placa">
+          <mat-hint align="end">{{placa.value?.length || 0}}/150</mat-hint>
+          <mat-error *ngIf="vehiculoGroup.get('placa').status == 'INVALID'">La placa es obligatoria</mat-error>
+        </mat-form-field>
+      </div>
+        <div>
+          <mat-form-field>
+            <input #marca formControlName="marca" matInput maxlength="150" placeholder="Marca">
+            <mat-hint align="end">{{marca.value?.length || 0}}/150</mat-hint>
+            <mat-error *ngIf="vehiculoGroup.get('marca').status == 'INVALID'">La marca es obligatoria</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="flexbox-container">
+        <div>
+          <mat-form-field>
+            <input #modelo formControlName="modelo" matInput maxlength="10" placeholder="Modelo">
+            <mat-hint align="end">{{modelo.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="vehiculoGroup.get('modelo').status == 'INVALID'">El modelo es obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input #color formControlName="color" matInput maxlength="10" placeholder="Color">
+            <mat-hint align="end">{{color.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="vehiculoGroup.get('color').status == 'INVALID'">El color es obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="flexbox-container">
+        <div>      
+          <mat-form-field>
+          <input #cilindrada formControlName="cilindrada" matInput placeholder="Cilindrada" type="number">
+          <mat-error *ngIf="vehiculoGroup.get('cilindrada').status == 'INVALID'">El cilindrada es obligatorio</mat-error>
+          </mat-form-field> 
+        </div>
+        <div>
+          <mat-form-field>
+            <input #gestion formControlName="gestion" matInput maxlength="10" placeholder="Gestion">
+            <mat-hint ali-gn="end">{{gestion.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="vehiculoGroup.get('gestion').status == 'INVALID'">La gestion es obligatoria</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="flexbox-container">
+        <div> 
+            <mat-form-field>
+              <mat-label>Estado vehÍculo</mat-label>
+              <mat-select #estado_vehiculo formControlName="estado_vehiculo">
+                <mat-option value="NUEVO">NUEVO </mat-option>
+                <mat-option value="REGULAR">REGULAR </mat-option>
+                <mat-option value="MALO">MALO </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+        <div> 
+          <mat-form-field>
+            <mat-label>Disponibilidad</mat-label>
+            <mat-select #disponibilidad formControlName="disponibilidad">
+              <mat-option value="ACTIVO ASIGNADO">ACTIVO ASIGNADO </mat-option>
+              <mat-option value="ACTIVO NO ASIGNADO">ACTIVO NO ASIGNADO </mat-option>
+              <mat-option value="INAGTIVO EN REPARACION">INAGTIVO EN REPARACION </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>  
+      <mat-form-field appearance="fill">
+        <mat-label>observaciones</mat-label>
+        <textarea matInput  #observaciones formControlName="observaciones"></textarea>
+      </mat-form-field>
       <div class="form-group" fxLayout="row" fxLayoutGap="5px">
         <button [routerLink]="['/vehiculo/listar']" fxFlex="auto" mat-raised-button>
           <mat-icon color="warn">undo</mat-icon>
@@ -60,7 +104,6 @@
           GUARDAR
         </button>
       </div>
-
     </form>
   </mat-card-content>
 </mat-card>

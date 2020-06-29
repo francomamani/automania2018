@@ -46,7 +46,7 @@ Route::post('choferes-search', 'ChoferController@search');
 Route::post('choferes-filtrar', 'ChoferController@filtrar');
 Route::post('vehiculos-search', 'VehiculoController@search');
 Route::post('vehiculos-filtrar', 'VehiculoController@filtrar');
-Route::post('kilometrajes-search', 'KilometrajeController@search');
+Route::post('kilometrajes-search', 'KilometrajeController@search'); 
 Route::post('kilometrajes-filtrar', 'KilometrajeController@filtrar');
 
 Route::post('asignaciones-search', 'AsignacionVehiculoController@search');

@@ -41,6 +41,9 @@ export class VehiculoCreateComponent implements OnInit {
       color: new FormControl('', Validators.required),
       cilindrada: new FormControl(3000, Validators.required),
       gestion: new FormControl(2000, Validators.required),
+      estado_vehiculo: new FormControl('REGULAR', Validators.required),
+      disponibilidad: new FormControl('ACTIVO ASIGNADO', Validators.required),
+      observaciones: new FormControl(''),
     });
   }
 

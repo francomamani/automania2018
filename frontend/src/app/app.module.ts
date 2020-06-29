@@ -63,6 +63,7 @@ import {_MatMenuDirectivesModule, MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatGridListModule} from '@angular/material/grid-list';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ValeGasolinaComponent} from './vale-gasolina/vale-gasolina.component';
 import {ValeGasolinaIndexComponent} from './vale-gasolina/vale-gasolina-index/vale-gasolina-index.component';
@@ -194,6 +195,7 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     MatDialogModule,
     MatTooltipModule,
+    MatGridListModule,
     MatNativeDateModule,
     RouterModule.forRoot(appRoutes, {
       useHash: true
