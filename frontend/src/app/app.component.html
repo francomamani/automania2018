@@ -32,11 +32,21 @@
       </button>-->
     </mat-menu>
 
-    <button *ngIf="authService.isAuthenticated()" mat-button matTooltip="Conductores" routerLink="/chofer">
+
+    <button *ngIf="authService.isAuthenticated()" [matMenuTriggerFor]="chofer" mat-button   matTooltip="Chofer">
       <mat-icon>face</mat-icon>
       Choferes
     </button>
-
+    <mat-menu #chofer="matMenu">
+      <button *ngIf="authService.isAuthenticated()" mat-button matTooltip="Conductores" routerLink="/chofer">
+        <mat-icon>face</mat-icon>
+        Choferes
+      </button>
+      <button *ngIf="authService.isAuthenticated()" mat-menu-item routerLink="/contrato">
+        <mat-icon>insert_drive_file</mat-icon>
+        Contratos
+      </button>
+    </mat-menu>
     <button *ngIf="authService.isAuthenticated()" [matMenuTriggerFor]="gestion_gasolina" mat-button
             matTooltip="Gestión de gasolina">
       <mat-icon>local_gas_station</mat-icon>

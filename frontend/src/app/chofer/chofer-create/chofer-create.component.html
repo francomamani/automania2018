@@ -7,24 +7,28 @@
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="choferGroup">
+      
       <mat-form-field class="divider">
         <input #nombres formControlName="nombres" matInput maxlength="150"
                oninput="this.value = this.value.toUpperCase()" placeholder="Nombres">
         <mat-hint align="end">{{nombres.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="choferGroup.get('nombres').status == 'INVALID'">El nombre es obligatorio</mat-error>
       </mat-form-field>
+
       <mat-form-field class="divider">
         <input #apellidos formControlName="apellidos" matInput
                maxlength="150" oninput="this.value = this.value.toUpperCase()" placeholder="Apellidos">
         <mat-hint align="end">{{apellidos.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="choferGroup.get('apellidos').status == 'INVALID'">El apellido es obligatorio</mat-error>
       </mat-form-field>
+
       <mat-form-field class="divider">
         <input #carnet formControlName="carnet" matInput maxlength="10"
                oninput="this.value = this.value.toUpperCase()" placeholder="Carnet">
         <mat-hint align="end">{{carnet.value?.length || 0}}/10</mat-hint>
         <mat-error *ngIf="choferGroup.get('carnet').status == 'INVALID'">El carnet es obligatorio</mat-error>
       </mat-form-field>
+
       <mat-form-field class="divider">
         <label class="label">Tipo</label>
         <mat-select class="full-width" formControlName="tipo" name="tipo">
@@ -33,20 +37,6 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="full-width">
-        <input [matDatepicker]="fecha_inicio_contrato" formControlName="fecha_inicio_contrato" matInput
-               placeholder="Fecha de inicio de contrato">
-        <mat-datepicker-toggle [for]="fecha_inicio_contrato" matSuffix></mat-datepicker-toggle>
-        <mat-datepicker #fecha_inicio_contrato></mat-datepicker>
-      </mat-form-field>
-      <mat-datepicker #fecha_inicio_contrato></mat-datepicker>
-      <mat-form-field class="full-width">
-        <input [matDatepicker]="fecha_fin_contrato" formControlName="fecha_fin_contrato" matInput
-               placeholder="Fecha de fin de contrato">
-        <mat-datepicker-toggle [for]="fecha_fin_contrato" matSuffix></mat-datepicker-toggle>
-        <mat-datepicker #fecha_fin_contrato></mat-datepicker>
-      </mat-form-field>
-      <mat-datepicker #fecha_fin_contrato></mat-datepicker>
 
       <div class="form-group" fxLayout="row" fxLayoutGap="5px">
         <button [routerLink]="['/chofer/listar']" fxFlex="auto" mat-raised-button>

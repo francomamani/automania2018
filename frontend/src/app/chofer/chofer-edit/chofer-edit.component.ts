@@ -42,9 +42,7 @@ export class ChoferEditComponent implements OnInit {
       'nombres': new FormControl(chofer.nombres, Validators.required),
       'apellidos': new FormControl(chofer.apellidos, Validators.required),
       'carnet': new FormControl(chofer.carnet, Validators.required),
-      'tipo': new FormControl(chofer.tipo, Validators.required),
-      'fecha_inicio_contrato': new FormControl(new Date(chofer.fecha_inicio_contrato), Validators.required),
-      'fecha_fin_contrato': new FormControl(new Date(chofer.fecha_fin_contrato), Validators.required)
+      'tipo': new FormControl(chofer.tipo, Validators.required)
     });
   }
 
@@ -66,17 +64,8 @@ export class ChoferEditComponent implements OnInit {
   }
 
   update() {
-    this.choferGroup.patchValue({
-      'fecha_inicio_contrato': this.choferGroup.value.fecha_inicio_contrato.getTime(),
-      'fecha_fin_contrato': this.choferGroup.value.fecha_fin_contrato.getTime()
-    });
     this.choferService
-      .update(this.choferGroup.value, this.choferGroup.value.id)
-      .subscribe(res => {
-        this.choferGroup.patchValue({
-          'fecha_inicio_contrato': new Date(this.choferGroup.value.fecha_inicio_contrato),
-          'fecha_fin_contrato': new Date(this.choferGroup.value.fecha_fin_contrato)
-        });
+      .update(this.choferGroup.value, this.choferGroup.value.id).subscribe(res => {
         console.log(res);
         this.openDialog(res);
       }, (error) => {

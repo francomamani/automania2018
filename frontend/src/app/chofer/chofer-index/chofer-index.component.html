@@ -41,14 +41,6 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{ col.tipo | uppercase }} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="fecha_inicio_contrato">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Inicio de Contrato</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.fecha_inicio_contrato | date: 'dd/MM/yyyy' }} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="fecha_fin_contrato">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Fin de Contrato</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{ col.fecha_fin_contrato | date: 'dd/MM/yyyy' }} </mat-cell>
-    </ng-container>
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">

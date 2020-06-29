@@ -15,7 +15,7 @@ import {TipoVehiculoService} from '../../services/tipo-vehiculo.service';
 export class VehiculoCreateComponent implements OnInit {
   tipo_vehiculos: TipoVehiculo[];
   vehiculoGroup: FormGroup;
-
+ 
   constructor(
     private router: Router,
     private tipoVehiculoService: TipoVehiculoService,

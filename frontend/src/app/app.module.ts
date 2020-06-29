@@ -69,6 +69,10 @@ import {ValeGasolinaComponent} from './vale-gasolina/vale-gasolina.component';
 import {ValeGasolinaIndexComponent} from './vale-gasolina/vale-gasolina-index/vale-gasolina-index.component';
 import {ValeGasolinaCreateComponent} from './vale-gasolina/vale-gasolina-create/vale-gasolina-create.component';
 import {ValeGasolinaService} from './vale-gasolina/vale-gasolina.service';
+import { ContratoComponent } from './contrato/contrato.component';
+import { ContratoIndexComponent } from './contrato/contrato-index/contrato-index.component';
+import { ContratoEditComponent } from './contrato/contrato-edit/contrato-edit.component';
+import { ContratoCreateComponent } from './contrato/contrato-create/contrato-create.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -85,6 +89,14 @@ const appRoutes: Routes = [
       {path: 'crear', component: ChoferCreateComponent},
       {path: 'listar', component: ChoferIndexComponent},
       {path: 'editar/:id', component: ChoferEditComponent},
+      {path: '', redirectTo: 'listar', pathMatch: 'full'}
+    ]
+  },
+  {
+    path: 'contrato', component: ContratoComponent, canActivate: [AuthGuard], children: [
+      {path: 'crear', component: ContratoCreateComponent},
+      {path: 'listar', component: ContratoIndexComponent},
+      {path: 'editar/:id', component: ContratoEditComponent},
       {path: '', redirectTo: 'listar', pathMatch: 'full'}
     ]
   },
@@ -179,7 +191,11 @@ const appRoutes: Routes = [
     AsignacionVehiculoEditComponent,
     ValeGasolinaComponent,
     ValeGasolinaIndexComponent,
-    ValeGasolinaCreateComponent
+    ValeGasolinaCreateComponent,
+    ContratoComponent,
+    ContratoIndexComponent,
+    ContratoEditComponent,
+    ContratoCreateComponent
   ],
   imports: [
     BrowserModule,
