@@ -10,7 +10,7 @@ class Kilometraje extends Model
     use SoftDeletes;
     protected $table = 'kilometrajes';
     protected $fillable = [
-        'vehiculo_id',
+        'suministro_combustible_id',
         'anterior',
         'actual',
         'recorrido',

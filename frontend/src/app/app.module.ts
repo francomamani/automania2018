@@ -64,6 +64,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {ValeGasolinaComponent} from './vale-gasolina/vale-gasolina.component';
+import {ValeGasolinaIndexComponent} from './vale-gasolina/vale-gasolina-index/vale-gasolina-index.component';
+import {ValeGasolinaCreateComponent} from './vale-gasolina/vale-gasolina-create/vale-gasolina-create.component';
+import {ValeGasolinaService} from './vale-gasolina/vale-gasolina.service';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -96,6 +100,13 @@ const appRoutes: Routes = [
       {path: 'crear', component: AsignacionVehiculoCreateComponent},
       {path: 'listar', component: AsignacionVehiculoIndexComponent},
       {path: 'editar/:id', component: AsignacionVehiculoEditComponent},
+      {path: '', redirectTo: 'listar', pathMatch: 'full'}
+    ]
+  },
+  {
+    path: 'vale-gasolina', component: ValeGasolinaComponent, canActivate: [AuthGuard], children: [
+      {path: 'crear', component: ValeGasolinaCreateComponent},
+      {path: 'listar', component: ValeGasolinaIndexComponent},
       {path: '', redirectTo: 'listar', pathMatch: 'full'}
     ]
   },
@@ -164,7 +175,10 @@ const appRoutes: Routes = [
     AsignacionVehiculoComponent,
     AsignacionVehiculoCreateComponent,
     AsignacionVehiculoIndexComponent,
-    AsignacionVehiculoEditComponent
+    AsignacionVehiculoEditComponent,
+    ValeGasolinaComponent,
+    ValeGasolinaIndexComponent,
+    ValeGasolinaCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -206,6 +220,7 @@ const appRoutes: Routes = [
     MantenimientoService,
     ExcelService,
     AsignacionVehiculoService,
+    ValeGasolinaService,
     {provide: HTTP_INTERCEPTORS, useClass: MyHttpLogInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]

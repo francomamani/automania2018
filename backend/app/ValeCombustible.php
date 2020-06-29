@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ValeGasolina extends Model
+class ValeCombustible extends Model
 {
     use SoftDeletes;
-    protected $table = 'vale_gasolinas';
+    protected $table = 'vale_combustibles';
     protected $fillable = [
+        'kilometraje_id',
         'asignacion_vehiculo_id',
         'estacion_servicio_id',
         'numero_vale',

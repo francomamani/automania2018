@@ -19,8 +19,6 @@ class CreateChofersTable extends Migration
             $table->string('apellidos');
             $table->string('carnet');
             $table->string('tipo');
-            $table->bigInteger('fecha_inicio_contrato');
-            $table->bigInteger('fecha_fin_contrato');
             $table->softDeletes();
             $table->timestamps();
         });

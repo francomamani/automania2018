@@ -11,25 +11,20 @@ class Vehiculo extends Model
 
     protected $table = "vehiculos";
     protected $fillable = [
+        'tipo_vehiculo',
         'placa',
         'marca',
         'modelo',
         'color',
         'cilindrada',
-        'gestion'
+        'gestion',
+        'estado_vehiculo',
+        'observaciones',
+        'disponibilidad',
     ];
     protected $dates = ['deleted_at'];
     protected $appends = ['resumen'];
 
-    public function kilometrajes()
-    {
-        return $this->hasMany('App\Kilometraje');
-    }
-
-    public function valeGasolinas()
-    {
-        return $this->hasMany('App\ValeGasolina');
-    }
 
     public function tallerMecanicos()
     {

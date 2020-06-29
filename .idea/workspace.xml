@@ -2,8 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62bb6f7e-8933-4693-b869-655f128be901" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Primer Presupuesto.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Primer Presupuesto.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proforma GestiónUsoVehícular.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Proforma GestiónUsoVehícular.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proforma GestiónUsoVehícular.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Proforma GestiónUsoVehícular.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/AsignacionVehiculo.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/AsignacionVehiculo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/EstacionServicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/EstacionServicio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ValeGasolinaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ValeCombustibleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Kilometraje.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Kilometraje.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/ValeGasolina.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/ValeCombustible.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Vehiculo.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Vehiculo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2017_07_27_202658_create_chofers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2017_07_27_202658_create_chofers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2017_07_27_203525_create_vehiculos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2017_07_27_203525_create_vehiculos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2017_08_21_132208_create_kilometrajes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2020_06_27_132208_create_kilometrajes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2017_08_21_134357_create_asignacion_vehiculos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2017_08_21_134357_create_asignacion_vehiculos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2017_08_21_185940_create_vale_gasolinas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2020_06_28_185940_create_vale_combustibles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/automania13082018.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/automania13082018.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/browserslist" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/browserslist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/asignacion-vehiculo/asignacion-vehiculo-create/asignacion-vehiculo-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/asignacion-vehiculo/asignacion-vehiculo-create/asignacion-vehiculo-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/asignacion-vehiculo/asignacion-vehiculo-create/asignacion-vehiculo-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/asignacion-vehiculo/asignacion-vehiculo-create/asignacion-vehiculo-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-create/vehiculo-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-create/vehiculo-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-create/vehiculo-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-create/vehiculo-create.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/automania_21052020_0915.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/production/automania_21052020_0915.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/automania_21052020_0928.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/production/automania_21052020_0928.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/automania_23052020_0303.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/production/automania_23052020_0303.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/guv_18062020_1052.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/production/guv_18062020_1052.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/guv_18062020_1100.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/production/guv_18062020_1100.tar.gz" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,36 +49,6 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
     <execution />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="automania@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="automania@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="automania@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="automania: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-    </expand>
-    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -125,7 +131,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="remote&#9;ACTION&#9;WebDeployment.BrowseServers&#10;vehiculo&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/app/Http/Controllers/VehiculoController.php&#10;api&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/routes/api.php&#10;.env&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/.env&#10;vehicul&#9;FILE&#9;file://C:/Users/HP User/Documents/coda/automania/backend/app/Http/Controllers/VehiculoController.php" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -142,7 +148,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -166,7 +172,15 @@
       <workItem from="1533773687420" duration="379000" />
       <workItem from="1534167312907" duration="2526000" />
       <workItem from="1534170121294" duration="2777000" />
-      <workItem from="1592486936812" duration="4129000" />
+      <workItem from="1592486936812" duration="6158000" />
+      <workItem from="1592500927410" duration="698000" />
+      <workItem from="1592531091524" duration="15000" />
+      <workItem from="1592534355915" duration="187000" />
+      <workItem from="1592764429012" duration="6962000" />
+      <workItem from="1592956436718" duration="834000" />
+      <workItem from="1593197592918" duration="2370000" />
+      <workItem from="1593201945886" duration="4672000" />
+      <workItem from="1593287835920" duration="10000" />
     </task>
     <servers />
   </component>
@@ -174,10 +188,18 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1592492196547">
+    <state x="450" y="0" width="446" height="723" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593203042003">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592492196547" />
+    <state x="450" y="0" width="446" height="723" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1593203042003" />
+    <state x="187" y="0" key="SettingsEditor" timestamp="1592769890977">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="187" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592769890977" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593209406285">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1593209406285" />
     <state x="408" y="278" width="540" height="166" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1592486964550">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

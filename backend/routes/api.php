@@ -36,10 +36,12 @@ Route::resource('kilometrajes', 'KilometrajeController', ['except' => ['create',
 Route::resource('vehiculos', 'VehiculoController', ['except' => ['create', 'edit']]);
 Route::resource('taller-mecanicos', 'TallerMecanicoController', ['except' => ['create', 'edit']]);
 Route::resource('asignacion_vehiculos', 'AsignacionVehiculoController', ['except' => ['create', 'edit']]);
-Route::resource('vale_gasolinas', 'ValeGasolinaController', ['except' => ['create', 'edit']]);
+Route::resource('vale-combustibles', 'ValeCombustibleController', ['except' => ['create', 'edit']]);
 Route::resource('mantenimientos', 'MantenimientoController', ['except' => ['create', 'edit']]);
 Route::resource('estacion-servicios', 'EstacionServicioController', ['except' => ['create', 'edit']]);
 Route::resource('kilometrajes', 'KilometrajeController', ['except' => ['create', 'edit']]);
+Route::resource('tipo-vehiculos', 'TipoVehiculoController', ['except' => ['create', 'edit']]);
+Route::resource('contratos', 'ContratoController', ['except' => ['create', 'edit']]);
 Route::post('choferes-search', 'ChoferController@search');
 Route::post('choferes-filtrar', 'ChoferController@filtrar');
 Route::post('vehiculos-search', 'VehiculoController@search');
@@ -48,4 +50,7 @@ Route::post('kilometrajes-search', 'KilometrajeController@search');
 Route::post('kilometrajes-filtrar', 'KilometrajeController@filtrar');
 
 Route::post('asignaciones-search', 'AsignacionVehiculoController@search');
+
 //});
+
+

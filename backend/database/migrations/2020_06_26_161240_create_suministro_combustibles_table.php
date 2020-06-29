@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKilometrajesTable extends Migration
+class CreateSuministroCombustiblesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateKilometrajesTable extends Migration
      */
     public function up()
     {
-        Schema::create('kilometrajes', function (Blueprint $table) {
+        Schema::create('suministro_combustibles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('vehiculo_id')->unsigned();
             $table->foreign('vehiculo_id')
-                  ->references('id')
-                  ->on('vehiculos')
-                  ->onDelete('cascade');
-            $table->integer('anterior');
-            $table->integer('actual');
-            $table->integer('recorrido');
+                ->references('id')
+                ->on('vehiculos')
+                ->onDelete('cascade');
+            $table->string('combustible');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -35,6 +33,6 @@ class CreateKilometrajesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kilometrajes');
+        Schema::dropIfExists('suministro_combustibles');
     }
 }

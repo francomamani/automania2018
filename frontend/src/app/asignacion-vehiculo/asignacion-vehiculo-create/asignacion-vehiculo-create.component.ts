@@ -6,66 +6,68 @@ import {AsignacionVehiculoService} from '../asignacion-vehiculo.service';
 import {ChoferService} from '../../chofer/chofer.service';
 import {VehiculoService} from '../../vehiculo/vehiculo.service';
 import {MatDialog} from '@angular/material/dialog';
+import {TipoVehiculo} from '../../models/tipo-vehiculo';
+import {TipoVehiculoService} from '../../services/tipo-vehiculo.service';
 
 @Component({
-  selector: 'app-asignacion-vehiculo-create',
-  templateUrl: './asignacion-vehiculo-create.component.html',
-  styleUrls: ['./asignacion-vehiculo-create.component.css']
+    selector: 'app-asignacion-vehiculo-create',
+    templateUrl: './asignacion-vehiculo-create.component.html',
+    styleUrls: ['./asignacion-vehiculo-create.component.css']
 })
 export class AsignacionVehiculoCreateComponent implements OnInit {
-  choferes: any[] = [];
-  vehiculos: any[] = [];
-  asignacionVehiculoGroup: FormGroup;
+    choferes: any[] = [];
+    vehiculos: any[] = [];
+    asignacionVehiculoGroup: FormGroup;
 
-  constructor(
-    private router: Router,
-    private choferService: ChoferService,
-    private vehiculoService: VehiculoService,
-    private asignacionVehiculoService: AsignacionVehiculoService,
-    private fb: FormBuilder,
-    private dialog: MatDialog) {
-  }
+    constructor(
+        private router: Router,
+        private choferService: ChoferService,
+        private vehiculoService: VehiculoService,
+        private asignacionVehiculoService: AsignacionVehiculoService,
+        private fb: FormBuilder,
+        private dialog: MatDialog) {
+    }
 
-  ngOnInit() {
-    this.choferService.index()
-      .subscribe((choferes: any[]) => {
-        this.choferes = choferes;
-      });
-    this.vehiculoService.index()
-      .subscribe((vehiculos: any[]) => {
-        this.vehiculos = vehiculos;
-      });
+    ngOnInit() {
+        this.choferService.index()
+            .subscribe((choferes: any[]) => {
+                this.choferes = choferes;
+            });
+        this.vehiculoService.index()
+            .subscribe((vehiculos: any[]) => {
+                this.vehiculos = vehiculos;
+            });
 
-    this.asignacionVehiculoGroup = this.fb.group({
-      'user_id': new FormControl(parseInt(localStorage.getItem('user_id'), 10), Validators.required),
-      'chofer_id': new FormControl('', Validators.required),
-      'vehiculo_id': new FormControl('', Validators.required)
-    });
+        this.asignacionVehiculoGroup = this.fb.group({
+            user_id: new FormControl(parseInt(localStorage.getItem('user_id'), 10), Validators.required),
+            chofer_id: new FormControl('', Validators.required),
+            vehiculo_id: new FormControl('', Validators.required)
+        });
 
-  }
+    }
 
-  openDialog(res) {
-    const dialogRef = this.dialog.open(MensajeDialogComponent, {
-      width: '500px',
-      data: {
-        info: res.mensaje,
-        has_action: res.has_action
-      }
-    });
+    openDialog(res) {
+        const dialogRef = this.dialog.open(MensajeDialogComponent, {
+            width: '500px',
+            data: {
+                info: res.mensaje,
+                has_action: res.has_action
+            }
+        });
 
-    dialogRef.afterClosed().subscribe(response => {
-      if (response === true) {
-        this.router.navigate(['/asignacion-vehiculo/listar']);
-      }
-    });
-  }
+        dialogRef.afterClosed().subscribe(response => {
+            if (response === true) {
+                this.router.navigate(['/asignacion-vehiculo/listar']);
+            }
+        });
+    }
 
-  store() {
-    console.log(this.asignacionVehiculoGroup.value);
-    this.asignacionVehiculoService.store(this.asignacionVehiculoGroup.value).subscribe(res => {
-      this.openDialog(res);
-    }, (error) => {
-      this.openDialog(error.error);
-    });
-  }
+    store() {
+        console.log(this.asignacionVehiculoGroup.value);
+        this.asignacionVehiculoService.store(this.asignacionVehiculoGroup.value).subscribe(res => {
+            this.openDialog(res);
+        }, (error) => {
+            this.openDialog(error.error);
+        });
+    }
 }

@@ -18,6 +18,6 @@ class EstacionServicio extends Model
     protected $dates = ['deleted_at'];
 
     public function valeGasolinas(){
-        return $this->hasMany('App\ValeGasolina');
+        return $this->hasMany('App\ValeCombustible');
     }
 }

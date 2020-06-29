@@ -22,18 +22,20 @@ class CreateAsignacionVehiculosTable extends Migration
                 ->onDelete('cascade');
             $table->integer('chofer_id')->unsigned();
             $table->foreign('chofer_id')
-                  ->references('id')
-                  ->on('choferes')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('choferes')
+                ->onDelete('cascade');
             $table->integer('vehiculo_id')->unsigned();
             $table->foreign('vehiculo_id')
                 ->references('id')
                 ->on('vehiculos')
                 ->onDelete('cascade');
+            $table->boolean('responsable_actual')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

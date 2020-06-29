@@ -1,0 +1,65 @@
+<!--<div class="flex-container-center">
+  <a><mat-icon>add</mat-icon></a><a>Asignaciones / listar</a>
+</div>-->
+<div class="flex-container">
+  <span class="titulo">Lista de Vales de Gasolinas</span>
+
+  <span class="spacer"></span>
+
+  <button [routerLink]="['/vale-gasolina/crear']"
+          color="primary"
+          mat-mini-fab
+          matTooltip="Nueva vale de gasolina"
+          tooltip-position="left">
+    <mat-icon>add</mat-icon>
+  </button>  <!--
+-->
+  &nbsp;&nbsp;&nbsp;
+  <!--  <button (click)="exportExcel()"
+            color="accent"
+            mat-raised-button>
+      <mat-icon>import_export</mat-icon>
+      Exportar en Excel
+    </button>-->
+</div>
+
+<div class="fni-container mat-elevation-z8">
+  <div class="fni-header">
+    <mat-form-field>
+      <input (keyup)="search($event.target.value)" matInput placeholder="Buscar vales de gasolinas...">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="vale_gasolinas" matSort>
+    <ng-container matColumnDef="numero_vale">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombres</mat-header-cell>
+      <mat-cell *matCellDef="let  col"> {{col.chofer.nombres | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="motivo_viaje">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.chofer.apellidos | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="litros_aprox">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Carnet</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.chofer.carnet | uppercase }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
+      <mat-cell *matCellDef="let col; let i = index">
+        <!--        <button color="accent" mat-button mat-icon-button routerLink="/vehiculo/editar/{{col.id}}">
+                  <mat-icon>border_color</mat-icon>
+                </button>-->
+        <!--        <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
+                  <mat-icon>delete</mat-icon>
+                </button>-->
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5">
+  </mat-paginator>
+</div>

@@ -4,6 +4,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {VehiculoService} from '../vehiculo.service';
 import {MatDialog} from '@angular/material/dialog';
+import {TipoVehiculo} from '../../models/tipo-vehiculo';
+import {TipoVehiculoService} from '../../services/tipo-vehiculo.service';
 
 @Component({
   selector: 'app-vehiculo-create',
@@ -11,21 +13,28 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./vehiculo-create.component.css']
 })
 export class VehiculoCreateComponent implements OnInit {
+  tipo_vehiculos: TipoVehiculo[];
   vehiculoGroup: FormGroup;
 
   constructor(
     private router: Router,
+    private tipoVehiculoService: TipoVehiculoService,
     private vehiculoService: VehiculoService,
     private fb: FormBuilder,
     private dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.tipoVehiculoService.index()
+      .subscribe((tipo_vehiculos: TipoVehiculo[]) => {
+        this.tipo_vehiculos = tipo_vehiculos;
+      });
     this.createForm();
   }
 
   createForm() {
     this.vehiculoGroup = this.fb.group({
+      tipo_vehiculo: new FormControl('', Validators.required),
       placa: new FormControl('', Validators.required),
       marca: new FormControl('', Validators.required),
       modelo: new FormControl('', Validators.required),

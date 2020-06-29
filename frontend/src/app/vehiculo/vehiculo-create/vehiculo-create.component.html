@@ -11,6 +11,14 @@
               <mat-radio-button [value]=1>Activo</mat-radio-button>
               <mat-radio-button [value]=0>Inactivo</mat-radio-button>
             </mat-radio-group>-->
+      <div class="form-group">
+        <label for="tipo_vehiculo">Seleccionar Tipo de Vehiculo</label>
+        <ng-select [items]="tipo_vehiculos"
+                   bindLabel="descripcion"
+                   bindValue="descripcion"
+                   formControlName="tipo_vehiculo"
+                   id="tipo_vehiculo"></ng-select>
+      </div>
       <mat-form-field>
         <input #placa formControlName="placa" matInput maxlength="150" placeholder="Placa">
         <mat-hint align="end">{{placa.value?.length || 0}}/150</mat-hint>

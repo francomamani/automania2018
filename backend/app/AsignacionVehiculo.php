@@ -16,6 +16,7 @@ class AsignacionVehiculo extends Model
         'vehiculo_id'
     ];
     protected $dates = ['deleted_at'];
+    protected $appends = ['resumen'];
 
     public function servicioGeneral()
     {
@@ -40,6 +41,13 @@ class AsignacionVehiculo extends Model
     public function getVehiculoAttribute()
     {
         return Vehiculo::find($this->vehiculo_id);
+    }
+    public function getResumenAttribute()
+    {
+        $asignacion = AsignacionVehiculo::find($this->getKey());
+        $chofer = Chofer::find($asignacion['chofer_id']);
+        $vehiculo = Vehiculo::find($asignacion['vehiculo_id']);
+        return "{$chofer->nombres} {$chofer->apellidos} - {$vehiculo->placa}";
     }
 
 }

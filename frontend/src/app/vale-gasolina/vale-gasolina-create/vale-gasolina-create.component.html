@@ -1,0 +1,54 @@
+<!--<div class="flex-container-center">
+  <a><mat-icon>add</mat-icon></a><a>ASIGNACIONES / CREAR</a>
+</div>-->
+<mat-card class="card-md">
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>person_add</mat-icon>
+    </button>
+    VALE DE GASOLINA
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="valeGasolinaGroup" class="form">
+      <div class="form-group">
+        <label for="asignacion_vehiculo_id">Seleccionar Chofer y Vehiculo</label>
+        <ng-select [items]="asignaciones"
+                   bindLabel="resumen"
+                   bindValue="id"
+                   formControlName="asignacion_vehiculo_id"
+                   id="asignacion_vehiculo_id"></ng-select>
+      </div>
+      <div class="form-group">
+        <label for="estacion_servicio_id">Seleccionar Estación de Servicio</label>
+        <ng-select [items]="estaciones"
+                   bindLabel="razon_social"
+                   bindValue="id"
+                   formControlName="estacion_servicio_id"
+                   id="estacion_servicio_id"></ng-select>
+      </div>
+      <mat-form-field>
+        <mat-label>Numero de vale</mat-label>
+        <input formControlName="numero_vale" matInput type="text" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Motivo de Viaje</mat-label>
+        <input formControlName="motivo_viaje" matInput type="text" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Litros aprox.</mat-label>
+        <input formControlName="litros_aprox" matInput type="number">
+      </mat-form-field>
+      <div class="form-group" fxLayout="row" fxLayoutGap="5px">
+        <button [routerLink]="['/vale-gasolina/listar']" fxFlex="auto" mat-raised-button>
+          <mat-icon color="warn">undo</mat-icon>
+          ATRÁS
+        </button>
+        <button (click)="store()" [disabled]="valeGasolinaGroup.invalid" fxFlex="auto"
+                mat-raised-button>
+          <mat-icon color="accent">save</mat-icon>
+          GUARDAR
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

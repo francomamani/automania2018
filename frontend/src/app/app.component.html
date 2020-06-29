@@ -6,29 +6,54 @@
 
     <span class="spacer"></span>
 
-    <button *ngIf="authService.isAuthenticated()" mat-button matTooltip="Asignacion de Vehiculos"
-            routerLink="/asignacion-vehiculo">
-      <mat-icon>person_add</mat-icon>
-      Asignacion Vehículo
+    <button *ngIf="authService.isAuthenticated()" [matMenuTriggerFor]="mantenimiento" mat-button
+            matTooltip="Mantenimientos">
+      <mat-icon>local_car_wash</mat-icon>
+      Gestión Vehicular
     </button>
-    <button *ngIf="authService.isAuthenticated()" mat-button matTooltip="Vehiculos" routerLink="/vehiculo">
-      <mat-icon>drive_eta</mat-icon>
-      Vehículo
-    </button>
-    <!--    <button *ngIf="authService.isAuthenticated()" mat-button matTooltip="Mantenimientos"
-                routerLink="/mantenimiento">
-          <mat-icon>local_car_wash</mat-icon>
-          Mantenimientos
-        </button>-->
+    <mat-menu #mantenimiento="matMenu">
+      <button *ngIf="authService.isAuthenticated()" mat-menu-item routerLink="/vehiculo">
+        <mat-icon>drive_eta</mat-icon>
+        Vehículos
+      </button>
+      <button *ngIf="authService.isAuthenticated()" mat-menu-item matTooltip="Asignacion de Vehiculos"
+              routerLink="/asignacion-vehiculo">
+        <mat-icon>person_add</mat-icon>
+        Asignacion Vehículo
+      </button>
+<!--      <button mat-menu-item
+              routerLink="/mantenimiento">
+        <mat-icon>local_car_wash</mat-icon>
+        <span>Mantenimientos</span>
+      </button>-->
+<!--      <button mat-menu-item>
+        <mat-icon>ev_station</mat-icon>
+        <span>Kilometraje</span>
+      </button>-->
+    </mat-menu>
+
     <button *ngIf="authService.isAuthenticated()" mat-button matTooltip="Conductores" routerLink="/chofer">
       <mat-icon>face</mat-icon>
       Choferes
     </button>
-    <button *ngIf="authService.isAuthenticated()" mat-button matTooltip="Estaciones de Servicio"
-            routerLink="/estacion-servicio">
+
+    <button *ngIf="authService.isAuthenticated()" [matMenuTriggerFor]="gestion_gasolina" mat-button
+            matTooltip="Gestión de gasolina">
       <mat-icon>local_gas_station</mat-icon>
-      Estaciones de Servicio
+      Gestión de Gasolina
     </button>
+    <mat-menu #gestion_gasolina="matMenu">
+      <button *ngIf="authService.isAuthenticated()" mat-menu-item routerLink="/estacion-servicio">
+        <mat-icon>drive_eta</mat-icon>
+        Estaciones de Servicio
+      </button>
+      <button *ngIf="authService.isAuthenticated()" mat-menu-item matTooltip="Asignacion de Vehiculos"
+              routerLink="/vale-gasolina">
+        <mat-icon>person_add</mat-icon>
+        Vales de Gasolina
+      </button>
+    </mat-menu>
+
     <button *ngIf="authService.isAuthenticated()" mat-button matTooltip="Talleres Mecanicos"
             routerLink="/taller-mecanico">
       <mat-icon>build</mat-icon>

@@ -15,13 +15,14 @@
         <ng-select [items]="choferes"
                    bindLabel="resumen"
                    bindValue="id"
+                   class="form-control"
                    formControlName="chofer_id"
                    id="chofer_id"></ng-select>
       </div>
       <div class="form-group">
         <label for="vehiculo_id">Seleccionar Vehiculo</label>
         <ng-select [items]="vehiculos"
-                   bindLabel="resumen"
+                   bindLabel="placa"
                    bindValue="id"
                    formControlName="vehiculo_id"
                    id="vehiculo_id"></ng-select>
