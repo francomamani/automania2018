@@ -1,1 +1,63 @@
-<p>kilometraje-index works!</p>
+<div class="flex-container">
+  <span class="titulo">LISTA DE RECORRIDOS KM</span>
+
+  <span class="spacer"></span>
+  <button [routerLink]="['/kilometraje/crear']"
+          color="primary"
+          mat-mini-fab
+          matTooltip="Nuevo Recorrido Km"
+          tooltip-position="left">
+    <mat-icon>add</mat-icon>
+  </button>
+  &nbsp;&nbsp;&nbsp;
+  <button (click)="exportExcel()"
+          color="accent"
+          mat-raised-button>
+    <mat-icon>import_export</mat-icon>
+    Exportar en Excel
+  </button>
+</div>
+
+<div class="fni-container mat-elevation-z8">
+  <div class="fni-header">
+    <mat-form-field>
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar Recorridos...">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="kilometrajes" matSort>
+    <ng-container matColumnDef="suministro_combustible_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Suministro</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.suministro_combustible_id }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="anterior">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Anterior</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.anterior }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actual">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Actual</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.actual }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="recorrido">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Recorrido</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.recorrido }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
+      <mat-cell *matCellDef="let col; let i = index">
+        <button color="accent" mat-button mat-icon-button routerLink="/kilometraje/editar/{{col.id}}">
+          <mat-icon>border_color</mat-icon>
+        </button>
+        <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5">
+  </mat-paginator>
+</div>

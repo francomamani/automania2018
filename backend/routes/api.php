@@ -32,7 +32,7 @@ Route::resource('users', 'AutenticacionController', ['except' => ['create', 'edi
 Route::resource('administradores', 'AdministradorController', ['except' => ['create', 'edit']]);
 Route::resource('servicio_generales', 'ServicioGeneralController', ['except' => ['create', 'edit']]);
 Route::resource('choferes', 'ChoferController', ['except' => ['create', 'edit']]);
-Route::resource('kilometrajes', 'KilometrajeController', ['except' => ['create', 'edit']]);
+
 Route::resource('vehiculos', 'VehiculoController', ['except' => ['create', 'edit']]);
 Route::resource('taller-mecanicos', 'TallerMecanicoController', ['except' => ['create', 'edit']]);
 Route::resource('asignacion_vehiculos', 'AsignacionVehiculoController', ['except' => ['create', 'edit']]);
@@ -44,7 +44,7 @@ Route::resource('tipo-vehiculos', 'TipoVehiculoController', ['except' => ['creat
 Route::resource('contratos', 'ContratoController', ['except' => ['create', 'edit']]);
 
 Route::resource('suministro-combustible', 'SuministroCombustibleController', ['except' => ['create', 'edit']]);
-Route::resource('kilometrajes', 'KilometrajeController', ['except' => ['create', 'edit']]);
+Route::resource('kilometraje', 'KilometrajeController', ['except' => ['create', 'edit']]);
 
 Route::post('choferes-search', 'ChoferController@search');
 Route::post('choferes-filtrar', 'ChoferController@filtrar');
