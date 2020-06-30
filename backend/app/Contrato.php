@@ -18,4 +18,12 @@ class Contrato extends Model
         'activo',
     ];
     protected $dates = ['deleted_at'];
+
+    protected $appends = ['chofer'];
+    
+    public function getChoferAttribute()
+    {
+        return Chofer::find($this->chofer_id);
+    }
+
 }

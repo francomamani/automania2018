@@ -16,7 +16,7 @@ class AsignacionVehiculo extends Model
         'vehiculo_id'
     ];
     protected $dates = ['deleted_at'];
-    protected $appends = ['resumen'];
+    protected $appends = ['resumen']; 
 
     public function servicioGeneral()
     {

@@ -73,6 +73,14 @@ import { ContratoComponent } from './contrato/contrato.component';
 import { ContratoIndexComponent } from './contrato/contrato-index/contrato-index.component';
 import { ContratoEditComponent } from './contrato/contrato-edit/contrato-edit.component';
 import { ContratoCreateComponent } from './contrato/contrato-create/contrato-create.component';
+import { SuministroCombustibleComponent } from './suministro-combustible/suministro-combustible.component';
+import { SuministroCombustibleIndexComponent } from './suministro-combustible/suministro-combustible-index/suministro-combustible-index.component';
+import { SuministroCombustibleEditComponent } from './suministro-combustible/suministro-combustible-edit/suministro-combustible-edit.component';
+import { SuministroCombustibleCreateComponent } from './suministro-combustible/suministro-combustible-create/suministro-combustible-create.component';
+import { KilometrajeComponent } from './kilometraje/kilometraje.component';
+import { KilometrajeIndexComponent } from './kilometraje/kilometraje-index/kilometraje-index.component';
+import { KilometrajeEditComponent } from './kilometraje/kilometraje-edit/kilometraje-edit.component';
+import { KilometrajeCreateComponent } from './kilometraje/kilometraje-create/kilometraje-create.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -128,6 +136,22 @@ const appRoutes: Routes = [
       {path: 'crear', component: EstacionServicioCreateComponent},
       {path: 'listar', component: EstacionServicioIndexComponent},
       {path: 'editar/:id', component: EstacionServicioEditComponent},
+      {path: '', redirectTo: 'listar', pathMatch: 'full'}
+    ]
+  },
+  {
+    path: 'suministro-combustible', component: SuministroCombustibleComponent, canActivate: [AuthGuard], children: [
+      {path: 'crear', component: SuministroCombustibleCreateComponent},
+      {path: 'listar', component: SuministroCombustibleIndexComponent},
+      {path: 'editar/:id', component: SuministroCombustibleEditComponent},
+      {path: '', redirectTo: 'listar', pathMatch: 'full'}
+    ]
+  },
+  {
+    path: 'kilometraje', component: KilometrajeComponent, canActivate: [AuthGuard], children: [
+      {path: 'crear', component: KilometrajeCreateComponent},
+      {path: 'listar', component: KilometrajeIndexComponent},
+      {path: 'editar/:id', component: KilometrajeEditComponent},
       {path: '', redirectTo: 'listar', pathMatch: 'full'}
     ]
   },
@@ -195,7 +219,15 @@ const appRoutes: Routes = [
     ContratoComponent,
     ContratoIndexComponent,
     ContratoEditComponent,
-    ContratoCreateComponent
+    ContratoCreateComponent,
+    SuministroCombustibleComponent,
+    SuministroCombustibleIndexComponent,
+    SuministroCombustibleEditComponent,
+    SuministroCombustibleCreateComponent,
+    KilometrajeComponent,
+    KilometrajeIndexComponent,
+    KilometrajeEditComponent,
+    KilometrajeCreateComponent
   ],
   imports: [
     BrowserModule,

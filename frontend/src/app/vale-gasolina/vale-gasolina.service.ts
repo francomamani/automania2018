@@ -5,26 +5,25 @@ import {environment} from '../../environments/environment.prod';
 @Injectable()
 export class ValeGasolinaService {
   headers: any = null;
-
   constructor(private http: HttpClient) {
     this.headers = {
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + localStorage.getItem('token')
+      'Content-Type' : 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem('token')
     };
   }
 
   index() {
-    return this.http.get(environment.base + 'vale-gasolinas', {
+    return this.http.get(environment.base + 'vale-combustibles', {
       headers: this.headers
     });
   }
 
   show(id) {
-    return this.http.get(environment.base + 'vale-gasolinas/' + id, {headers: this.headers});
+    return this.http.get(environment.base + 'vale-combustibles/' + id, {headers: this.headers});
   }
 
   store(form) {
-    return this.http.post(environment.base + 'vale-gasolinas', form, {headers: this.headers});
+    return this.http.post(environment.base + 'vale-combustibles', form, {headers: this.headers});
   }
 
   search(data) {
@@ -32,11 +31,11 @@ export class ValeGasolinaService {
   }
 
   update(form, id) {
-    return this.http.put(environment.base + 'vale-gasolinas/' + id, form, {headers: this.headers});
+    return this.http.put(environment.base + 'vale-combustibles/' + id, form, {headers: this.headers});
   }
 
   destroy(id) {
-    return this.http.delete(environment.base + 'vale-gasolinas/' + id, {headers: this.headers});
+    return this.http.delete(environment.base + 'vale-combustibles/' + id, {headers: this.headers});
   }
 
 }

@@ -54,12 +54,22 @@
     </button>
     <mat-menu #gestion_gasolina="matMenu">
       <button *ngIf="authService.isAuthenticated()" mat-menu-item routerLink="/estacion-servicio">
-        <mat-icon>drive_eta</mat-icon>
+        <mat-icon>ev_station</mat-icon>
         Estaciones de Servicio
+      </button>
+      <button *ngIf="authService.isAuthenticated()" mat-menu-item matTooltip="Suministro de  Combustible"
+              routerLink="/suministro-combustible">
+        <mat-icon>battery_charging_full</mat-icon>
+        Suministro de  Combustible
+      </button>
+      <button *ngIf="authService.isAuthenticated()" mat-menu-item matTooltip="Kilometraje"
+              routerLink="/kilometraje">
+        <mat-icon>access_time</mat-icon>
+        Kilometraje
       </button>
       <button *ngIf="authService.isAuthenticated()" mat-menu-item matTooltip="Asignacion de Vehiculos"
               routerLink="/vale-gasolina">
-        <mat-icon>person_add</mat-icon>
+        <mat-icon>local_offer</mat-icon>
         Vales de Gasolina
       </button>
     </mat-menu>

@@ -8,7 +8,7 @@ use App\MySQLDump;
 class VehiculoController extends Controller
 {
     public function index(){
-        return response()->json(Vehiculo::orderBy('id', 'desc')->get(), 200);
+        return response()->json(Vehiculo::orderBy('id', 'desc')->get(), 200); 
     }
     public function store(){
         $vehiculo = Vehiculo::create(request()->all());

@@ -4,8 +4,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { ContratoService } from '../contrato.service';
-import { ChoferService } from 'src/app/chofer/chofer.service';
 import { Chofer } from '../../models/chofer';
+import {ChoferService} from '../../chofer/chofer.service';
 
 @Component({
   selector: 'app-contrato-create',
@@ -58,10 +58,6 @@ export class ContratoCreateComponent implements OnInit {
   }
 
   store() {
-    this.contratoGroup.patchValue({
-      'fecha_inicio_contrato': this.contratoGroup.value.fecha_inicio_contrato.getTime(),
-      'fecha_fin_contrato': this.contratoGroup.value.fecha_fin_contrato.getTime()
-    });
     this.contratoService.store(this.contratoGroup.value).subscribe(res => {
       this.openDialog(res);
       this.contratoGroup.reset();

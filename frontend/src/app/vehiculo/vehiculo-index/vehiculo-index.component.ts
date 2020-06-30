@@ -44,7 +44,7 @@ export class VehiculoIndexComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.vehiculoService.index().subscribe(res => { 
+    this.vehiculoService.index().subscribe(res => {
       this.list = res;
       this.vehiculos = new MatTableDataSource(this.list);
       this.vehiculos.sort = this.sort;

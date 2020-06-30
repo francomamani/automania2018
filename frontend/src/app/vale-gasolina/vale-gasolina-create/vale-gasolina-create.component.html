@@ -1,12 +1,12 @@
 <!--<div class="flex-container-center">
   <a><mat-icon>add</mat-icon></a><a>ASIGNACIONES / CREAR</a>
 </div>-->
-<mat-card class="card-md">
+<mat-card class="card-md" style="width: 700px;">
   <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
     <button color="accent" mat-button mat-icon-button>
       <mat-icon>person_add</mat-icon>
     </button>
-    VALE DE GASOLINA
+    VALE DE COMBUSTIBLE
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="valeGasolinaGroup" class="form">
@@ -26,18 +26,38 @@
                    formControlName="estacion_servicio_id"
                    id="estacion_servicio_id"></ng-select>
       </div>
-      <mat-form-field>
-        <mat-label>Numero de vale</mat-label>
-        <input formControlName="numero_vale" matInput type="text" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Motivo de Viaje</mat-label>
-        <input formControlName="motivo_viaje" matInput type="text" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Litros aprox.</mat-label>
-        <input formControlName="litros_aprox" matInput type="number">
-      </mat-form-field>
+
+      <div class="flexbox-container">
+        <div>
+          <mat-form-field>
+            <mat-label>Numero de vale</mat-label>
+            <input formControlName="numero_vale" matInput type="text" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Motivo de Viaje</mat-label>
+            <input formControlName="motivo_viaje" matInput type="text" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="flexbox-container">
+        <div>
+          <mat-form-field>
+            <mat-label>Litros aprox.</mat-label>
+            <input formControlName="litros" matInput type="number">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Importe.</mat-label>
+            <input formControlName="importe" matInput type="number">
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
       <div class="form-group" fxLayout="row" fxLayoutGap="5px">
         <button [routerLink]="['/vale-gasolina/listar']" fxFlex="auto" mat-raised-button>
           <mat-icon color="warn">undo</mat-icon>

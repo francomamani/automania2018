@@ -11,6 +11,7 @@
       <sshConfig host="codasrl.com" id="83f4ef2e-6b8f-4800-8126-af35ec125499" keyPath="C:\Users\HP User\OneDrive\Documents\coda\id_rsa_automania" port="22" customName="automania" nameFormat="CUSTOM" />
       <sshConfig host="codasrl.com" id="710d59fb-65b9-438d-b366-fc73469032a0" keyPath="C:\Users\HP User\OneDrive\Documents\coda\id_rsa_automania" port="22" customName="automania" nameFormat="CUSTOM" />
       <sshConfig host="codasrl.com" id="3c6a2ea4-d5ca-4d42-b79c-74e5febab9e1" keyPath="C:\Users\HP User\OneDrive\Documents\coda\id_rsa_automania" port="22" customName="automania" nameFormat="CUSTOM" />
+      <sshConfig host="codasrl.com" id="fb2e4181-5ff2-476d-883e-66133d2e3c48" keyPath="C:\Users\HP User\OneDrive\Documents\coda\id_rsa_automania" port="22" customName="automania" nameFormat="CUSTOM" />
     </configs>
   </component>
 </project>

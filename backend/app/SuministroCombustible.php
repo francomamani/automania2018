@@ -12,7 +12,14 @@ class SuministroCombustible extends Model
     protected $table = 'suministro_combustibles';
     protected $fillable = [
         'vehiculo_id',
-        'combustible',
+        'combustible'
     ];
     protected $dates = ['deleted_at'];
+    protected $appends = ['placa'];
+
+    public function getPlacaAttribute()
+    {
+        return Vehiculo::find($this->vehiculo_id)->placa;
+    }
+
 }

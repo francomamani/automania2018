@@ -6,10 +6,16 @@
 
   <mat-card-content>
     <form (submit)="update()" [formGroup]="estacionServicioGroup">
-      <mat-radio-group class="mat-radio-group" formControlName="activo">
-        <mat-radio-button [value]=1>Activo</mat-radio-button>
-        <mat-radio-button [value]=0>Inactivo</mat-radio-button>
-      </mat-radio-group>
+      <div class="text-right">
+        <mat-radio-group class="mat-radio-group" formControlName="activo">
+          <mat-radio-button [value]=1>Activo</mat-radio-button>
+          &nbsp;&nbsp;
+          <mat-radio-button [value]=0>Inactivo</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+
+
       <mat-form-field class="divider">
         <input #razon_social formControlName="razon_social" matInput maxlength="150" placeholder="Razon social">
         <mat-hint align="end">{{razon_social.value?.length || 0}}/150</mat-hint>

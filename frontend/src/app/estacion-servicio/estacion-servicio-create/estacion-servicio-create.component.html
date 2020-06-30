@@ -20,7 +20,7 @@
         <mat-error *ngIf="estacionServicioGroup.get('nit').status == 'INVALID'">El NIT es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input #propietario formControlName="propietario" matInput maxlength="100" placeholder="Carnet">
+        <input #propietario formControlName="propietario" matInput maxlength="100" placeholder="Propietario">
         <mat-hint align="end">{{propietario.value?.length || 0}}/100</mat-hint>
         <mat-error *ngIf="estacionServicioGroup.get('propietario').status == 'INVALID'">El propietario es obligatorio
         </mat-error>

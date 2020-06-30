@@ -1,0 +1,55 @@
+<div class="flex-container">
+  <span class="titulo">Lista de Suminsitro de Combustible</span>
+
+  <span class="spacer"></span>
+  <button [routerLink]="['/suministro-combustible/crear']"
+          color="primary"
+          mat-mini-fab
+          matTooltip="Nuevo Suministro de Combustible"
+          tooltip-position="left">
+    <mat-icon>add</mat-icon>
+  </button>
+  &nbsp;&nbsp;&nbsp;
+  <button (click)="exportExcel()"
+          color="accent"
+          mat-raised-button>
+    <mat-icon>import_export</mat-icon>
+    Exportar en Excel
+  </button>
+</div>
+
+<div class="fni-container mat-elevation-z8">
+  <div class="fni-header">
+    <mat-form-field>
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar Suministros...">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="suministroCombustibles" matSort>
+    <ng-container matColumnDef="placa">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Placa</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.placa | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="combustible">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Combustible</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.combustible | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
+      <mat-cell *matCellDef="let col; let i = index">
+        <button color="accent" mat-button mat-icon-button routerLink="/suministro-combustible/editar/{{col.id}}">
+          <mat-icon>border_color</mat-icon>
+        </button>
+        <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5">
+  </mat-paginator>
+</div>

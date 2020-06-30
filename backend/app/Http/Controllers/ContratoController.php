@@ -16,7 +16,7 @@ class ContratoController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Contrato::orderBy('id', 'desc')->get(), 200);
     }
 
     /**
@@ -31,7 +31,7 @@ class ContratoController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * 
      * @param Request $request
      * @return Response
      */
@@ -49,7 +49,7 @@ class ContratoController extends Controller
      */
     public function show(Contrato $contrato)
     {
-        //
+        return response()->json(Contrato::find($id));
     }
 
     /**
@@ -72,7 +72,13 @@ class ContratoController extends Controller
      */
     public function update(Request $request, Contrato $contrato)
     {
-        //
+        $contrato = Contrato::find($id);
+        $contrato->update(request()->all());
+        return response()->json([
+            'actualizado' => $contrato,
+            'has_action' => true,
+            'mensaje' => 'Numero_contrato' . $contrato->numero_contrato . ' actualizado exitosamente'
+        ], 200);
     }
 
     /**
@@ -83,6 +89,30 @@ class ContratoController extends Controller
      */
     public function destroy(Contrato $contrato)
     {
-        //
+        $contrato = Contrato::find($id);
+        $contrato->delete();
+        return response()->json(['exito'=>'Contrato eliminado exitosamente con id: ' . $contrato->id], 200);
+    }
+
+    public function search(){
+        $value = request()->input('value');
+        $contrato = Contrato::where('numero_contrato', 'like', '%'.$value.'%')
+            ->orWhere('fecha_inicio_contrato', 'like', '%'.$value. '%')
+            ->orWhere('fecha_fin_contrato', 'like', '%'.$value. '%')
+            ->orWhere('activo', 'like', '%'.$value. '%')
+            ->get();
+        return response()->json($contrato, 201);
+    }
+
+    public function filtrar(){
+        $status = request()->input('status');
+        $response = null;
+        switch ($status){
+            case 'chofer-asc':  $response = Contrato::orderBy('chofer_id ')->get(); break;
+            case 'chofer-desc':  $response = Contrato::orderByDesc('chofer_id ')->get(); break;
+            case 'numero-asc':  $response = Contrato::orderBy('numero_contrato')->get(); break;
+            case 'numero-desc':  $response = Contrato::orderByDesc('numero_contrato')->get(); break;
+        }
+        return response()->json($response, 200);
     }
 }

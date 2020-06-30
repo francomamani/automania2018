@@ -61,7 +61,8 @@ export class ValeGasolinaCreateComponent implements OnInit {
       estacion_servicio_id: new FormControl(null, Validators.required),
       numero_vale: new FormControl(null, Validators.required),
       motivo_viaje: new FormControl(null, Validators.required),
-      litros_aprox: new FormControl(0)
+      litros: new FormControl(0, Validators.required),
+      importe: new FormControl(0, Validators.required)
     });
 
   }

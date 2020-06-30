@@ -4,8 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {VehiculoService} from '../vehiculo.service';
 import {MatDialog} from '@angular/material/dialog';
-import { TipoVehiculo } from 'src/app/models/tipo-vehiculo';
-import { TipoVehiculoService } from 'src/app/services/tipo-vehiculo.service';
+import {TipoVehiculo} from '../../models/tipo-vehiculo';
+import {TipoVehiculoService} from '../../services/tipo-vehiculo.service';
 
 @Component({
   selector: 'app-vehiculo-edit',
