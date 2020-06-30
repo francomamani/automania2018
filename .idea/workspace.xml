@@ -2,32 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62bb6f7e-8933-4693-b869-655f128be901" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/AsignacionVehiculo.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/AsignacionVehiculo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Contrato.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Contrato.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ContratoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ContratoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/SuministroCombustibleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SuministroCombustibleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/VehiculoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/VehiculoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/SuministroCombustible.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/SuministroCombustible.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/KilometrajeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/KilometrajeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contrato/contrato-create/contrato-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contrato/contrato-create/contrato-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contrato/contrato.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contrato/contrato.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/estacion-servicio/estacion-servicio-create/estacion-servicio-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/estacion-servicio/estacion-servicio-create/estacion-servicio-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/estacion-servicio/estacion-servicio-edit/estacion-servicio-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/estacion-servicio/estacion-servicio-edit/estacion-servicio-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/user/user-create/user-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/user/user-create/user-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/user/user-edit/user-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/user/user-edit/user-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/vale-gasolina/vale-gasolina-create/vale-gasolina-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vale-gasolina/vale-gasolina-create/vale-gasolina-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/vale-gasolina/vale-gasolina-create/vale-gasolina-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vale-gasolina/vale-gasolina-create/vale-gasolina-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/vale-gasolina/vale-gasolina-index/vale-gasolina-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vale-gasolina/vale-gasolina-index/vale-gasolina-index.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/vale-gasolina/vale-gasolina.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vale-gasolina/vale-gasolina.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-create/vehiculo-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-create/vehiculo-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-edit/vehiculo-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-edit/vehiculo-edit.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-index/vehiculo-index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/vehiculo/vehiculo-index/vehiculo-index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/kilometraje/kilometraje-index/kilometraje-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/kilometraje/kilometraje-index/kilometraje-index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/kilometraje/kilometraje-index/kilometraje-index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/kilometraje/kilometraje-index/kilometraje-index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/kilometraje/kilometraje.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/kilometraje/kilometraje.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +156,7 @@
       <workItem from="1593197592918" duration="2370000" />
       <workItem from="1593201945886" duration="4672000" />
       <workItem from="1593287835920" duration="10000" />
-      <workItem from="1593529223568" duration="13798000" />
+      <workItem from="1593529223568" duration="15668000" />
     </task>
     <servers />
   </component>
@@ -212,10 +192,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="549" y="230" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1366.728@0.0.1366.728" timestamp="1593529639060" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1593538759212">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1593547927788">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593538759212" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593547927788" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593209406285">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
