@@ -10,8 +10,6 @@ class MantenimientoController extends Controller
         return response()->json(Mantenimiento::orderBy('id', 'desc')->get(), 200);
     }
     public function store(){
-/*        $mantenimiento = new Mantenimiento();
-        $mantenimiento->*/
         $mantenimiento = Mantenimiento::create(request()->all());
         return response()->json($mantenimiento , 201);
     }

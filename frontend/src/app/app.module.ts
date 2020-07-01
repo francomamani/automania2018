@@ -163,14 +163,14 @@ const appRoutes: Routes = [
       {path: '', redirectTo: 'listar', pathMatch: 'full'}
     ]
   },
-  /*  {
+    {
       path: 'mantenimiento', component: MantenimientoComponent, canActivate: [AuthGuard], children: [
         {path: 'crear', component: MantenimientoCreateComponent},
         {path: 'listar', component: MantenimientoIndexComponent},
         {path: 'editar/:id', component: MantenimientoEditComponent},
         {path: '', redirectTo: 'listar', pathMatch: 'full'}
       ]
-    },*/
+    },
   {path: '**', redirectTo: 'login', pathMatch: 'full'},
   {
     path: '',

@@ -6,12 +6,12 @@
 
     <span class="spacer"></span>
 
-    <button *ngIf="authService.isAuthenticated()" [matMenuTriggerFor]="mantenimiento" mat-button
-            matTooltip="Mantenimientos">
+    <button *ngIf="authService.isAuthenticated()" [matMenuTriggerFor]="gestionV" mat-button
+            matTooltip="Gestion Vehicular">
       <mat-icon>local_car_wash</mat-icon>
       Gestión Vehicular
     </button>
-    <mat-menu #mantenimiento="matMenu">
+    <mat-menu #gestionV="matMenu">
       <button *ngIf="authService.isAuthenticated()" mat-menu-item routerLink="/vehiculo">
         <mat-icon>drive_eta</mat-icon>
         Vehículos
@@ -19,17 +19,8 @@
       <button *ngIf="authService.isAuthenticated()" mat-menu-item matTooltip="Asignacion de Vehiculos"
               routerLink="/asignacion-vehiculo">
         <mat-icon>person_add</mat-icon>
-        Asignacion Vehículo
+        Asignación Vehículo
       </button>
-<!--      <button mat-menu-item
-              routerLink="/mantenimiento">
-        <mat-icon>local_car_wash</mat-icon>
-        <span>Mantenimientos</span>
-      </button>-->
-<!--      <button mat-menu-item>
-        <mat-icon>ev_station</mat-icon>
-        <span>Kilometraje</span>
-      </button>-->
     </mat-menu>
 
 
@@ -43,7 +34,7 @@
         Choferes
       </button>
       <button *ngIf="authService.isAuthenticated()" mat-menu-item routerLink="/contrato">
-        <mat-icon>insert_drive_file</mat-icon>
+        <mat-icon>assignment</mat-icon>
         Contratos
       </button>
     </mat-menu>
@@ -74,11 +65,25 @@
       </button>
     </mat-menu>
 
-    <button *ngIf="authService.isAuthenticated()" mat-button matTooltip="Talleres Mecanicos"
-            routerLink="/taller-mecanico">
+    <button *ngIf="authService.isAuthenticated()" [matMenuTriggerFor]="gestionM" mat-button
+            matTooltip="Mantenimiento Vehiculo">
       <mat-icon>build</mat-icon>
-      Talleres Mecánicos
+      Gestión Mantenimiento
     </button>
+    <mat-menu #gestionM="matMenu">
+      <button *ngIf="authService.isAuthenticated()" mat-menu-item routerLink="/taller-mecanico">
+        <mat-icon>build</mat-icon>
+        Talleres Mecánicos
+      </button>
+      <button *ngIf="authService.isAuthenticated()" mat-menu-item matTooltip="Mantenimientos"
+              routerLink="/mantenimiento">
+        <mat-icon>settings</mat-icon>
+        Mantenimientos
+      </button>
+    </mat-menu>
+
+
+
     <button *ngIf="authService.isAuthenticated()" [matMenuTriggerFor]="usuarios" mat-icon-button
             matTooltip="Administracion">
       <mat-icon>settings</mat-icon>
