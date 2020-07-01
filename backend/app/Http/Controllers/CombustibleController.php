@@ -7,79 +7,55 @@ use Illuminate\Http\Request;
 
 class CombustibleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function index(){
+        $lista = Combustible::all();
+        return response()->json($lista, 200);
+    }
+    public function show($id){
+        return response()->json(Combustible::find($id), 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store (Request $request) {
+        $tipoComb =  Combustible::create($request->all());
+        return response()->json([
+            'creado' => $tipoComb,
+            'mensaje' => $tipoComb->nombres .' '. $tipoComb->apellidos .
+                'creado exitosamente. Desea ir al listados de tipos de combustible?',
+            'has_action' => true
+        ], 201);
+    }
+    public function update(Request $request, $id)
     {
-        //
+        $tipoCom = Combustible::find($id);
+        $tipoCom->update($request->all());
+        return response()->json([
+            'actualizado' => $tipoCom,
+            'mensaje' => $tipoCom->nombres . ' ' . $tipoCom->apellidos
+                . ' actualizado exitosamente. Desea volver a la lista de tipos de combustibles?',
+            'has_action' => true
+        ], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function destroy($id){
+        $tipoCombustible = Combustible::find($id);
+        $tipoCombustible->delete();
+        return response()->json(['exito'=>'Tipo combustible eliminado exitosamente con id: ' . $tipoCombustible->id], 200);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Combustible  $combustible
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Combustible $combustible)
-    {
-        //
+    public function search(){
+        $value = request()->input('value');
+        $tipoCombustible = Combustible::where('nombre', 'like', '%'.$value.'%')
+            ->orWhere('importe', 'like', '%'.$value. '%')->get();
+        return response()->json($tipoCombustible, 201);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Combustible  $combustible
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Combustible $combustible)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Combustible  $combustible
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Combustible $combustible)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Combustible  $combustible
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Combustible $combustible)
-    {
-        //
+    public function filtrar(){
+        $status = request()->input('status');
+        $response = null;
+        switch ($status){
+            case 'nombre-asc':  $response = Combustible::orderBy('nombre')->with('nombre')->get(); break;
+            case 'nombre-desc':  $response = Combustible::orderByDesc('nombre')->with('nombre')->get(); break;
+            case 'importe-asc':  $response = Combustible::orderBy('importe')->with('importe')->get(); break;
+            case 'importe-desc':  $response = Combustible::orderByDesc('importe')->with('importe')->get(); break;
+        }
+        return response()->json($response, 200);
     }
 }

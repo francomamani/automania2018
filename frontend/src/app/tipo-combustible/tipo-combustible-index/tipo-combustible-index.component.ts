@@ -1,48 +1,46 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.component';
 import {environment} from '../../../environments/environment.prod';
-import {ChoferService} from '../chofer.service';
 import {ExcelService} from '../../services/excel.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
+import {TipoCombustibleService} from "../tipo-combustible.service";
 
 @Component({
-  selector: 'app-chofer-index',
-  templateUrl: './chofer-index.component.html',
-  styleUrls: ['./chofer-index.component.css']
+  selector: 'app-tipo-combustible-index',
+  templateUrl: './tipo-combustible-index.component.html',
+  styleUrls: ['./tipo-combustible-index.component.css']
 })
-export class ChoferIndexComponent implements OnInit {
+export class TipoCombustibleIndexComponent implements OnInit {
   list: any = [];
   environment = environment;
-  choferes: MatTableDataSource<any>;
+  tipoCombustible: MatTableDataSource<any>;
 
-  displayedColumns = ['nombres',
-    'apellidos',
-    'carnet',
-    'tipo',
+  displayedColumns = ['nombre',
+    'importe',
     'acciones'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    private choferService: ChoferService,
+    private tipoCombustibleService: TipoCombustibleService,
     private dialog: MatDialog,
     private excelService: ExcelService
   ) {
-    this.choferService.index().subscribe(res => {
+    this.tipoCombustibleService.index().subscribe(res => {
       this.list = res;
-      this.choferes = new MatTableDataSource(this.list);
-      this.choferes.sort = this.sort;
-      this.choferes.paginator = this.paginator;
+      this.tipoCombustible = new MatTableDataSource(this.list);
+      this.tipoCombustible.sort = this.sort;
+      this.tipoCombustible.paginator = this.paginator;
     });
   }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
-    this.choferes.filter = filterValue;
+    this.tipoCombustible.filter = filterValue;
   }
 
   ngOnInit() {
@@ -52,7 +50,7 @@ export class ChoferIndexComponent implements OnInit {
     const dialogRef = this.dialog.open(MensajeDialogComponent, {
       width: '450px',
       data: {
-        info: 'Esta seguro de eliminar al usuario?',
+        info: 'Esta seguro de eliminar el tipo de combustible?',
         has_action: true
       }
     });
@@ -64,11 +62,11 @@ export class ChoferIndexComponent implements OnInit {
   }
 
   destroy(id, index) {
-    this.choferService.destroy(id).subscribe(res => {
+    this.tipoCombustibleService.destroy(id).subscribe(res => {
       this.list.splice(index, 1);
-      this.choferes.data = this.list;
-      this.choferes.sort = this.sort;
-      this.choferes.paginator = this.paginator;
+      this.tipoCombustible.data = this.list;
+      this.tipoCombustible.sort = this.sort;
+      this.tipoCombustible.paginator = this.paginator;
       console.log(res);
     });
   }
@@ -85,7 +83,7 @@ export class ChoferIndexComponent implements OnInit {
         fecha_fin_contrato: new Date(item.fecha_fin_contrato)
       };
     });
-    this.excelService.exportarExcel(lista, 'choferes');
+    this.excelService.exportarExcel(lista, 'tipoCombustible');
   }
 
 }

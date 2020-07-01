@@ -81,6 +81,10 @@ import { KilometrajeComponent } from './kilometraje/kilometraje.component';
 import { KilometrajeIndexComponent } from './kilometraje/kilometraje-index/kilometraje-index.component';
 import { KilometrajeEditComponent } from './kilometraje/kilometraje-edit/kilometraje-edit.component';
 import { KilometrajeCreateComponent } from './kilometraje/kilometraje-create/kilometraje-create.component';
+import { TipoCombustibleComponent } from './tipo-combustible/tipo-combustible.component';
+import { TipoCombustibleIndexComponent } from './tipo-combustible/tipo-combustible-index/tipo-combustible-index.component';
+import { TipoCombustibleEditComponent } from './tipo-combustible/tipo-combustible-edit/tipo-combustible-edit.component';
+import { TipoCombustibleCreateComponent } from './tipo-combustible/tipo-combustible-create/tipo-combustible-create.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -136,6 +140,14 @@ const appRoutes: Routes = [
       {path: 'crear', component: EstacionServicioCreateComponent},
       {path: 'listar', component: EstacionServicioIndexComponent},
       {path: 'editar/:id', component: EstacionServicioEditComponent},
+      {path: '', redirectTo: 'listar', pathMatch: 'full'}
+    ]
+  },
+  {
+    path: 'tipo-combustible', component: TipoCombustibleComponent, canActivate: [AuthGuard], children: [
+      {path: 'crear', component: TipoCombustibleCreateComponent},
+      {path: 'listar', component: TipoCombustibleIndexComponent},
+      {path: 'editar/:id', component: TipoCombustibleEditComponent},
       {path: '', redirectTo: 'listar', pathMatch: 'full'}
     ]
   },
@@ -227,7 +239,11 @@ const appRoutes: Routes = [
     KilometrajeComponent,
     KilometrajeIndexComponent,
     KilometrajeEditComponent,
-    KilometrajeCreateComponent
+    KilometrajeCreateComponent,
+    TipoCombustibleComponent,
+    TipoCombustibleIndexComponent,
+    TipoCombustibleEditComponent,
+    TipoCombustibleCreateComponent
   ],
   imports: [
     BrowserModule,
