@@ -43,6 +43,8 @@ Route::resource('estacion-servicios', 'EstacionServicioController', ['except' =>
 Route::resource('tipo-vehiculos', 'TipoVehiculoController', ['except' => ['create', 'edit']]);
 Route::resource('contratos', 'ContratoController', ['except' => ['create', 'edit']]);
 
+Route::resource('tipo-combustible', 'CombustibleController', ['except' => ['create', 'edit']]);
+
 Route::resource('suministro-combustible', 'SuministroCombustibleController', ['except' => ['create', 'edit']]);
 Route::resource('kilometraje', 'KilometrajeController', ['except' => ['create', 'edit']]);
 

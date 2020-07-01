@@ -1,0 +1,38 @@
+<mat-card class="card-md">
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>face</mat-icon>
+    </button>
+    CREAR TIPO DE COMBSUTIBLE
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="tipoCombustibleGroup">
+
+      <mat-form-field class="divider">
+        <input #nombre formControlName="nombre" matInput maxlength="150"
+               oninput="this.value = this.value.toUpperCase()" placeholder="Nombres">
+        <mat-hint align="end">{{nombre.value?.length || 0}}/150</mat-hint>
+        <mat-error *ngIf="tipoCombustibleGroup.get('nombre').status == 'INVALID'">El nombre es obligatorio</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="divider">
+        <input #importe formControlName="importe" matInput maxlength="10"  type="number" placeholder="Importe">
+        <mat-hint align="end">{{importe.value?.length || 0}}/10</mat-hint>
+        <mat-error *ngIf="tipoCombustibleGroup.get('importe').status == 'INVALID'">El importe es obligatorio</mat-error>
+      </mat-form-field>
+
+      <div class="form-group" fxLayout="row" fxLayoutGap="5px">
+        <button [routerLink]="['/tipo-combustible/listar']" fxFlex="auto" mat-raised-button>
+          <mat-icon color="warn">undo</mat-icon>
+          ATRÁS
+        </button>
+        <button (click)="store()" [disabled]="tipoCombustibleGroup.invalid" fxFlex="auto"
+                mat-raised-button>
+          <mat-icon color="accent">save</mat-icon>
+          GUARDAR
+        </button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>

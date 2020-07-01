@@ -1,0 +1,30 @@
+<mat-card *ngIf="tipoCombustible !== null" class="card-md">
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>face</mat-icon>
+    </button>
+    EDITAR TIPO COMBUSTIBLE
+  </mat-card-header>
+  <mat-card-content>
+    <form (submit)="update()" [formGroup]="tipoCombustibleGroup">
+
+      <mat-form-field class="divider">
+        <input #nombre formControlName="nombre" matInput maxlength="150"
+               oninput="this.value = this.value.toUpperCase()" placeholder="Nombres">
+        <mat-hint align="end">{{nombre.value?.length || 0}}/150</mat-hint>
+        <mat-error *ngIf="tipoCombustibleGroup.get('nombre').status == 'INVALID'">El nombre es obligatorio</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="divider">
+        <input #importe formControlName="importe" matInput maxlength="10"  type="number" placeholder="Importe">
+        <mat-hint align="end">{{importe.value?.length || 0}}/10</mat-hint>
+        <mat-error *ngIf="tipoCombustibleGroup.get('importe').status == 'INVALID'">El importe es obligatorio</mat-error>
+      </mat-form-field>
+
+
+
+      <button [disabled]="tipoCombustibleGroup.status == 'INVALID'" color="accent" mat-raised-button type="submit">ACTUALIZAR
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

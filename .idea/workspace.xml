@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62bb6f7e-8933-4693-b869-655f128be901" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CombustibleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CombustibleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chofer/chofer-index/chofer-index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chofer/chofer-index/chofer-index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contrato/contrato-create/contrato-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contrato/contrato-create/contrato-create.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/mantenimiento/mantenimiento-index/mantenimiento-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mantenimiento/mantenimiento-index/mantenimiento-index.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/mantenimiento/mantenimiento-index/mantenimiento-index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mantenimiento/mantenimiento-index/mantenimiento-index.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +118,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EventosLaChoza" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -120,7 +128,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -154,7 +162,8 @@
       <workItem from="1593201945886" duration="4672000" />
       <workItem from="1593287835920" duration="10000" />
       <workItem from="1593529223568" duration="16270000" />
-      <workItem from="1593567767425" duration="3055000" />
+      <workItem from="1593567767425" duration="6610000" />
+      <workItem from="1593612950833" duration="7162000" />
     </task>
     <servers />
   </component>
@@ -162,6 +171,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="391" y="99" key="#Servers" timestamp="1593632217897">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="391" y="99" key="#Servers/0.0.1366.728@0.0.1366.728" timestamp="1593632217897" />
     <state x="113" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593530375471">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -170,10 +183,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="450" y="0" width="446" height="723" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1593203042003" />
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593544492530">
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593633950131">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1593544492530" />
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1593633950131" />
     <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1593535927107">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -182,10 +195,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="427" y="0" key="Diagram.Print.Preview.Dialog/0.0.1366.728@0.0.1366.728" timestamp="1593530544288" />
-    <state x="187" y="0" key="SettingsEditor" timestamp="1592769890977">
+    <state x="1946" y="184" key="FileChooserDialogImpl" timestamp="1593576049035">
+      <screen x="1366" y="0" width="1600" height="860" />
+    </state>
+    <state x="1946" y="184" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1600.860@1366.0.1600.860" timestamp="1593576049035" />
+    <state x="180" y="17" key="SettingsEditor" timestamp="1593632395466">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="187" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592769890977" />
+    <state x="180" y="17" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593632395466" />
     <state x="549" y="230" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1593529639060">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

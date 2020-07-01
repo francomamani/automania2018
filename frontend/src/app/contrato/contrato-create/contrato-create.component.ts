@@ -32,6 +32,7 @@ export class ContratoCreateComponent implements OnInit {
   }
 
   createForm() {
+
     this.contratoGroup = this.fb.group({
       chofer_id: new FormControl('', Validators.required),
       numero_contrato: new FormControl('', Validators.required),
