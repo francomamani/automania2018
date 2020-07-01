@@ -23,15 +23,15 @@ export class MantenimientoIndexComponent implements OnInit {
   displayedColumns = [
     'placa',
     'taller',
-    'decripcion',
+    // 'decripcion',
     'numero_factura',
-    'monto',
+   // 'monto',
     'fecha_inicio',
     'fecha_fin',
-    'descripcion_servicio',
-    'tipo',
-    'anulado',
-    'numero_correlativo',
+    // 'descripcion_servicio',
+    // 'tipo',
+    // 'anulado',
+    // 'numero_correlativo',
     'acciones'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

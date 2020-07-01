@@ -28,28 +28,36 @@
   </div>
 
   <mat-table #table [dataSource]="mantenimientos" matSort>
-    <ng-container matColumnDef="numero_vale">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombres</mat-header-cell>
-      <mat-cell *matCellDef="let  col"> {{col.chofer.nombres | uppercase }} </mat-cell>
+    <ng-container matColumnDef="placa">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Placa</mat-header-cell>
+      <mat-cell *matCellDef="let  col"> {{col.placa | uppercase }} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="motivo_viaje">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.chofer.apellidos | uppercase }} </mat-cell>
+    <ng-container matColumnDef="taller">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Taller</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.taller | uppercase }} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="litros_aprox">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Carnet</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.chofer.carnet | uppercase }} </mat-cell>
+    <ng-container matColumnDef="numero_factura">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Numero Factura</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.numero_factura }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="fecha_inicio">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Inicio </mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.fecha_inicio }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="fecha_fin">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Fin</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.fecha_fin }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">
-        <!--        <button color="accent" mat-button mat-icon-button routerLink="/vehiculo/editar/{{col.id}}">
-                  <mat-icon>border_color</mat-icon>
-                </button>-->
-        <!--        <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
-                  <mat-icon>delete</mat-icon>
-                </button>-->
+        <button color="accent" mat-button mat-icon-button routerLink="/mantenimiento/editar/{{col.id}}">
+          <mat-icon>border_color</mat-icon>
+        </button>
+        <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-cell>
     </ng-container>
 
