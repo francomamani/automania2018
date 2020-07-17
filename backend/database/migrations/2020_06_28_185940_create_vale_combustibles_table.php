@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateValeCombustiblesTable extends Migration
 {
@@ -32,7 +32,7 @@ class CreateValeCombustiblesTable extends Migration
                 ->onDelete('cascade');
             $table->string('numero_vale');
             $table->string('motivo_viaje');
-            $table->integer('litros')->unsigned()->nullable();
+            $table->integer('litros')->unsigned();
             $table->float('importe')->nullable();
             $table->softDeletes();
             $table->timestamps();

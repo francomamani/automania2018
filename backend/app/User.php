@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -30,10 +30,27 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function administrador(){
+
+    protected $appends = ['tipo'];
+
+
+    public function getTipoAttribute()
+    {
+        $esServicioGeneral = ServicioGeneral::where('user_id', $this->getKey())->exists();
+        if ($esServicioGeneral) {
+            return 'servicio_general';
+        } else {
+            return 'administrador';
+        }
+    }
+
+    public function administrador()
+    {
         return $this->hasOne('App\Administrador');
     }
-    public function servicioGeneral(){
+
+    public function servicioGeneral()
+    {
         return $this->hasOne('App\ServicioGeneral');
     }
 }

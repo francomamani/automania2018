@@ -11,12 +11,13 @@ class AsignacionVehiculo extends Model
 
     protected $table = 'asignacion_vehiculos';
     protected $fillable = [
-        'asignacion_vehiculo_id',
+        'servicio_general_id',
         'chofer_id',
-        'vehiculo_id'
+        'vehiculo_id',
+        'responsable_actual'
     ];
     protected $dates = ['deleted_at'];
-    protected $appends = ['resumen']; 
+    protected $appends = ['resumen', 'chofer', 'vehiculo', 'servicio_general'];
 
     public function servicioGeneral()
     {
@@ -33,6 +34,11 @@ class AsignacionVehiculo extends Model
         return $this->belongsTo('App\Vehiculo');
     }
 
+    public function getServicioGeneralAttribute()
+    {
+        return ServicioGeneral::find($this->servicio_general_id);
+    }
+
     public function getChoferAttribute()
     {
         return Chofer::find($this->chofer_id);
@@ -42,6 +48,7 @@ class AsignacionVehiculo extends Model
     {
         return Vehiculo::find($this->vehiculo_id);
     }
+
     public function getResumenAttribute()
     {
         $asignacion = AsignacionVehiculo::find($this->getKey());

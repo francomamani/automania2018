@@ -19,6 +19,10 @@ export class VehiculoService {
     });
   }
 
+  suministroCombustibles(vehiculo_id: number) {
+    return this.http.get(`${environment.base}suministro-combustibles/${vehiculo_id}`);
+  }
+
   show(id) {
     return this.http.get(environment.base + 'vehiculos/' + id, {headers: this.headers});
   }

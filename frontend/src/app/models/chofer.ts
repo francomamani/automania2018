@@ -1,6 +1,9 @@
 export class Chofer {
     constructor(
-      public numero_contrato: string,
+      public nombres: string,
+      public apellidos: string,
+      public carnet: string,
+      public tipo: string,
       public id?: number
     ) {
     }

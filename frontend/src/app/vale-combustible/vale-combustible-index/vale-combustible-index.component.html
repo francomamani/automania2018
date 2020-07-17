@@ -6,11 +6,11 @@
 
   <span class="spacer"></span>
 
-  <button [routerLink]="['/vale-gasolina/crear']"
+  <button [routerLink]="['/vale-combustible/crear']"
           color="primary"
           mat-mini-fab
           matTooltip="Nueva vale de gasolina"
-          tooltip-position="left">
+          matTooltipPosition="left">
     <mat-icon>add</mat-icon>
   </button>  <!--
 -->
@@ -30,18 +30,22 @@
     </mat-form-field>
   </div>
 
-  <mat-table #table [dataSource]="vale_gasolinas" matSort>
+  <mat-table #table [dataSource]="vale_combustibles" matSort>
     <ng-container matColumnDef="numero_vale">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombres</mat-header-cell>
-      <mat-cell *matCellDef="let  col"> {{col.chofer.nombres | uppercase }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Numero de Vale</mat-header-cell>
+      <mat-cell *matCellDef="let  col"> {{col.numero_vale | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="motivo_viaje">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.chofer.apellidos | uppercase }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Motivo de Viaje</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.motivo_viaje | uppercase }} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="litros_aprox">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Carnet</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.chofer.carnet | uppercase }} </mat-cell>
+    <ng-container matColumnDef="litros">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Litros</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.litros | number: '1.2-2' }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="importe">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Importe</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.importe | number: '1.2-2' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acciones">
@@ -49,10 +53,13 @@
       <mat-cell *matCellDef="let col; let i = index">
         <!--        <button color="accent" mat-button mat-icon-button routerLink="/vehiculo/editar/{{col.id}}">
                   <mat-icon>border_color</mat-icon>
-                </button>-->
-        <!--        <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
-                  <mat-icon>delete</mat-icon>
-                </button>-->
+                </button>&ndash;&gt;-->
+        <button (click)="exportReporte(col)" color="primary" mat-button mat-icon-button>
+          <mat-icon>get_app</mat-icon>
+        </button>
+        <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-cell>
     </ng-container>
 

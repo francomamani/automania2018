@@ -21,18 +21,26 @@
 <div class="fni-container mat-elevation-z8">
   <div class="fni-header">
     <mat-form-field>
-      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar Suministros...">
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar Suministros de Combustible...">
     </mat-form-field>
   </div>
 
   <mat-table #table [dataSource]="suministroCombustibles" matSort>
+    <ng-container matColumnDef="tipo_vehiculo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Tipo de Vehículo</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.vehiculo.tipo_vehiculo | uppercase }} </mat-cell>
+    </ng-container>
     <ng-container matColumnDef="placa">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Placa</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.placa | uppercase }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Placa</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.vehiculo.placa | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="marca">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Marca</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.vehiculo.marca | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="combustible">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Combustible</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.combustible | uppercase }} </mat-cell>
+      <mat-cell *matCellDef="let col"><strong>{{col.combustible | uppercase }}</strong></mat-cell>
     </ng-container>
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>

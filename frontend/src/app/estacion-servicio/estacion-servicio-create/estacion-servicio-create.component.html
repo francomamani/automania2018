@@ -8,7 +8,9 @@
   <mat-card-content>
     <form [formGroup]="estacionServicioGroup">
       <mat-form-field class="divider">
-        <input #razon_social formControlName="razon_social" matInput maxlength="150" placeholder="Razon social">
+        <input #razon_social formControlName="razon_social"
+               matInput
+               maxlength="150" oninput="this.value = this.value.toUpperCase()" placeholder="Razon social">
         <mat-hint align="end">{{razon_social.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="estacionServicioGroup.get('razon_social').status == 'INVALID'">La razon social es
           obligatoria
@@ -20,7 +22,9 @@
         <mat-error *ngIf="estacionServicioGroup.get('nit').status == 'INVALID'">El NIT es obligatorio</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input #propietario formControlName="propietario" matInput maxlength="100" placeholder="Propietario">
+        <input #propietario formControlName="propietario"
+               matInput
+               maxlength="100" oninput="this.value = this.value.toUpperCase()" placeholder="Propietario">
         <mat-hint align="end">{{propietario.value?.length || 0}}/100</mat-hint>
         <mat-error *ngIf="estacionServicioGroup.get('propietario').status == 'INVALID'">El propietario es obligatorio
         </mat-error>

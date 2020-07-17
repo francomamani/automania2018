@@ -40,21 +40,21 @@ body {
 }
 
 .flexbox-container {
-	display: -ms-flex;
-	display: -webkit-flex;
-	display: flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
 }
 
 .flexbox-container > div {
-	width: 50%;
-	padding: 10px;
+  width: 50%;
+  padding: 10px;
   background: #fff;
 }
 
 .flexbox-container > div:first-child {
-	margin-right: 20px;
+  margin-right: 20px;
 }
- 
+
 ol, ul {
   list-style: none;
 }
@@ -90,7 +90,7 @@ table {
   display: block;
   width: 100%;
   /*  background-color: #316cac;*/
-  background-color: #1E88E5;
+  background-color: #FFA000;
   height: 200px;
 }
 
@@ -170,6 +170,12 @@ table {
   width: 450px;
 }
 
+.card-md-2 {
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 450px;
+}
+
 .mat-card {
   margin-top: 5em;
 }
@@ -177,6 +183,7 @@ table {
 .mat-card-content {
   padding: 0 1em;
 }
+
 .mat-card-header {
   background-color: #e5e5e5;
   width: 100%;

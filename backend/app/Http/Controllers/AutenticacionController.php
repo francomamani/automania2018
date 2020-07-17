@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Administrador;
 use App\ServicioGeneral;
 use App\User;
-use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use JWTAuth;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Validator;
 
 class AutenticacionController extends Controller
 {
@@ -87,6 +88,11 @@ class AutenticacionController extends Controller
     public function user($token)
     {
         return response()->json(JWTAuth::toUser($token), 200);
+    }
+
+    public function details()
+    {
+        return response()->json(Auth::user(), 200);
     }
 
     public function index()

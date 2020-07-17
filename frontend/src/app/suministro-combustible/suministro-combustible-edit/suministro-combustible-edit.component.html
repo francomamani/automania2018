@@ -1,4 +1,4 @@
-<mat-card class="card-md" *ngIf="vehiculos !== null && suministro !== null">
+<mat-card *ngIf="vehiculos !== null && suministro !== null" class="card-md">
   <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
     <button color="accent" mat-button mat-icon-button>
       <mat-icon>drive_eta</mat-icon>
@@ -17,13 +17,17 @@
                    id="vehiculo_id"></ng-select>
       </div>
 
-      <mat-form-field>
-        <input #combustible formControlName="combustible" matInput maxlength="150" placeholder="Combustible">
-        <mat-hint align="end">{{combustible.value?.length || 0}}/150</mat-hint>
-        <mat-error *ngIf="suministroCombustibleGroup.get('combustible').status == 'INVALID'">El combustible es obligatorio</mat-error>
-      </mat-form-field>
+      <div class="form-group">
+        <label for="combustible">Seleccionar Combustible</label>
+        <ng-select [items]="combustibles"
+                   bindLabel="nombre"
+                   bindValue="nombre"
+                   formControlName="combustible"
+                   id="combustible"></ng-select>
+      </div>
 
-      <button [disabled]="suministroCombustibleGroup.status == 'INVALID'" color="accent" mat-raised-button type="submit">ACTUALIZAR
+      <button [disabled]="suministroCombustibleGroup.status == 'INVALID'" color="accent"
+              mat-raised-button type="submit">ACTUALIZAR
       </button>
     </form>
   </mat-card-content>

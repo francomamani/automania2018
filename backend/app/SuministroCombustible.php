@@ -15,11 +15,11 @@ class SuministroCombustible extends Model
         'combustible'
     ];
     protected $dates = ['deleted_at'];
-    protected $appends = ['placa'];
+    protected $appends = ['vehiculo'];
 
-    public function getPlacaAttribute()
+    public function getVehiculoAttribute()
     {
-        return Vehiculo::find($this->vehiculo_id)->placa;
+        return Vehiculo::find($this->vehiculo_id);
     }
 
 }

@@ -11,7 +11,8 @@ export class MensajeDialogComponent implements OnInit {
   mensaje: any = null;
   has_action = false;
 
-  constructor(public dialogRef: MatDialogRef<MensajeDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(public dialogRef: MatDialogRef<MensajeDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
     this.mensaje = data;
     if (this.mensaje.has_action === true) {
       this.has_action = true;

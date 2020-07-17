@@ -2,85 +2,96 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Kilometraje;
 use App\ValeCombustible;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Carbon\Carbon;
 
 class ValeCombustibleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
     public function index()
     {
-        return response()->json(ValeCombustible::orderByDesc('id')->get(), 200);
+        return response()->json(ValeCombustible::orderBy('id', 'desc')->get(), 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
+    public function store()
     {
-        //
+        $input = request()->all();
+        if ($input['kilometraje_anterior_id'] !== 0) {
+            $kilometrajeAnterior = Kilometraje::find($input['kilometraje_anterior_id']);
+            $kilometraje = Kilometraje::create([
+                'suministro_combustible_id' => $input['suministro_combustible_id'],
+                'anterior' => $kilometrajeAnterior['actual'],
+                'actual' => $input['kilometraje'],
+                'recorrido' => $input['kilometraje'] - $kilometrajeAnterior->actual
+            ]);
+        } else {
+            $kilometraje = Kilometraje::create([
+                'suministro_combustible_id' => $input['suministro_combustible_id'],
+                'anterior' => $input['kilometraje_anterior'],
+                'actual' => $input['kilometraje'],
+                'recorrido' => $input['kilometraje_anterior'] - $input['kilometraje']
+            ]);
+        }
+
+        $vales = ValeCombustible::whereYear('created_at', Carbon::now()->year)
+            ->where('asignacion_vehiculo_id', $input['asignacion_vehiculo_id'])
+            ->count();
+        if ($vales > 0) {
+            $valeCombustible = ValeCombustible::create([
+                'kilometraje_id' => $kilometraje->id,
+                'asignacion_vehiculo_id' => $input['asignacion_vehiculo_id'],
+                'estacion_servicio_id' => $input['estacion_servicio_id'],
+                'numero_vale' => $vales + 1 . '/' . Carbon::now()->year,
+                'motivo_viaje' => $input['motivo_viaje'],
+                'litros' => $input['litros'],
+                'importe' => $input['importe'],
+            ]);
+            return response()->json([
+                'creado' => $valeCombustible,
+                'mensaje' => 'Vale de combustible creado exitosamente. Desea ir al listado de vales de combustible?',
+                'has_action' => true
+            ], 201);
+        } else {
+            $valeCombustible = ValeCombustible::create([
+                'kilometraje_id' => $kilometraje->id,
+                'asignacion_vehiculo_id' => $input['asignacion_vehiculo_id'],
+                'estacion_servicio_id' => $input['estacion_servicio_id'],
+                'numero_vale' => 1,
+                'motivo_viaje' => $input['motivo_viaje'],
+                'litros' => $input['litros'],
+                'importe' => $input['importe'],
+            ]);
+            return response()->json([
+                'creado' => $valeCombustible,
+                'mensaje' => 'Vale de combustible creado exitosamente. Desea ir al listado de vales de combustible?',
+                'has_action' => true
+            ], 201);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
+    public function search()
     {
-        return response()->json(ValeCombustible::create($request->all()), 201);
+        $value = request()->input('value');
+        $vales = ValeCombustible::orWhere('numero_vale', 'like', '%' . $value . '%')
+            ->orWhere('motivo_viaje', 'like', '%' . $value . '%')
+            ->get();
+        return response()->json($vales, 201);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
     public function show($id)
     {
         return response()->json(ValeCombustible::find($id), 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $valeGasolina = ValeCombustible::find($id);
-        $valeGasolina->update($request->all());
+        $valeGasolina->update(request()->all());
         return response()->json($valeGasolina, 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return Response
-     */
     public function destroy($id)
     {
         $valeGasolina = ValeCombustible::find($id);

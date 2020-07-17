@@ -21,9 +21,12 @@ export class SuministroCombustibleIndexComponent implements OnInit {
   suministroCombustibles: MatTableDataSource<any[]>;
 
   displayedColumns = [
+    'tipo_vehiculo',
     'placa',
+    'marca',
     'combustible',
-    'acciones'];
+    'acciones'
+  ];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 

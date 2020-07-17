@@ -1,6 +1,8 @@
 <mat-card *ngIf="estacion_servicio !== null" class="card-md">
-  <mat-card-header>
-    <mat-icon>local_gas_station</mat-icon>
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>local_gas_station</mat-icon>
+    </button>
     EDITAR ESTACIÓN DE SERVICIO
   </mat-card-header>
 
@@ -13,11 +15,9 @@
           <mat-radio-button [value]=0>Inactivo</mat-radio-button>
         </mat-radio-group>
       </div>
-
-
-
       <mat-form-field class="divider">
-        <input #razon_social formControlName="razon_social" matInput maxlength="150" placeholder="Razon social">
+        <input #razon_social formControlName="razon_social" matInput
+               maxlength="150" oninput="this.value = this.value.toUpperCase()" placeholder="Razon social">
         <mat-hint align="end">{{razon_social.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="estacionServicioGroup.get('razon_social').status == 'INVALID'">La razon social es
           obligatoria
@@ -29,7 +29,7 @@
         <mat-error *ngIf="estacionServicioGroup.get('nit').status == 'INVALID'">La nit es obligatoria</mat-error>
       </mat-form-field>
       <mat-form-field class="divider">
-        <input #propietario formControlName="propietario" matInput maxlength="150" placeholder="Propietario">
+        <input #propietario formControlName="propietario" oninput="this.value = this.value.toUpperCase()" matInput maxlength="150" placeholder="Propietario">
         <mat-hint align="end">{{propietario.value?.length || 0}}/150</mat-hint>
         <mat-error *ngIf="estacionServicioGroup.get('propietario').status == 'INVALID'">La propietario es obligatorio
         </mat-error>

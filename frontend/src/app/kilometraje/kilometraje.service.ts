@@ -36,4 +36,8 @@ export class KilometrajeService {
   destroy(id) {
     return this.http.delete(environment.base + 'kilometraje/' + id, {headers: this.headers});
   }
+
+  getKilometraje(suministro_combustible_id: number) {
+    return this.http.get(environment.base + 'get-kilometraje/' + suministro_combustible_id, {headers: this.headers});
+  }
 }

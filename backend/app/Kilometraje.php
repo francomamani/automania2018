@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Kilometraje extends Model
 {
     use SoftDeletes;
+
     protected $table = 'kilometrajes';
     protected $fillable = [
         'suministro_combustible_id',
@@ -15,7 +16,16 @@ class Kilometraje extends Model
         'actual',
         'recorrido',
     ];
-    public function vehiculo(){
+    protected $dates = ['deleted_at'];
+    protected $appends = ['suministro_combustible'];
+
+    public function vehiculo()
+    {
         return $this->belongsTo('App\Vehiculo');
+    }
+
+    public function getSuministroCombustibleAttribute()
+    {
+        return SuministroCombustible::find($this->suministro_combustible_id);
     }
 }

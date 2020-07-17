@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ValeGasolinaCreateComponent } from './vale-gasolina-create.component';
+import { ValeGasolinaCreateComponent } from './vale-combustible-create.component';
 
 describe('ValeGasolinaCreateComponent', () => {
   let component: ValeGasolinaCreateComponent;

@@ -1,64 +1,63 @@
-<mat-card class="card-md" style="width: 700px;">
-    <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
-      <button color="accent" mat-button mat-icon-button>
-        <mat-icon>drive_eta</mat-icon>
-      </button>
-      CREAR CONTRATO
-    </mat-card-header>
-    <mat-card-content>
-      <form [formGroup]="contratoGroup">
-        <div class="form-group">
-          <label for="chofer_id">Seleccionar Chofer</label>
-          <ng-select [items]="choferes"
-                     bindLabel="nombres"
-                     bindValue="id"
-                     formControlName="chofer_id"
-                     id="chofer_id"></ng-select>
-        </div>
-  
-    
-            <mat-form-field>
-              <input #numero_contrato formControlName="numero_contrato" matInput maxlength="150" placeholder="Numero de Contrato">
-              <mat-hint align="end">{{numero_contrato.value?.length || 0}}/150</mat-hint>
-              <mat-error *ngIf="contratoGroup.get('numero_contrato').status == 'INVALID'">La numero contrato es obligatorio</mat-error>
-            </mat-form-field>
+<mat-card class="card-md">
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>drive_eta</mat-icon>
+    </button>
+    CREAR CONTRATO
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="contratoGroup">
+      <div class="form-group">
+        <label for="chofer_id">Seleccionar Chofer</label>
+        <ng-select [items]="choferes"
+                   bindLabel="resumen"
+                   bindValue="id"
+                   formControlName="chofer_id"
+                   id="chofer_id"></ng-select>
+      </div>
+      <mat-form-field>
+        <input #numero_contrato formControlName="numero_contrato" matInput maxlength="150"
+               placeholder="Numero de Contrato">
+        <mat-hint align="end">{{ numero_contrato?.value?.length || 0}}/150</mat-hint>
+        <mat-error *ngIf="contratoGroup.get('numero_contrato').status == 'INVALID'">
+          El numero de contrato es obligatorio
+        </mat-error>
+      </mat-form-field>
 
-            <mat-form-field class="full-width">
-              <input [matDatepicker]="fecha_inicio_contrato" formControlName="fecha_inicio_contrato" matInput
-                     placeholder="Fecha de inicio de contrato">
-              <mat-datepicker-toggle [for]="fecha_inicio_contrato" matSuffix></mat-datepicker-toggle>
-              <mat-datepicker #fecha_inicio_contrato></mat-datepicker>
-            </mat-form-field>            
-            <mat-datepicker #fecha_inicio_contrato></mat-datepicker>
+      <div fxLayout="row" fxLayoutAlign="justify-between" fxLayoutGap="15px" fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="50" fxFlex.xs="100">
+          <input [matDatepicker]="fecha_inicio_contrato" formControlName="fecha_inicio_contrato" matInput
+                 placeholder="Fecha de inicio de contrato">
+          <mat-datepicker-toggle [for]="fecha_inicio_contrato" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #fecha_inicio_contrato></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field fxFlex="50" fxFlex.xs="100">
+          <input [matDatepicker]="fecha_fin_contrato" formControlName="fecha_fin_contrato" matInput
+                 placeholder="Fecha de fin de contrato">
+          <mat-datepicker-toggle [for]="fecha_fin_contrato" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #fecha_fin_contrato></mat-datepicker>
+        </mat-form-field>
+      </div>
 
-            <mat-form-field class="full-width">
-              <input [matDatepicker]="fecha_fin_contrato" formControlName="fecha_fin_contrato" matInput
-                     placeholder="Fecha de fin de contrato">
-              <mat-datepicker-toggle [for]="fecha_fin_contrato" matSuffix></mat-datepicker-toggle>
-              <mat-datepicker #fecha_fin_contrato></mat-datepicker>
-            </mat-form-field>
-            <mat-datepicker #fecha_fin_contrato></mat-datepicker>
-  
-              <mat-form-field>
-                <mat-label>Estado</mat-label>
-                <mat-select #activo formControlName="activo">
-                  <mat-option value=1>Activo</mat-option>
-                  <mat-option value=0>Inactivo</mat-option>
-                </mat-select>
-              </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <mat-select #activo formControlName="activo">
+          <mat-option value=1>Activo</mat-option>
+          <mat-option value=0>Inactivo</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <div class="form-group" fxLayout="row" fxLayoutGap="5px">
-          <button [routerLink]="['/contrato/listar']" fxFlex="auto" mat-raised-button>
-            <mat-icon color="warn">undo</mat-icon>
-            ATRÁS
-          </button>
-          <button (click)="store()" [disabled]="contratoGroup.invalid" fxFlex="auto"
-                  mat-raised-button>
-            <mat-icon color="accent">save</mat-icon>
-            GUARDAR
-          </button>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
-  
+      <div class="form-group" fxLayout="row" fxLayoutGap="5px">
+        <button [routerLink]="['/contrato/listar']" fxFlex="auto" mat-raised-button>
+          <mat-icon color="warn">undo</mat-icon>
+          ATRÁS
+        </button>
+        <button (click)="store()" [disabled]="contratoGroup.invalid" fxFlex="auto"
+                mat-raised-button>
+          <mat-icon color="accent">save</mat-icon>
+          GUARDAR
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

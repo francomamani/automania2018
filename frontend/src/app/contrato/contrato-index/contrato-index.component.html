@@ -1,67 +1,68 @@
 <div class="flex-container">
-    <span class="titulo">Lista de Contratos</span>
-  
-    <span class="spacer"></span>
-    <button [routerLink]="['/contrato/crear']"
-            color="primary"
-            mat-mini-fab
-            matTooltip="Nuevo Contrato"
-            tooltip-position="left">
-      <mat-icon>add</mat-icon>
-    </button>
-    &nbsp;&nbsp;&nbsp;
-    <button (click)="exportExcel()"
-            color="accent"
-            mat-raised-button>
-      <mat-icon>import_export</mat-icon>
-      Exportar en Excel
-    </button>
+  <span class="titulo">Lista de Contratos</span>
+
+  <span class="spacer"></span>
+  <button [routerLink]="['/contrato/crear']"
+          color="primary"
+          mat-mini-fab
+          matTooltip="Nuevo Contrato"
+          tooltip-position="left">
+    <mat-icon>add</mat-icon>
+  </button>
+  &nbsp;&nbsp;&nbsp;
+  <button (click)="exportExcel()"
+          color="accent"
+          mat-raised-button>
+    <mat-icon>import_export</mat-icon>
+    Exportar en Excel
+  </button>
+</div>
+<div class="fni-container mat-elevation-z8">
+  <div class="fni-header">
+    <mat-form-field>
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar...">
+    </mat-form-field>
   </div>
-  <div class="fni-container mat-elevation-z8">
-    <div class="fni-header">
-      <mat-form-field>
-        <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar...">
-      </mat-form-field>
-    </div>
-  
-    <mat-table #table [dataSource]="contratos" matSort>
-      <ng-container matColumnDef="chofer">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Chofer</mat-header-cell>
-        <mat-cell *matCellDef="let col"> {{col.chofer | uppercase }} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="numero_contrato">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> numero_contrato</mat-header-cell>
-        <mat-cell *matCellDef="let col"> {{col.numero_contrato }} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="fecha_inicio_contrato">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Inicio de Contrato</mat-header-cell>
-        <mat-cell *matCellDef="let col"> {{ col.fecha_inicio_contrato | date: 'dd/MM/yyyy' }} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="fecha_fin_contrato">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Fin de Contrato</mat-header-cell>
-        <mat-cell *matCellDef="let col"> {{ col.fecha_fin_contrato | date: 'dd/MM/yyyy' }} </mat-cell>
-      </ng-container>     
-      <ng-container matColumnDef="activo">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Activo </mat-header-cell>
-        <mat-cell *matCellDef="let col"> {{ col.activo | uppercase }} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="acciones">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
-        <mat-cell *matCellDef="let col; let i = index">
-          <button color="accent" mat-button mat-icon-button routerLink="/contrato/editar/{{col.id}}">
-            <mat-icon>border_color</mat-icon>
-          </button>
-          <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
-  
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;" class="mat-row"></mat-row>
-    </mat-table>
-  
-    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5">
-    </mat-paginator>
-  </div>
-  
+  <mat-table #table [dataSource]="contratos" matSort>
+    <ng-container matColumnDef="chofer">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Chofer</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.chofer.resumen | uppercase }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="numero_contrato">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Número de Contrato</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{col.numero_contrato }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="fecha_inicio_contrato">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Inicio de Contrato</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{ col.fecha_inicio_contrato | date: 'mediumDate' }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="fecha_fin_contrato">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Fín de Contrato</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{ col.fecha_fin_contrato | date: 'mediumDate' }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="activo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Activo</mat-header-cell>
+      <mat-cell *matCellDef="let col">
+        <mat-icon color="primary" *ngIf="col.activo">check</mat-icon>
+        <mat-icon color="accent" *ngIf="!col.activo">close</mat-icon>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
+      <mat-cell *matCellDef="let col; let i = index">
+        <button color="accent" mat-button mat-icon-button routerLink="/contrato/editar/{{col.id}}">
+          <mat-icon>border_color</mat-icon>
+        </button>
+        <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="mat-row"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5">
+  </mat-paginator>
+</div>

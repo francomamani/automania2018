@@ -1,0 +1,106 @@
+<!--<div class="flex-container-center">
+  <a><mat-icon>add</mat-icon></a><a>ASIGNACIONES / CREAR</a>
+</div>-->
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card fxFlex="80%">
+    <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+      <button color="accent" mat-button mat-icon-button>
+        <mat-icon>local_offer</mat-icon>
+      </button>
+      VALE DE COMBUSTIBLE
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="valeCombustibleGroup" class="form" fxLayout="column">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between" style="margin-bottom: 1rem;">
+          <div fxFlex="49%">
+            <label for="asignacion_vehiculo_id">Seleccionar Chofer y Vehiculo</label>
+            <ng-select (change)="getSuministroCombustible($event)"
+                       [items]="asignaciones"
+                       bindLabel="resumen"
+                       bindValue="id"
+                       formControlName="asignacion_vehiculo_id"
+                       id="asignacion_vehiculo_id"></ng-select>
+          </div>
+          <div fxFlex="49%">
+            <label for="estacion_servicio_id">Seleccionar Estación de Servicio</label>
+            <ng-select [items]="estaciones"
+                       bindLabel="razon_social"
+                       bindValue="id"
+                       formControlName="estacion_servicio_id"
+                       id="estacion_servicio_id"></ng-select>
+          </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <div *ngIf="suministroCombustibles" fxFlex="80" fxFlex.xs="100" fxLayout="row wrap"
+               fxLayoutAlign="space-between">
+            <mat-form-field appearance="fill" fxFlex="32" fxFlex.xs="100">
+              <mat-label>Suministro de Combustible</mat-label>
+              <mat-select (selectionChange)="getKilometraje($event)"
+                          formControlName="suministro_combustible_id"
+                          name="suministro_combustible_id">
+                <mat-option *ngFor="let suministro of suministroCombustibles" [value]="suministro.id">
+                  {{ suministro.combustible }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex="32" fxFlex.xs="100">
+              <mat-label>Litros</mat-label>
+              <input (blur)="getImporte()" formControlName="litros" matInput type="number">
+            </mat-form-field>
+            <mat-form-field *ngIf="kilometrajeAnterior !== null && kilometrajeAnterior?.actual === 0" appearance="fill"
+                            fxFlex="32"
+                            fxFlex.xs="100">
+              <mat-label>Kilometraje Anterior</mat-label>
+              <input formControlName="kilometraje_anterior" matInput required type="number">
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex="32" fxFlex.xs="100">
+              <mat-label>Kilometraje Actual</mat-label>
+              <input formControlName="kilometraje" matInput required type="number">
+            </mat-form-field>
+            <!--            <mat-form-field appearance="fill" fxFlex="32" fxFlex.xs="100">
+                          <mat-label>Importe</mat-label>
+                          <input formControlName="importe" matInput type="number">
+                        </mat-form-field>-->
+
+            <mat-form-field appearance="fill" fxFlex="100" fxFlex.xs="100">
+              <mat-label>Motivo de Viaje</mat-label>
+              <textarea cols="30" formControlName="motivo_viaje" matInput required rows="5"></textarea>
+              <mat-error *ngIf="valeCombustibleGroup.get('motivo_viaje').hasError('required')">
+                El motivo de viaje es obligatorio
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="19" fxFlex.xs="100">
+            <mat-chip-list *ngIf="kilometrajeAnterior !== null" fxLayout="column">
+              <mat-chip *ngIf="valeCombustibleGroup.get('kilometraje_anterior').value === null"
+                        color="primary"
+                        fxFlex="100">KM. Anterior: <strong>&nbsp;{{ kilometrajeAnterior?.actual }}</strong>
+              </mat-chip>
+              <mat-chip *ngIf="valeCombustibleGroup.get('kilometraje_anterior').value !== null" color="primary"
+                        fxFlex="100">
+                KM. Anterior: <strong>&nbsp;{{ valeCombustibleGroup.get('kilometraje_anterior').value }}</strong>
+              </mat-chip>
+              <mat-chip color="primary" fxFlex="100">
+                Importe: Bs.<strong>&nbsp;{{ valeCombustibleGroup.get('importe').value }}</strong>
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+        </div>
+
+        <div align="end">
+          <button [routerLink]="['/vale-combustible/listar']" mat-raised-button>
+            <mat-icon color="warn">undo</mat-icon>
+            ATRÁS
+          </button>
+          <button (click)="store()"
+                  [disabled]="valeCombustibleGroup.invalid || (valeCombustibleGroup.get('kilometraje').value <= valeCombustibleGroup.get('kilometraje_anterior').value)"
+                  mat-raised-button>
+            <mat-icon color="accent">save</mat-icon>
+            GUARDAR
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

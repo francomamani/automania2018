@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -65,26 +65,33 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {ValeGasolinaComponent} from './vale-gasolina/vale-gasolina.component';
-import {ValeGasolinaIndexComponent} from './vale-gasolina/vale-gasolina-index/vale-gasolina-index.component';
-import {ValeGasolinaCreateComponent} from './vale-gasolina/vale-gasolina-create/vale-gasolina-create.component';
-import {ValeGasolinaService} from './vale-gasolina/vale-gasolina.service';
-import { ContratoComponent } from './contrato/contrato.component';
-import { ContratoIndexComponent } from './contrato/contrato-index/contrato-index.component';
-import { ContratoEditComponent } from './contrato/contrato-edit/contrato-edit.component';
-import { ContratoCreateComponent } from './contrato/contrato-create/contrato-create.component';
-import { SuministroCombustibleComponent } from './suministro-combustible/suministro-combustible.component';
-import { SuministroCombustibleIndexComponent } from './suministro-combustible/suministro-combustible-index/suministro-combustible-index.component';
-import { SuministroCombustibleEditComponent } from './suministro-combustible/suministro-combustible-edit/suministro-combustible-edit.component';
-import { SuministroCombustibleCreateComponent } from './suministro-combustible/suministro-combustible-create/suministro-combustible-create.component';
-import { KilometrajeComponent } from './kilometraje/kilometraje.component';
-import { KilometrajeIndexComponent } from './kilometraje/kilometraje-index/kilometraje-index.component';
-import { KilometrajeEditComponent } from './kilometraje/kilometraje-edit/kilometraje-edit.component';
-import { KilometrajeCreateComponent } from './kilometraje/kilometraje-create/kilometraje-create.component';
-import { TipoCombustibleComponent } from './tipo-combustible/tipo-combustible.component';
-import { TipoCombustibleIndexComponent } from './tipo-combustible/tipo-combustible-index/tipo-combustible-index.component';
-import { TipoCombustibleEditComponent } from './tipo-combustible/tipo-combustible-edit/tipo-combustible-edit.component';
-import { TipoCombustibleCreateComponent } from './tipo-combustible/tipo-combustible-create/tipo-combustible-create.component';
+import {ContratoComponent} from './contrato/contrato.component';
+import {ContratoIndexComponent} from './contrato/contrato-index/contrato-index.component';
+import {ContratoEditComponent} from './contrato/contrato-edit/contrato-edit.component';
+import {ContratoCreateComponent} from './contrato/contrato-create/contrato-create.component';
+import {SuministroCombustibleComponent} from './suministro-combustible/suministro-combustible.component';
+import {SuministroCombustibleIndexComponent} from './suministro-combustible/suministro-combustible-index/suministro-combustible-index.component';
+import {SuministroCombustibleEditComponent} from './suministro-combustible/suministro-combustible-edit/suministro-combustible-edit.component';
+import {SuministroCombustibleCreateComponent} from './suministro-combustible/suministro-combustible-create/suministro-combustible-create.component';
+import {KilometrajeComponent} from './kilometraje/kilometraje.component';
+import {KilometrajeIndexComponent} from './kilometraje/kilometraje-index/kilometraje-index.component';
+import {KilometrajeEditComponent} from './kilometraje/kilometraje-edit/kilometraje-edit.component';
+import {KilometrajeCreateComponent} from './kilometraje/kilometraje-create/kilometraje-create.component';
+import {TipoCombustibleComponent} from './tipo-combustible/tipo-combustible.component';
+import {TipoCombustibleIndexComponent} from './tipo-combustible/tipo-combustible-index/tipo-combustible-index.component';
+import {TipoCombustibleEditComponent} from './tipo-combustible/tipo-combustible-edit/tipo-combustible-edit.component';
+import {TipoCombustibleCreateComponent} from './tipo-combustible/tipo-combustible-create/tipo-combustible-create.component';
+import {ValeCombustibleComponent} from './vale-combustible/vale-combustible.component';
+import {ValeCombustibleCreateComponent} from './vale-combustible/vale-combustible-create/vale-combustible-create.component';
+import {ValeCombustibleIndexComponent} from './vale-combustible/vale-combustible-index/vale-combustible-index.component';
+
+
+import {registerLocaleData} from '@angular/common';
+import localeEsBo from '@angular/common/locales/es-BO';
+import {MatChipsModule} from '@angular/material/chips';
+
+registerLocaleData(localeEsBo, 'es-Bo');
+
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -129,9 +136,9 @@ const appRoutes: Routes = [
     ]
   },
   {
-    path: 'vale-gasolina', component: ValeGasolinaComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: ValeGasolinaCreateComponent},
-      {path: 'listar', component: ValeGasolinaIndexComponent},
+    path: 'vale-combustible', component: ValeCombustibleComponent, canActivate: [AuthGuard], children: [
+      {path: 'crear', component: ValeCombustibleCreateComponent},
+      {path: 'listar', component: ValeCombustibleIndexComponent},
       {path: '', redirectTo: 'listar', pathMatch: 'full'}
     ]
   },
@@ -175,14 +182,14 @@ const appRoutes: Routes = [
       {path: '', redirectTo: 'listar', pathMatch: 'full'}
     ]
   },
-    {
-      path: 'mantenimiento', component: MantenimientoComponent, canActivate: [AuthGuard], children: [
-        {path: 'crear', component: MantenimientoCreateComponent},
-        {path: 'listar', component: MantenimientoIndexComponent},
-        {path: 'editar/:id', component: MantenimientoEditComponent},
-        {path: '', redirectTo: 'listar', pathMatch: 'full'}
-      ]
-    },
+  {
+    path: 'mantenimiento', component: MantenimientoComponent, canActivate: [AuthGuard], children: [
+      {path: 'crear', component: MantenimientoCreateComponent},
+      {path: 'listar', component: MantenimientoIndexComponent},
+      {path: 'editar/:id', component: MantenimientoEditComponent},
+      {path: '', redirectTo: 'listar', pathMatch: 'full'}
+    ]
+  },
   {path: '**', redirectTo: 'login', pathMatch: 'full'},
   {
     path: '',
@@ -225,9 +232,6 @@ const appRoutes: Routes = [
     AsignacionVehiculoCreateComponent,
     AsignacionVehiculoIndexComponent,
     AsignacionVehiculoEditComponent,
-    ValeGasolinaComponent,
-    ValeGasolinaIndexComponent,
-    ValeGasolinaCreateComponent,
     ContratoComponent,
     ContratoIndexComponent,
     ContratoEditComponent,
@@ -243,7 +247,10 @@ const appRoutes: Routes = [
     TipoCombustibleComponent,
     TipoCombustibleIndexComponent,
     TipoCombustibleEditComponent,
-    TipoCombustibleCreateComponent
+    TipoCombustibleCreateComponent,
+    ValeCombustibleComponent,
+    ValeCombustibleIndexComponent,
+    ValeCombustibleCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -273,10 +280,13 @@ const appRoutes: Routes = [
     MatTableModule,
     MatDatepickerModule,
     MatRadioModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatChipsModule
   ],
   entryComponents: [MensajeDialogComponent],
-  providers: [AuthGuard,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [
+    AuthGuard,
     AuthService,
     UserService,
     ChoferService,
@@ -286,7 +296,9 @@ const appRoutes: Routes = [
     MantenimientoService,
     ExcelService,
     AsignacionVehiculoService,
-    ValeGasolinaService,
+    {
+      provide: LOCALE_ID, useValue: 'es-Bo'
+    },
     {provide: HTTP_INTERCEPTORS, useClass: MyHttpLogInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]

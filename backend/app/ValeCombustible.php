@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ValeCombustible extends Model
 {
     use SoftDeletes;
+
     protected $table = 'vale_combustibles';
     protected $fillable = [
         'kilometraje_id',
@@ -15,13 +16,34 @@ class ValeCombustible extends Model
         'estacion_servicio_id',
         'numero_vale',
         'motivo_viaje',
-        'litros_aprox',
         'litros',
         'importe',
     ];
     protected $dates = ['deleted_at'];
-    public function vehiculo(){
+    protected $appends = [
+        'kilometraje',
+        'asignacion_vehiculo',
+        'estacion_servicio',
+    ];
+
+    public function vehiculo()
+    {
         return $this->belongsTo('App\Vehiculo');
+    }
+
+    public function getKilometrajeAttribute()
+    {
+        return Kilometraje::find($this->kilometraje_id);
+    }
+
+    public function getAsignacionVehiculoAttribute()
+    {
+        return AsignacionVehiculo::find($this->asignacion_vehiculo_id);
+    }
+
+    public function getEstacionServicioAttribute()
+    {
+        return EstacionServicio::find($this->estacion_servicio_id);
     }
 
 }

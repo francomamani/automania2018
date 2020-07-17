@@ -30,4 +30,8 @@ export class AuthService {
   isAuthenticated() {
     return localStorage.getItem('token') !== null ? true : false;
   }
+
+  details() {
+    return this.http.get(`${environment.base}details`);
+  }
 }

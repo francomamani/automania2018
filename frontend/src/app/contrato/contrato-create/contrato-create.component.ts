@@ -3,8 +3,8 @@ import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.compon
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
-import { ContratoService } from '../contrato.service';
-import { Chofer } from '../../models/chofer';
+import {ContratoService} from '../contrato.service';
+import {Chofer} from '../../models/chofer';
 import {ChoferService} from '../../chofer/chofer.service';
 
 @Component({
@@ -15,6 +15,7 @@ import {ChoferService} from '../../chofer/chofer.service';
 export class ContratoCreateComponent implements OnInit {
   contratoGroup: FormGroup;
   choferes: Chofer[];
+
   constructor(
     private router: Router,
     private contratoService: ContratoService,
@@ -25,9 +26,9 @@ export class ContratoCreateComponent implements OnInit {
 
   ngOnInit() {
     this.choferService.index()
-    .subscribe((choferes: Chofer[]) => {
-      this.choferes = choferes;
-    });
+      .subscribe((choferes: Chofer[]) => {
+        this.choferes = choferes;
+      });
     this.createForm();
   }
 
@@ -58,9 +59,19 @@ export class ContratoCreateComponent implements OnInit {
     });
   }
 
+
   store() {
+    this.contratoGroup.patchValue({
+      fecha_inicio_contrato: new Date(this.contratoGroup.get('fecha_inicio_contrato').value).toISOString().split('T')[0],
+      fecha_fin_contrato: new Date(this.contratoGroup.get('fecha_fin_contrato').value).toISOString().split('T')[0],
+      activo: Number(this.contratoGroup.get('activo').value)
+    });
+
     this.contratoService.store(this.contratoGroup.value).subscribe(res => {
-      this.openDialog(res);
+      this.openDialog({
+        mensaje: 'Contrato registrado exitosamente, Desea volver al listado de contratos?',
+        has_action: true
+      });
       this.contratoGroup.reset();
     }, (error) => {
       this.openDialog(error.error);

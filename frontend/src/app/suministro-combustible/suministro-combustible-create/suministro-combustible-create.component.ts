@@ -7,6 +7,8 @@ import {TipoVehiculo} from '../../models/tipo-vehiculo';
 import {TipoVehiculoService} from '../../services/tipo-vehiculo.service';
 import {SuministroCombustibleService} from '../suministro-combustible.service';
 import {VehiculoService} from '../../vehiculo/vehiculo.service';
+import {CombustibleService} from '../../services/combustible.service';
+import {Combustible} from '../../models/combustible';
 
 @Component({
   selector: 'app-suministro-combustible-create',
@@ -15,12 +17,14 @@ import {VehiculoService} from '../../vehiculo/vehiculo.service';
 })
 export class SuministroCombustibleCreateComponent implements OnInit {
   vehiculos: TipoVehiculo[];
+  combustibles: Combustible[];
   suminsitroCombustibleGroup: FormGroup;
 
   constructor(
     private router: Router,
     private vehiculoService: VehiculoService,
     private suministroCombustibleService: SuministroCombustibleService,
+    private combustibleService: CombustibleService,
     private fb: FormBuilder,
     private dialog: MatDialog) {
   }
@@ -30,13 +34,17 @@ export class SuministroCombustibleCreateComponent implements OnInit {
       .subscribe((vehiculos: TipoVehiculo[]) => {
         this.vehiculos = vehiculos;
       });
+    this.combustibleService.index()
+      .subscribe((combustibles: Combustible[]) => {
+        this.combustibles = combustibles;
+      });
     this.createForm();
   }
 
   createForm() {
     this.suminsitroCombustibleGroup = this.fb.group({
-      vehiculo_id: new FormControl('', Validators.required),
-      combustible: new FormControl('', Validators.required)
+      vehiculo_id: new FormControl(null, Validators.required),
+      combustible: new FormControl(null, Validators.required)
     });
   }
 

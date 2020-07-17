@@ -31,7 +31,7 @@ class ContratoController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * 
+     *
      * @param Request $request
      * @return Response
      */
@@ -47,7 +47,7 @@ class ContratoController extends Controller
      * @param Contrato $contrato
      * @return Response
      */
-    public function show(Contrato $contrato)
+    public function show(Contrato $id)
     {
         return response()->json(Contrato::find($id));
     }
@@ -63,14 +63,7 @@ class ContratoController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param Contrato $contrato
-     * @return Response
-     */
-    public function update(Request $request, Contrato $contrato)
+    public function update(Request $request, $id)
     {
         $contrato = Contrato::find($id);
         $contrato->update(request()->all());
@@ -81,37 +74,41 @@ class ContratoController extends Controller
         ], 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Contrato $contrato
-     * @return Response
-     */
-    public function destroy(Contrato $contrato)
+    public function destroy($id)
     {
         $contrato = Contrato::find($id);
         $contrato->delete();
-        return response()->json(['exito'=>'Contrato eliminado exitosamente con id: ' . $contrato->id], 200);
+        return response()->json(['exito' => 'Contrato eliminado exitosamente con id: ' . $contrato->id], 200);
     }
 
-    public function search(){
+    public function search()
+    {
         $value = request()->input('value');
-        $contrato = Contrato::where('numero_contrato', 'like', '%'.$value.'%')
-            ->orWhere('fecha_inicio_contrato', 'like', '%'.$value. '%')
-            ->orWhere('fecha_fin_contrato', 'like', '%'.$value. '%')
-            ->orWhere('activo', 'like', '%'.$value. '%')
+        $contrato = Contrato::where('numero_contrato', 'like', '%' . $value . '%')
+            ->orWhere('fecha_inicio_contrato', 'like', '%' . $value . '%')
+            ->orWhere('fecha_fin_contrato', 'like', '%' . $value . '%')
+            ->orWhere('activo', 'like', '%' . $value . '%')
             ->get();
         return response()->json($contrato, 201);
     }
 
-    public function filtrar(){
+    public function filtrar()
+    {
         $status = request()->input('status');
         $response = null;
-        switch ($status){
-            case 'chofer-asc':  $response = Contrato::orderBy('chofer_id ')->get(); break;
-            case 'chofer-desc':  $response = Contrato::orderByDesc('chofer_id ')->get(); break;
-            case 'numero-asc':  $response = Contrato::orderBy('numero_contrato')->get(); break;
-            case 'numero-desc':  $response = Contrato::orderByDesc('numero_contrato')->get(); break;
+        switch ($status) {
+            case 'chofer-asc':
+                $response = Contrato::orderBy('chofer_id ')->get();
+                break;
+            case 'chofer-desc':
+                $response = Contrato::orderByDesc('chofer_id ')->get();
+                break;
+            case 'numero-asc':
+                $response = Contrato::orderBy('numero_contrato')->get();
+                break;
+            case 'numero-desc':
+                $response = Contrato::orderByDesc('numero_contrato')->get();
+                break;
         }
         return response()->json($response, 200);
     }

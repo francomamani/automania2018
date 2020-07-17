@@ -3,9 +3,11 @@ import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.compon
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
-import {TipoVehiculo} from '../../models/tipo-vehiculo';
 import {SuministroCombustibleService} from '../suministro-combustible.service';
 import {VehiculoService} from '../../vehiculo/vehiculo.service';
+import {CombustibleService} from '../../services/combustible.service';
+import {Combustible} from '../../models/combustible';
+import {Vehiculo} from '../../models/vehiculo';
 
 @Component({
   selector: 'app-suministro-combustible-edit',
@@ -13,13 +15,15 @@ import {VehiculoService} from '../../vehiculo/vehiculo.service';
   styleUrls: ['./suministro-combustible-edit.component.css']
 })
 export class SuministroCombustibleEditComponent implements OnInit {
-  vehiculos: TipoVehiculo[];
+  vehiculos: Vehiculo[];
+  combustibles: Combustible[];
   suministroCombustibleGroup: FormGroup;
   suministro: any = null;
 
   constructor(
     private suministroCombustibleService: SuministroCombustibleService,
     private vehiculoService: VehiculoService,
+    private combustibleService: CombustibleService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router,
@@ -36,8 +40,12 @@ export class SuministroCombustibleEditComponent implements OnInit {
 
   ngOnInit() {
     this.vehiculoService.index()
-      .subscribe((vehiculos: TipoVehiculo[]) => {
+      .subscribe((vehiculos: Vehiculo[]) => {
         this.vehiculos = vehiculos;
+      });
+    this.combustibleService.index()
+      .subscribe((combustibles: Combustible[]) => {
+        this.combustibles = combustibles;
       });
   }
 
