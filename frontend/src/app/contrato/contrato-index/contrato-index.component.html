@@ -2,11 +2,11 @@
   <span class="titulo">Lista de Contratos</span>
 
   <span class="spacer"></span>
-  <button [routerLink]="['/contrato/crear']"
-          color="primary"
+  <button color="primary"
           mat-mini-fab
           matTooltip="Nuevo Contrato"
-          tooltip-position="left">
+          matTooltipPosition="left"
+          routerLink="/{{user?.tipo}}/contrato/crear">
     <mat-icon>add</mat-icon>
   </button>
   &nbsp;&nbsp;&nbsp;
@@ -43,16 +43,16 @@
     <ng-container matColumnDef="activo">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Activo</mat-header-cell>
       <mat-cell *matCellDef="let col">
-        <mat-icon color="primary" *ngIf="col.activo">check</mat-icon>
-        <mat-icon color="accent" *ngIf="!col.activo">close</mat-icon>
+        <mat-icon *ngIf="col.activo" color="primary">check</mat-icon>
+        <mat-icon *ngIf="!col.activo" color="accent">close</mat-icon>
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">
-        <button color="accent" mat-button mat-icon-button routerLink="/contrato/editar/{{col.id}}">
+<!--        <button color="accent" mat-button mat-icon-button routerLink="/contrato/editar/{{col.id}}">
           <mat-icon>border_color</mat-icon>
-        </button>
+        </button>-->
         <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>
           <mat-icon>delete</mat-icon>
         </button>

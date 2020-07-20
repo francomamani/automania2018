@@ -6,6 +6,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {ContratoService} from '../contrato.service';
 import {Chofer} from '../../models/chofer';
 import {ChoferService} from '../../chofer/chofer.service';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-contrato-create',
@@ -13,10 +15,12 @@ import {ChoferService} from '../../chofer/chofer.service';
   styleUrls: ['./contrato-create.component.css']
 })
 export class ContratoCreateComponent implements OnInit {
+  user: User;
   contratoGroup: FormGroup;
   choferes: Chofer[];
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private contratoService: ContratoService,
     private choferService: ChoferService,
@@ -25,6 +29,10 @@ export class ContratoCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.choferService.index()
       .subscribe((choferes: Chofer[]) => {
         this.choferes = choferes;
@@ -54,7 +62,8 @@ export class ContratoCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/contrato/listar']);
+        const url = `/${this.user.tipo}/contrato/listar`;
+        this.router.navigate([url]);
       }
     });
   }

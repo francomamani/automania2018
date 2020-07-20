@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {UserService} from '../user.service';
 import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-user-create',
@@ -11,6 +13,8 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./user-create.component.css']
 })
 export class UserCreateComponent implements OnInit {
+
+  user: User;
   hide = true;
   userGroup: FormGroup;
   tipoUsuario = [
@@ -19,6 +23,7 @@ export class UserCreateComponent implements OnInit {
   ];
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private userService: UserService,
     private fb: FormBuilder,
@@ -26,6 +31,10 @@ export class UserCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.createForm();
   }
 
@@ -51,7 +60,8 @@ export class UserCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/usuario/listar']);
+        const url = `/${this.user.tipo}/usuario/listar`;
+        this.router.navigate([url]);
       }
     });
   }

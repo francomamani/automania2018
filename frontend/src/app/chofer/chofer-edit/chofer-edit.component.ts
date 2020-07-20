@@ -2,8 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.component';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ChoferService} from '../../chofer/chofer.service';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
+import {ChoferService} from '../chofer.service';
 
 @Component({
   selector: 'app-chofer-edit',
@@ -11,6 +13,8 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./chofer-edit.component.css']
 })
 export class ChoferEditComponent implements OnInit {
+
+  user: User;
   tipos = [
     {key: 'permanente', value: 'Permanente'},
     {key: 'eventual', value: 'Eventual'}
@@ -19,6 +23,7 @@ export class ChoferEditComponent implements OnInit {
   chofer: any = null;
 
   constructor(
+    private authService: AuthService,
     private choferService: ChoferService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -34,15 +39,19 @@ export class ChoferEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
   }
 
   createForm(chofer) {
     this.choferGroup = this.fb.group({
-      'id': new FormControl(chofer.id, Validators.required),
-      'nombres': new FormControl(chofer.nombres, Validators.required),
-      'apellidos': new FormControl(chofer.apellidos, Validators.required),
-      'carnet': new FormControl(chofer.carnet, Validators.required),
-      'tipo': new FormControl(chofer.tipo, Validators.required)
+      id: new FormControl(chofer.id, Validators.required),
+      nombres: new FormControl(chofer.nombres, Validators.required),
+      apellidos: new FormControl(chofer.apellidos, Validators.required),
+      carnet: new FormControl(chofer.carnet, Validators.required),
+      tipo: new FormControl(chofer.tipo, Validators.required)
     });
   }
 
@@ -57,7 +66,8 @@ export class ChoferEditComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/chofer/listar']);
+        const url = `/${this.user.tipo}/chofer/listar`;
+        this.router.navigate([url]);
       }
     });
 
@@ -66,10 +76,9 @@ export class ChoferEditComponent implements OnInit {
   update() {
     this.choferService
       .update(this.choferGroup.value, this.choferGroup.value.id).subscribe(res => {
-        console.log(res);
-        this.openDialog(res);
-      }, (error) => {
-        this.openDialog(error.error);
-      });
+      this.openDialog(res);
+    }, (error) => {
+      this.openDialog(error.error);
+    });
   }
 }

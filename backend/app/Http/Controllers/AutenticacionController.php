@@ -34,7 +34,7 @@ class AutenticacionController extends Controller
         $user = User::where('cuenta', $request->input('cuenta'))->first();
         return response()->json([
             'autenticado' => true,
-            'user_id' => $user->id,
+            'user' => $user,
             'token' => $token,
             'mensaje' => 'El usuario fue autenticado exitosamente'
 

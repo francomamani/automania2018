@@ -85,117 +85,28 @@ import {ValeCombustibleComponent} from './vale-combustible/vale-combustible.comp
 import {ValeCombustibleCreateComponent} from './vale-combustible/vale-combustible-create/vale-combustible-create.component';
 import {ValeCombustibleIndexComponent} from './vale-combustible/vale-combustible-index/vale-combustible-index.component';
 
-
 import {registerLocaleData} from '@angular/common';
 import localeEsBo from '@angular/common/locales/es-BO';
 import {MatChipsModule} from '@angular/material/chips';
 
 registerLocaleData(localeEsBo, 'es-Bo');
 
-
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {
-    path: 'usuario', component: UserComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: UserCreateComponent},
-      {path: 'listar', component: UserIndexComponent},
-      {path: 'editar/:id', component: UserEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
+    path: 'servicio-general',
+    loadChildren: () => import('./servicio-general/servicio-general.module').then(m => m.ServicioGeneralModule)
   },
   {
-    path: 'chofer', component: ChoferComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: ChoferCreateComponent},
-      {path: 'listar', component: ChoferIndexComponent},
-      {path: 'editar/:id', component: ChoferEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'contrato', component: ContratoComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: ContratoCreateComponent},
-      {path: 'listar', component: ContratoIndexComponent},
-      {path: 'editar/:id', component: ContratoEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'vehiculo', component: VehiculoComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: VehiculoCreateComponent},
-      {path: 'listar', component: VehiculoIndexComponent},
-      {path: 'editar/:id', component: VehiculoEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'asignacion-vehiculo', component: AsignacionVehiculoComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: AsignacionVehiculoCreateComponent},
-      {path: 'listar', component: AsignacionVehiculoIndexComponent},
-      {path: 'editar/:id', component: AsignacionVehiculoEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'vale-combustible', component: ValeCombustibleComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: ValeCombustibleCreateComponent},
-      {path: 'listar', component: ValeCombustibleIndexComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'estacion-servicio', component: EstacionServicioComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: EstacionServicioCreateComponent},
-      {path: 'listar', component: EstacionServicioIndexComponent},
-      {path: 'editar/:id', component: EstacionServicioEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'tipo-combustible', component: TipoCombustibleComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: TipoCombustibleCreateComponent},
-      {path: 'listar', component: TipoCombustibleIndexComponent},
-      {path: 'editar/:id', component: TipoCombustibleEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'suministro-combustible', component: SuministroCombustibleComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: SuministroCombustibleCreateComponent},
-      {path: 'listar', component: SuministroCombustibleIndexComponent},
-      {path: 'editar/:id', component: SuministroCombustibleEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'kilometraje', component: KilometrajeComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: KilometrajeCreateComponent},
-      {path: 'listar', component: KilometrajeIndexComponent},
-      {path: 'editar/:id', component: KilometrajeEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'taller-mecanico', component: TallerMecanicoComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: TallerMecanicoCreateComponent},
-      {path: 'listar', component: TallerMecanicoIndexComponent},
-      {path: 'editar/:id', component: TallerMecanicoEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
-  },
-  {
-    path: 'mantenimiento', component: MantenimientoComponent, canActivate: [AuthGuard], children: [
-      {path: 'crear', component: MantenimientoCreateComponent},
-      {path: 'listar', component: MantenimientoIndexComponent},
-      {path: 'editar/:id', component: MantenimientoEditComponent},
-      {path: '', redirectTo: 'listar', pathMatch: 'full'}
-    ]
+    path: 'administrador',
+    loadChildren: () => import('./administrador/administrador.module').then(m => m.AdministradorModule)
   },
   {path: '**', redirectTo: 'login', pathMatch: 'full'},
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
-  }
+  },
 ];
 
 

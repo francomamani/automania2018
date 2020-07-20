@@ -1,20 +1,20 @@
 <div class="flex-container">
   <span class="titulo">Lista de Talleres Mecánicos</span>
   <span class="spacer"></span>
-  <button [routerLink]="['/taller-mecanico/crear']"
-          color="primary"
+  <button color="primary"
           mat-mini-fab
           matTooltip="Nuevo taller mecánico"
-          tooltip-position="left">
+          matTooltipPosition="left"
+          routerLink="/{{user?.tipo}}/taller-mecanico/crear">
     <mat-icon>add</mat-icon>
   </button>
   &nbsp;&nbsp;&nbsp;
   <button (click)="exportExcel()"
-  color="accent"
-  mat-raised-button>
-<mat-icon>import_export</mat-icon>
-Exportar en Excel
-</button>
+          color="accent"
+          mat-raised-button>
+    <mat-icon>import_export</mat-icon>
+    Exportar en Excel
+  </button>
 </div>
 
 <div class="fni-container mat-elevation-z8">
@@ -53,7 +53,8 @@ Exportar en Excel
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">
-        <button color="accent" mat-button mat-icon-button routerLink="/taller-mecanico/editar/{{col.id}}">
+        <button color="accent" mat-button mat-icon-button
+                routerLink="/{{user?.tipo}}/taller-mecanico/editar/{{col.id}}">
           <mat-icon>border_color</mat-icon>
         </button>
         <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>

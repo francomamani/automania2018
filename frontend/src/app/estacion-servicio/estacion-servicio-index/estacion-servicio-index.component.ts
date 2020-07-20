@@ -7,6 +7,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
+import {AuthService} from '../../auth.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-estacion-servicio-index',
@@ -15,6 +17,7 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class EstacionServicioIndexComponent implements OnInit {
 
+  user: User;
   list: any = [];
   environment = environment;
   estacion_servicios: MatTableDataSource<any>;
@@ -29,6 +32,7 @@ export class EstacionServicioIndexComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private authService: AuthService,
     private estacionServicioService: EstacionServicioService,
     private excelService: ExcelService,
     private dialog: MatDialog
@@ -48,6 +52,10 @@ export class EstacionServicioIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
   }
 
   openDialog(id, index) {

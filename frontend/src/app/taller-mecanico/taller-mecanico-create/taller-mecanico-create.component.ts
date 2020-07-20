@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TallerMecanicoService} from '../taller-mecanico.service';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-taller-mecanico-create',
@@ -11,9 +13,11 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./taller-mecanico-create.component.css']
 })
 export class TallerMecanicoCreateComponent implements OnInit {
+  user: User;
   tallerMecanicoGroup: FormGroup;
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private tallerMecanicoService: TallerMecanicoService,
     private fb: FormBuilder,
@@ -21,17 +25,21 @@ export class TallerMecanicoCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.createForm();
   }
 
   createForm() {
     this.tallerMecanicoGroup = this.fb.group({
-      'identificacion': new FormControl('', Validators.required),
-      'nombre': new FormControl('', Validators.required),
-      'direccion': new FormControl('', Validators.required),
-      'telefono': new FormControl('', Validators.required),
-      'nit': new FormControl('', Validators.required),
-      'nombre_propietario': new FormControl('', Validators.required)
+      identificacion: new FormControl('', Validators.required),
+      nombre: new FormControl('', Validators.required),
+      direccion: new FormControl('', Validators.required),
+      telefono: new FormControl('', Validators.required),
+      nit: new FormControl('', Validators.required),
+      nombre_propietario: new FormControl('', Validators.required)
     });
   }
 
@@ -46,7 +54,8 @@ export class TallerMecanicoCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/taller-mecanico/listar']);
+        const url = `/${this.user.tipo}/taller-mecanico/listar`;
+        this.router.navigate([url]);
       }
     });
   }

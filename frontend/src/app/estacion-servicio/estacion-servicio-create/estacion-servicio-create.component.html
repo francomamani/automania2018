@@ -30,7 +30,7 @@
         </mat-error>
       </mat-form-field>
       <div class="form-group" fxLayout="row" fxLayoutGap="5px">
-        <button [routerLink]="['/estacion-servicio/listar']" fxFlex="auto" mat-raised-button>
+        <button fxFlex="auto" mat-raised-button routerLink="/{{user.tipo}}/estacion-servicio/listar">
           <mat-icon color="warn">undo</mat-icon>
           ATRÁS
         </button>

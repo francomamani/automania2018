@@ -6,11 +6,11 @@
 
   <span class="spacer"></span>
 
-  <button [routerLink]="['/vale-combustible/crear']"
-          color="primary"
+  <button color="primary"
           mat-mini-fab
           matTooltip="Nueva vale de gasolina"
-          matTooltipPosition="left">
+          matTooltipPosition="left"
+          routerLink="/{{user?.tipo}}/vale-combustible/crear">
     <mat-icon>add</mat-icon>
   </button>  <!--
 -->
@@ -32,22 +32,42 @@
 
   <mat-table #table [dataSource]="vale_combustibles" matSort>
     <ng-container matColumnDef="numero_vale">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Numero de Vale</mat-header-cell>
-      <mat-cell *matCellDef="let  col"> {{col.numero_vale | uppercase }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Número de Vale</mat-header-cell>
+      <mat-cell *matCellDef="let  col"> {{ col.numero_vale | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="motivo_viaje">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Motivo de Viaje</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.motivo_viaje | uppercase }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{ col.motivo_viaje | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="litros">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Litros</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.litros | number: '1.2-2' }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{ col.litros | number: '1.2-2' }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="importe">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Importe</mat-header-cell>
-      <mat-cell *matCellDef="let col"> {{col.importe | number: '1.2-2' }} </mat-cell>
+      <mat-cell *matCellDef="let col"> {{ col.importe | number: '1.2-2' }} </mat-cell>
     </ng-container>
-
+    <ng-container matColumnDef="kilometraje">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Kilometraje Actual</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{ col.kilometraje?.actual }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="chofer">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Chofer</mat-header-cell>
+      <mat-cell
+        *matCellDef="let col"> {{ col.asignacion_vehiculo?.chofer?.nombres | uppercase }} {{ col.asignacion_vehiculo?.chofer?.apellidos | uppercase }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="vehiculo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Placa de Vehículo</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{ col.asignacion_vehiculo?.vehiculo?.placa }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="estacion_servicio">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Estación de Servicio</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{ col.estacion_servicio.razon_social }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="registrado">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Registrado</mat-header-cell>
+      <mat-cell *matCellDef="let col"> {{ col.created_at | date: 'dd/MM/y HH:mm:ss' }} </mat-cell>
+    </ng-container>
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">

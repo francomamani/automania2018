@@ -16,13 +16,13 @@
       </mat-form-field>
 
       <mat-form-field class="divider">
-        <input #importe formControlName="importe" matInput maxlength="10"  type="number" placeholder="Importe">
+        <input #importe formControlName="importe" matInput maxlength="10" placeholder="Importe" type="number">
         <mat-hint align="end">{{importe.value?.length || 0}}/10</mat-hint>
         <mat-error *ngIf="tipoCombustibleGroup.get('importe').status == 'INVALID'">El importe es obligatorio</mat-error>
       </mat-form-field>
 
       <div class="form-group" fxLayout="row" fxLayoutGap="5px">
-        <button [routerLink]="['/tipo-combustible/listar']" fxFlex="auto" mat-raised-button>
+        <button fxFlex="auto" mat-raised-button routerLink="/{{user.tipo}}/tipo-combustible/listar">
           <mat-icon color="warn">undo</mat-icon>
           ATRÁS
         </button>

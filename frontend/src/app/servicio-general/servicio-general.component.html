@@ -1,0 +1,98 @@
+<mat-toolbar class="toolbar" style="background-color: rgba(255, 255, 255, 0.623)">
+  <mat-toolbar-row>
+    <img height="64" src="assets/tedo.png">
+
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;TED ORURO</span>
+    <span class="spacer"></span>
+
+    <button [matMenuTriggerFor]="gestionV" mat-button>
+      <mat-icon>local_car_wash</mat-icon>
+      Gestión Vehicular
+    </button>
+    <mat-menu #gestionV="matMenu">
+      <button mat-menu-item routerLink="/servicio-general/vehiculo">
+        <mat-icon>drive_eta</mat-icon>
+        Vehículos
+      </button>
+      <button mat-menu-item routerLink="/servicio-general/asignacion-vehiculo">
+        <mat-icon>person_add</mat-icon>
+        Asignacion Vehículo
+      </button>
+    </mat-menu>
+    <button [matMenuTriggerFor]="chofer" mat-button>
+      <mat-icon>face</mat-icon>
+      Gestión de Choferes
+    </button>
+    <mat-menu #chofer="matMenu">
+      <button mat-menu-item routerLink="/servicio-general/chofer">
+        <mat-icon>face</mat-icon>
+        Choferes
+      </button>
+      <button mat-menu-item routerLink="/servicio-general/contrato">
+        <mat-icon>assignment</mat-icon>
+        Contratos
+      </button>
+    </mat-menu>
+    <button [matMenuTriggerFor]="gestion_gasolina" mat-button>
+      <mat-icon>local_gas_station</mat-icon>
+      Gestión de Combustible
+    </button>
+    <mat-menu #gestion_gasolina="matMenu">
+      <button mat-menu-item routerLink="/servicio-general/estacion-servicio">
+        <mat-icon>ev_station</mat-icon>
+        Estaciones de Servicio
+      </button>
+      <button mat-menu-item routerLink="/servicio-general/suministro-combustible">
+        <mat-icon>battery_charging_full</mat-icon>
+        Suministro de Combustible
+      </button>
+      <!--      <button mat-menu-item matTooltip="Kilometraje"
+                    routerLink="/servicio-general/kilometraje">
+              <mat-icon>access_time</mat-icon>
+              Kilometraje
+            </button>-->
+      <button mat-menu-item routerLink="/servicio-general/vale-combustible">
+        <mat-icon>local_offer</mat-icon>
+        Vales de Combustible
+      </button>
+    </mat-menu>
+
+    <button [matMenuTriggerFor]="gestionM" mat-button>
+      <mat-icon>build</mat-icon>
+      Gestión Mantenimiento
+    </button>
+    <mat-menu #gestionM="matMenu">
+      <button mat-menu-item routerLink="/servicio-general/taller-mecanico">
+        <mat-icon>build</mat-icon>
+        Talleres Mecánicos
+      </button>
+      <!--      <button mat-menu-item routerLink="/servicio-general/mantenimiento">
+              <mat-icon>settings</mat-icon>
+              Mantenimientos
+            </button>-->
+    </mat-menu>
+
+
+    <button [matMenuTriggerFor]="usuarios" color="primary"
+            mat-raised-button
+            matTooltip="Administración">
+      {{ user?.cuenta }} <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #usuarios="matMenu">
+      <button mat-menu-item routerLink="/servicio-general/usuario">
+        <mat-icon>person</mat-icon>
+        <span>Usuarios</span>
+      </button>
+      <button mat-menu-item routerLink="/servicio-general/tipo-combustible">
+        <mat-icon>battery_charging_full</mat-icon>
+        <span>Tipo Combustible</span>
+      </button>
+      <button (click)="logout()" mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Cerrar Sesión</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="secondary-menu"></div>
+<router-outlet></router-outlet>

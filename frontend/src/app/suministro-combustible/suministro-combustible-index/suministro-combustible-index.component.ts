@@ -8,6 +8,8 @@ import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
 import {VehiculoService} from '../../vehiculo/vehiculo.service';
 import {SuministroCombustibleService} from '../suministro-combustible.service';
+import {AuthService} from '../../auth.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-suministro-combustible-index',
@@ -16,6 +18,7 @@ import {SuministroCombustibleService} from '../suministro-combustible.service';
 })
 export class SuministroCombustibleIndexComponent implements OnInit {
 
+  user: User;
   list: any = [];
   environment = environment;
   suministroCombustibles: MatTableDataSource<any[]>;
@@ -31,6 +34,7 @@ export class SuministroCombustibleIndexComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private authService: AuthService,
     private suministroCombustibleservice: SuministroCombustibleService,
     private vehiculoService: VehiculoService,
     private dialog: MatDialog,
@@ -45,6 +49,10 @@ export class SuministroCombustibleIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.suministroCombustibleservice.index().subscribe(res => {
       this.list = res;
       this.suministroCombustibles = new MatTableDataSource(this.list);

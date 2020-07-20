@@ -4,6 +4,8 @@ import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.compon
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TallerMecanicoService} from '../taller-mecanico.service';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-taller-mecanico-edit',
@@ -12,10 +14,12 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class TallerMecanicoEditComponent implements OnInit {
 
+  user: User;
   tallerMecanicoGroup: FormGroup;
   taller_mecanico: any = null;
 
   constructor(
+    private authService: AuthService,
     private tallerMecanicoService: TallerMecanicoService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -31,17 +35,21 @@ export class TallerMecanicoEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
   }
 
   createForm(taller_mecanico) {
     this.tallerMecanicoGroup = this.fb.group({
-      'id': new FormControl(taller_mecanico.id, Validators.required),
-      'identificacion': new FormControl(taller_mecanico.identificacion, Validators.required),
-      'nombre': new FormControl(taller_mecanico.nombre, Validators.required),
-      'direccion': new FormControl(taller_mecanico.direccion, Validators.required),
-      'telefono': new FormControl(taller_mecanico.telefono, Validators.required),
-      'nit': new FormControl(taller_mecanico.nit, Validators.required),
-      'nombre_propietario': new FormControl(taller_mecanico.nombre_propietario, Validators.required)
+      id: new FormControl(taller_mecanico.id, Validators.required),
+      identificacion: new FormControl(taller_mecanico.identificacion, Validators.required),
+      nombre: new FormControl(taller_mecanico.nombre, Validators.required),
+      direccion: new FormControl(taller_mecanico.direccion, Validators.required),
+      telefono: new FormControl(taller_mecanico.telefono, Validators.required),
+      nit: new FormControl(taller_mecanico.nit, Validators.required),
+      nombre_propietario: new FormControl(taller_mecanico.nombre_propietario, Validators.required)
     });
   }
 
@@ -56,7 +64,8 @@ export class TallerMecanicoEditComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/taller-mecanico/listar']);
+        const url = `/${this.user.tipo}/taller-mecanico/listar`;
+        this.router.navigate([url]);
       }
     });
 
@@ -68,9 +77,7 @@ export class TallerMecanicoEditComponent implements OnInit {
       .subscribe(res => {
         this.openDialog(res);
       }, (error) => {
-        console.log(error.error);
         this.openDialog(error.error);
       });
-
   }
 }

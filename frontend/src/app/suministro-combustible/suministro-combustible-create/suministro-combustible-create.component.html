@@ -27,7 +27,7 @@
       </div>
 
       <div class="form-group" fxLayout="row" fxLayoutGap="5px">
-        <button [routerLink]="['/suministro-combustible/listar']" fxFlex="auto" mat-raised-button>
+        <button fxFlex="auto" mat-raised-button routerLink="/{{user.tipo}}/suministro-combustible/listar">
           <mat-icon color="warn">undo</mat-icon>
           ATRÁS
         </button>

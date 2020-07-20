@@ -4,6 +4,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ChoferService} from '../chofer.service';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-chofer-create',
@@ -11,6 +13,7 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./chofer-create.component.css']
 })
 export class ChoferCreateComponent implements OnInit {
+  user: User;
   tipos: any = [
     {key: 'permanente', value: 'Permanente'},
     {key: 'eventual', value: 'Eventual'}
@@ -18,6 +21,7 @@ export class ChoferCreateComponent implements OnInit {
   choferGroup: FormGroup;
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private choferService: ChoferService,
     private fb: FormBuilder,
@@ -25,15 +29,19 @@ export class ChoferCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.createForm();
   }
 
   createForm() {
     this.choferGroup = this.fb.group({
-      'nombres': new FormControl('', Validators.required),
-      'apellidos': new FormControl('', Validators.required),
-      'carnet': new FormControl('', Validators.required),
-      'tipo': new FormControl('', Validators.required)
+      nombres: new FormControl('', Validators.required),
+      apellidos: new FormControl('', Validators.required),
+      carnet: new FormControl('', Validators.required),
+      tipo: new FormControl('', Validators.required)
     });
   }
 
@@ -48,7 +56,8 @@ export class ChoferCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/chofer/listar']);
+        const url = `/${this.user.tipo}/chofer/listar`;
+        this.router.navigate([url]);
       }
     });
   }

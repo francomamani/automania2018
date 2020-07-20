@@ -4,11 +4,12 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {TipoVehiculo} from '../../models/tipo-vehiculo';
-import {TipoVehiculoService} from '../../services/tipo-vehiculo.service';
 import {SuministroCombustibleService} from '../suministro-combustible.service';
 import {VehiculoService} from '../../vehiculo/vehiculo.service';
 import {CombustibleService} from '../../services/combustible.service';
 import {Combustible} from '../../models/combustible';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-suministro-combustible-create',
@@ -16,11 +17,13 @@ import {Combustible} from '../../models/combustible';
   styleUrls: ['./suministro-combustible-create.component.css']
 })
 export class SuministroCombustibleCreateComponent implements OnInit {
+  user: User;
   vehiculos: TipoVehiculo[];
   combustibles: Combustible[];
   suminsitroCombustibleGroup: FormGroup;
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private vehiculoService: VehiculoService,
     private suministroCombustibleService: SuministroCombustibleService,
@@ -30,6 +33,10 @@ export class SuministroCombustibleCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.vehiculoService.index()
       .subscribe((vehiculos: TipoVehiculo[]) => {
         this.vehiculos = vehiculos;
@@ -59,7 +66,8 @@ export class SuministroCombustibleCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/suministro-combustible/listar']);
+        const url = `/${this.user.tipo}/suministro-combustible/listar`;
+        this.router.navigate([url]);
       }
     });
   }

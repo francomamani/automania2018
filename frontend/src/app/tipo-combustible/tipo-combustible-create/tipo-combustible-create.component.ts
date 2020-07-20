@@ -4,6 +4,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {TipoCombustibleService} from '../tipo-combustible.service';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-tipo-combustible-create',
@@ -11,9 +13,11 @@ import {TipoCombustibleService} from '../tipo-combustible.service';
   styleUrls: ['./tipo-combustible-create.component.css']
 })
 export class TipoCombustibleCreateComponent implements OnInit {
+  user: User;
   tipoCombustibleGroup: FormGroup;
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private tipoCombustibleService: TipoCombustibleService,
     private fb: FormBuilder,
@@ -21,13 +25,17 @@ export class TipoCombustibleCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.createForm();
   }
 
   createForm() {
     this.tipoCombustibleGroup = this.fb.group({
-      'nombre': new FormControl('', Validators.required),
-      'importe': new FormControl(0, Validators.required)
+      nombre: new FormControl('', Validators.required),
+      importe: new FormControl(0, Validators.required)
     });
   }
 
@@ -42,7 +50,8 @@ export class TipoCombustibleCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['tipo-combustible/listar']);
+        const url = `/${this.user.tipo}/tipo-combustible/listar`;
+        this.router.navigate([url]);
       }
     });
   }

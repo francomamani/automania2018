@@ -6,6 +6,8 @@ import {AsignacionVehiculoService} from '../asignacion-vehiculo.service';
 import {ChoferService} from '../../chofer/chofer.service';
 import {VehiculoService} from '../../vehiculo/vehiculo.service';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-asignacion-vehiculo-create',
@@ -13,11 +15,13 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./asignacion-vehiculo-create.component.css']
 })
 export class AsignacionVehiculoCreateComponent implements OnInit {
+  user: User;
   choferes: any[] = [];
   vehiculos: any[] = [];
   asignacionVehiculoGroup: FormGroup;
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private choferService: ChoferService,
     private vehiculoService: VehiculoService,
@@ -27,6 +31,10 @@ export class AsignacionVehiculoCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      })
     this.choferService.index()
       .subscribe((choferes: any[]) => {
         this.choferes = choferes;
@@ -55,13 +63,13 @@ export class AsignacionVehiculoCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/asignacion-vehiculo/listar']);
+        const url = `/${this.user.tipo}/asignacion-vehiculo/listar`;
+        this.router.navigate([url]);
       }
     });
   }
 
   store() {
-    console.log(this.asignacionVehiculoGroup.value);
     this.asignacionVehiculoService.store(this.asignacionVehiculoGroup.value).subscribe(res => {
       this.openDialog(res);
     }, (error) => {

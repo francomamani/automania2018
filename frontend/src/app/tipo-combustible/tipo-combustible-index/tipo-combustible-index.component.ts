@@ -6,7 +6,9 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
-import {TipoCombustibleService} from "../tipo-combustible.service";
+import {TipoCombustibleService} from '../tipo-combustible.service';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-tipo-combustible-index',
@@ -14,6 +16,7 @@ import {TipoCombustibleService} from "../tipo-combustible.service";
   styleUrls: ['./tipo-combustible-index.component.css']
 })
 export class TipoCombustibleIndexComponent implements OnInit {
+  user: User;
   list: any = [];
   environment = environment;
   tipoCombustible: MatTableDataSource<any>;
@@ -25,6 +28,7 @@ export class TipoCombustibleIndexComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private authService: AuthService,
     private tipoCombustibleService: TipoCombustibleService,
     private dialog: MatDialog,
     private excelService: ExcelService
@@ -44,6 +48,10 @@ export class TipoCombustibleIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
   }
 
   openDialog(id, index) {
@@ -75,15 +83,11 @@ export class TipoCombustibleIndexComponent implements OnInit {
     const lista = this.list.map((item, index) => {
       return {
         n: index + 1,
-        nombres: item.nombres,
-        apellidos: item.apellidos,
-        carnet: item.carnet,
-        tipo: item.tipo,
-        fecha_inicio_contrato: new Date(item.fecha_inicio_contrato),
-        fecha_fin_contrato: new Date(item.fecha_fin_contrato)
+        nombre: item.nombre,
+        importe: `${item.importe}`
       };
     });
-    this.excelService.exportarExcel(lista, 'tipoCombustible');
+    this.excelService.exportarExcel(lista, 'tipo-combustible');
   }
 
 }

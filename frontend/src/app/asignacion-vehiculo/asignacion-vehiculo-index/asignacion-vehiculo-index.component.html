@@ -1,15 +1,11 @@
-<!--<div class="flex-container-center">
-  <a><mat-icon>add</mat-icon></a><a>Asignaciones / listar</a>
-</div>-->
 <div class="flex-container">
   <span class="titulo">Lista de Asignación de Vehículos</span>
-
   <span class="spacer"></span>
-  <button [routerLink]="['/asignacion-vehiculo/crear']"
-          color="primary"
+  <button color="primary"
           mat-mini-fab
           matTooltip="Nueva asignación"
-          tooltip-position="left">
+          matTooltipPosition="left"
+          routerLink="/{{user?.tipo}}/asignacion-vehiculo/crear">
     <mat-icon>add</mat-icon>
   </button>
   &nbsp;&nbsp;&nbsp;

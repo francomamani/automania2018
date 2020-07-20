@@ -38,7 +38,7 @@ class User extends Authenticatable
     {
         $esServicioGeneral = ServicioGeneral::where('user_id', $this->getKey())->exists();
         if ($esServicioGeneral) {
-            return 'servicio_general';
+            return 'servicio-general';
         } else {
             return 'administrador';
         }

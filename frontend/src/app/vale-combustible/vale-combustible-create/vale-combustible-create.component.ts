@@ -13,6 +13,8 @@ import {Kilometraje} from '../../models/kilometraje';
 import {Combustible} from '../../models/combustible';
 import {CombustibleService} from '../../services/combustible.service';
 import {ValeCombustibleService} from '../../services/vale-combustible.service';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-vale-combustible-create',
@@ -21,6 +23,7 @@ import {ValeCombustibleService} from '../../services/vale-combustible.service';
 })
 export class ValeCombustibleCreateComponent implements OnInit {
 
+  user: User;
   choferes: any[] = [];
   vehiculos: any[] = [];
 
@@ -36,6 +39,7 @@ export class ValeCombustibleCreateComponent implements OnInit {
   combustible: Combustible = null;
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private choferService: ChoferService,
     private vehiculoService: VehiculoService,
@@ -49,6 +53,10 @@ export class ValeCombustibleCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.estacionServicioService.index()
       .subscribe((estaciones: any[]) => {
         this.estaciones = estaciones;
@@ -127,17 +135,17 @@ export class ValeCombustibleCreateComponent implements OnInit {
   }
 
   store() {
+    const url = `/${this.user.tipo}/vale-combustible/listar`;
     if (this.valeCombustibleGroup.get('kilometraje').value > this.valeCombustibleGroup.get('kilometraje_anterior').value) {
       this.valeCombustibleService.store(this.valeCombustibleGroup.value).subscribe((res: any) => {
         this.openDialog(res);
-        this.router.navigate(['/vale-combustible/listar']);
+        this.router.navigate([url]);
       }, (error) => {
-        this.router.navigate(['/vale-combustible/listar']);
+        this.router.navigate([url]);
         this.openDialog(error.error);
       });
     } else {
       alert('El kilometraje actual no puede ser menos o igual al kilometraje anterior');
     }
   }
-
 }

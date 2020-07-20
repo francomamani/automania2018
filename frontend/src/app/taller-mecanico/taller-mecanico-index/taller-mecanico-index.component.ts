@@ -7,6 +7,8 @@ import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatDialog} from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-taller-mecanico-index',
@@ -14,6 +16,7 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./taller-mecanico-index.component.css']
 })
 export class TallerMecanicoIndexComponent implements OnInit {
+  user: User;
   list: any = [];
   environment = environment;
   taller_mecanicos: MatTableDataSource<any>;
@@ -31,6 +34,7 @@ export class TallerMecanicoIndexComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private authService: AuthService,
     private tallerMecanicoService: TallerMecanicoService,
     private excelService: ExcelService,
     private dialog: MatDialog
@@ -51,6 +55,10 @@ export class TallerMecanicoIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
   }
 
   openDialog(id, index) {
@@ -74,7 +82,6 @@ export class TallerMecanicoIndexComponent implements OnInit {
       this.taller_mecanicos.data = this.list;
       this.taller_mecanicos.sort = this.sort;
       this.taller_mecanicos.paginator = this.paginator;
-      console.log(res);
     });
   }
 

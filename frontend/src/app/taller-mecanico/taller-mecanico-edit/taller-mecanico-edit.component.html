@@ -1,7 +1,11 @@
 <mat-card *ngIf="taller_mecanico !== null" class="card-md">
-  <mat-card-header>
+  <mat-card-header fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+    <button color="accent" mat-button mat-icon-button>
+      <mat-icon>build</mat-icon>
+    </button>
     EDITAR TALLER MECÁNICO
   </mat-card-header>
+
   <mat-card-content>
     <form (submit)="update()" [formGroup]="tallerMecanicoGroup">
       <mat-form-field class="divider">

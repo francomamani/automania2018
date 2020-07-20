@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 import {TallerMecanicoService} from '../../taller-mecanico/taller-mecanico.service';
 import {AsignacionVehiculoService} from '../../asignacion-vehiculo/asignacion-vehiculo.service';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-mantenimiento-create',
@@ -13,6 +15,7 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./mantenimiento-create.component.css']
 })
 export class MantenimientoCreateComponent implements OnInit {
+  user: User;
   mantenimientoGroup: FormGroup;
   tipoMantenimiento = [
     {value: 'preventivo'},
@@ -22,6 +25,7 @@ export class MantenimientoCreateComponent implements OnInit {
   asignaciones: any = [];
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private mantenimientoService: MantenimientoService,
     private tallerMecanicoService: TallerMecanicoService,
@@ -31,6 +35,10 @@ export class MantenimientoCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.createForm();
     this.tallerMecanicoService.index().subscribe(res => this.tallerMecanicos = res);
     this.asignacionVehiculoService.index().subscribe(res => this.asignaciones = res);
@@ -59,7 +67,8 @@ export class MantenimientoCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/mantenimiento/listar']);
+        const url = `/${this.user.tipo}/mantenimiento/listar`;
+        this.router.navigate([url]);
       }
     });
   }

@@ -2,11 +2,11 @@
   <span class="titulo">Lista de Suminsitro de Combustible</span>
 
   <span class="spacer"></span>
-  <button [routerLink]="['/suministro-combustible/crear']"
-          color="primary"
+  <button color="primary"
           mat-mini-fab
           matTooltip="Nuevo Suministro de Combustible"
-          tooltip-position="left">
+          matTooltipPosition="left"
+          routerLink="/{{user?.tipo}}/suministro-combustible/crear">
     <mat-icon>add</mat-icon>
   </button>
   &nbsp;&nbsp;&nbsp;
@@ -45,7 +45,8 @@
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">
-        <button color="accent" mat-button mat-icon-button routerLink="/suministro-combustible/editar/{{col.id}}">
+        <button color="accent" mat-button mat-icon-button
+                routerLink="/{{user?.tipo}}/suministro-combustible/editar/{{col.id}}">
           <mat-icon>border_color</mat-icon>
         </button>
         <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>

@@ -4,7 +4,8 @@ export class User {
     public nombres: string,
     public apellidos: string,
     public carnet: string,
-    public id?: number
+    public id?: number,
+    public tipo?: string
   ) {
   }
 }

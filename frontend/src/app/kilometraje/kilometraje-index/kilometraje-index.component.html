@@ -2,11 +2,11 @@
   <span class="titulo">LISTA DE RECORRIDOS KM</span>
 
   <span class="spacer"></span>
-  <button [routerLink]="['/kilometraje/crear']"
-          color="primary"
+  <button color="primary"
           mat-mini-fab
           matTooltip="Nuevo Recorrido Km"
-          tooltip-position="left">
+          matTooltipPosition="left"
+          routerLink="/{{user.tipo}}}/kilometraje/crear">
     <mat-icon>add</mat-icon>
   </button>
   &nbsp;&nbsp;&nbsp;

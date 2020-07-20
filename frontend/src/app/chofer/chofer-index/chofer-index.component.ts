@@ -7,6 +7,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-chofer-index',
@@ -14,6 +16,7 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./chofer-index.component.css']
 })
 export class ChoferIndexComponent implements OnInit {
+  user: User;
   list: any = [];
   environment = environment;
   choferes: MatTableDataSource<any>;
@@ -27,6 +30,7 @@ export class ChoferIndexComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private authService: AuthService,
     private choferService: ChoferService,
     private dialog: MatDialog,
     private excelService: ExcelService
@@ -46,6 +50,10 @@ export class ChoferIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
   }
 
   openDialog(id, index) {

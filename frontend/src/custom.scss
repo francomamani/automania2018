@@ -12,12 +12,8 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 
 @include angular-material-theme($custom-theme);
 
-.mat-row:nth-child(2n+1) {
-  background-color: #3e4240;
-}
-
-.mat-row:not(:nth-child(4n+1)) {
-  background-color: #ffffff;
+.mat-row:nth-child(odd) {
+  background-color: #eeeeee;
 }
 
 .flex-container {

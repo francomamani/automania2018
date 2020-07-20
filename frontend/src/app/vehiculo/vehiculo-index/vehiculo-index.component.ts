@@ -7,6 +7,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-vehiculo-index',
@@ -15,6 +17,7 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class VehiculoIndexComponent implements OnInit {
 
+  user: User;
   list: any = [];
   environment = environment;
   vehiculos: MatTableDataSource<any[]>;
@@ -31,6 +34,7 @@ export class VehiculoIndexComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private authService: AuthService,
     private vehiculoService: VehiculoService,
     private dialog: MatDialog,
     private excelService: ExcelService
@@ -44,6 +48,10 @@ export class VehiculoIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.vehiculoService.index().subscribe(res => {
       this.list = res;
       this.vehiculos = new MatTableDataSource(this.list);
@@ -73,7 +81,6 @@ export class VehiculoIndexComponent implements OnInit {
       this.vehiculos.data = this.list;
       this.vehiculos.sort = this.sort;
       this.vehiculos.paginator = this.paginator;
-      console.log(res);
     });
   }
 

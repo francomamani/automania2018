@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EstacionServicioService} from '../estacion-servicio.service';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-estacion-servicio-edit',
@@ -12,10 +14,12 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class EstacionServicioEditComponent implements OnInit {
 
+  user: User;
   estacionServicioGroup: FormGroup;
   estacion_servicio: any = null;
 
   constructor(
+    private authService: AuthService,
     private estacionServicioService: EstacionServicioService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -32,15 +36,19 @@ export class EstacionServicioEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
   }
 
   createForm(estacion_servicio) {
     this.estacionServicioGroup = this.fb.group({
-      'id': new FormControl(estacion_servicio.id, Validators.required),
-      'razon_social': new FormControl(estacion_servicio.razon_social, Validators.required),
-      'nit': new FormControl(estacion_servicio.nit, Validators.required),
-      'propietario': new FormControl(estacion_servicio.propietario, Validators.required),
-      'activo': new FormControl(estacion_servicio.activo, Validators.required)
+      id: new FormControl(estacion_servicio.id, Validators.required),
+      razon_social: new FormControl(estacion_servicio.razon_social, Validators.required),
+      nit: new FormControl(estacion_servicio.nit, Validators.required),
+      propietario: new FormControl(estacion_servicio.propietario, Validators.required),
+      activo: new FormControl(estacion_servicio.activo, Validators.required)
     });
   }
 
@@ -56,7 +64,8 @@ export class EstacionServicioEditComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/estacion-servicio/listar']);
+        const url = `/${this.user.tipo}/estacion-servicio/listar`;
+        this.router.navigate([url]);
       }
     });
 
@@ -68,7 +77,6 @@ export class EstacionServicioEditComponent implements OnInit {
       .subscribe(res => {
         this.openDialog(res);
       }, (error) => {
-        console.log(error.error);
         this.openDialog(error.error);
       });
 

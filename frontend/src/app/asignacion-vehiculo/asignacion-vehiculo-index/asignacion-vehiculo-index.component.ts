@@ -7,6 +7,9 @@ import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
 import {AsignacionVehiculoService} from '../asignacion-vehiculo.service';
 import {ExcelService} from '../../services/excel.service';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
+import {DateTime} from 'luxon';
 
 @Component({
   selector: 'app-asignacion-vehiculo-index',
@@ -15,6 +18,7 @@ import {ExcelService} from '../../services/excel.service';
 })
 export class AsignacionVehiculoIndexComponent implements OnInit {
 
+  user: User;
   list: any = [];
   environment = environment;
   asignaciones: MatTableDataSource<any[]>;
@@ -35,6 +39,7 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private authService: AuthService,
     private asignacionVehiculoService: AsignacionVehiculoService,
     private excelService: ExcelService,
     private dialog: MatDialog
@@ -42,7 +47,10 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.asignacionVehiculoService.index().subscribe(res => {
       this.list = res;
       this.asignaciones = new MatTableDataSource(this.list);
@@ -100,15 +108,13 @@ export class AsignacionVehiculoIndexComponent implements OnInit {
         apellidos: item.chofer.apellidos,
         carnet: item.chofer.carnet,
         tipo: item.chofer.tipo,
-        fecha_inicio_contrato: new Date(item.chofer.fecha_inicio_contrato),
-        fecha_fin_contrato: new Date(item.chofer.fecha_fin_contrato),
         placa: item.vehiculo.placa,
         marca: item.vehiculo.marca,
         modelo: item.vehiculo.modelo,
         color: item.vehiculo.color,
         cilindrada: item.vehiculo.cilindrada,
         gestion: item.vehiculo.gestion,
-        fecha_asignacion: new Date(item.created_at)
+        fecha_asignacion: DateTime.fromISO(item.created_at.replace(' ', 'T')).toFormat('dd MMM y')
       };
     });
     this.excelService.exportarExcel(lista, 'asignaciones-vehiculos');

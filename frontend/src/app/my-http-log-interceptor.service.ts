@@ -1,5 +1,14 @@
-import {HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpHeaders,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
+} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 
 export class MyHttpLogInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -9,7 +18,23 @@ export class MyHttpLogInterceptorService implements HttpInterceptor {
         const customReq = req.clone({
           headers: new HttpHeaders().set('Authorization', token)
         });
-        return next.handle(customReq);
+        return next.handle(customReq).pipe(
+          map((event: HttpEvent<any>) => {
+            if (event instanceof HttpResponse) {
+              /*              console.log('interceptor success');
+                            console.log('event--->>>', event);*/
+            }
+            return event;
+          }),
+          catchError((error: HttpErrorResponse) => {
+              /*            console.log('interceptor error');
+                          console.log(error);*/
+              if (error.status === 401) {
+                localStorage.removeItem('token');
+              }
+              return throwError(error);
+            }
+          ));
       } else {
         return next.handle(req);
       }
@@ -18,5 +43,3 @@ export class MyHttpLogInterceptorService implements HttpInterceptor {
     }
   }
 }
-
-

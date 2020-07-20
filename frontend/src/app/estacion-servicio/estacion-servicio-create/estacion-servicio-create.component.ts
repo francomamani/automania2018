@@ -4,6 +4,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {EstacionServicioService} from '../estacion-servicio.service';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-estacion-servicio-create',
@@ -11,9 +13,11 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./estacion-servicio-create.component.css']
 })
 export class EstacionServicioCreateComponent implements OnInit {
+  user: User;
   estacionServicioGroup: FormGroup;
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private estacionServicioService: EstacionServicioService,
     private fb: FormBuilder,
@@ -21,14 +25,18 @@ export class EstacionServicioCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.createForm();
   }
 
   createForm() {
     this.estacionServicioGroup = this.fb.group({
-      'razon_social': new FormControl('', Validators.required),
-      'nit': new FormControl('', Validators.required),
-      'propietario': new FormControl('', Validators.required)
+      razon_social: new FormControl('', Validators.required),
+      nit: new FormControl('', Validators.required),
+      propietario: new FormControl('', Validators.required)
     });
   }
 
@@ -43,7 +51,8 @@ export class EstacionServicioCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/estacion-servicio/listar']);
+        const url = `/${this.user.tipo}/estacion-servicio/listar`;
+        this.router.navigate([url]);
       }
     });
   }

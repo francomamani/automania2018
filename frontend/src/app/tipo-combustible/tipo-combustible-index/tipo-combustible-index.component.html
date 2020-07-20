@@ -2,11 +2,11 @@
   <span class="titulo">LISTA TIPO COMBUSTIBLE</span>
 
   <span class="spacer"></span>
-  <button [routerLink]="['/tipo-combustible/crear']"
-          color="primary"
+  <button color="primary"
           mat-mini-fab
           matTooltip="Nuevo Tipo de Combustible"
-          tooltip-position="left">
+          matTooltipPosition="left"
+          routerLink="/{{user?.tipo}}/tipo-combustible/crear">
     <mat-icon>add</mat-icon>
   </button>
   &nbsp;&nbsp;&nbsp;
@@ -26,17 +26,17 @@
 
   <mat-table #table [dataSource]="tipoCombustible" matSort>
     <ng-container matColumnDef="nombre">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{col.nombre | uppercase }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="importe">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Importe </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Importe</mat-header-cell>
       <mat-cell *matCellDef="let col"> {{ col.importe }} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</mat-header-cell>
       <mat-cell *matCellDef="let col; let i = index">
-        <button color="accent" mat-button mat-icon-button routerLink="/tipo-combustible/editar/{{col.id}}">
+        <button color="accent" mat-button mat-icon-button routerLink="/{{user?.tipo}}/tipo-combustible/editar/{{col.id}}">
           <mat-icon>border_color</mat-icon>
         </button>
         <button (click)="openDialog(col.id, i)" color="warn" mat-button mat-icon-button>

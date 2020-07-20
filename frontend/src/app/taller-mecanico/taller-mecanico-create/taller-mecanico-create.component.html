@@ -46,7 +46,7 @@
       </mat-form-field>
 
       <div class="form-group" fxLayout="row" fxLayoutGap="5px">
-        <button [routerLink]="['/taller-mecanico/listar']" fxFlex="auto" mat-raised-button>
+        <button fxFlex="auto" mat-raised-button routerLink="/{{user?.tipo}}/taller-mecanico/listar">
           <mat-icon color="warn">undo</mat-icon>
           ATRÁS
         </button>

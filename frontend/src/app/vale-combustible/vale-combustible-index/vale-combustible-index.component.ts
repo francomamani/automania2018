@@ -11,6 +11,7 @@ import {ValeCombustibleService} from '../../services/vale-combustible.service';
 import * as jsPDF from 'jspdf';
 import {ValeCombustible} from '../../models/vale-combustible';
 import {DateTime} from 'luxon';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-vale-combustible-index',
@@ -19,17 +20,24 @@ import {DateTime} from 'luxon';
 })
 export class ValeCombustibleIndexComponent implements OnInit {
 
+  user: User;
   list: any = [];
   bk: any = [];
   environment = environment;
-  vale_combustibles: MatTableDataSource<any[]>;
+  vale_combustibles: MatTableDataSource<ValeCombustible[]>;
 
   displayedColumns = [
     'numero_vale',
     'motivo_viaje',
     'litros',
     'importe',
-    'acciones'];
+    'kilometraje',
+    'chofer',
+    'vehiculo',
+    'estacion_servicio',
+    'registrado',
+    'acciones'
+  ];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -42,19 +50,17 @@ export class ValeCombustibleIndexComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.details()
-      .subscribe((response) => {
-        console.log(response);
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
       });
     this.valeCombustibleService.index().subscribe(res => {
-      console.log(res);
       this.list = res;
       this.bk = res;
       this.vale_combustibles = new MatTableDataSource(this.list);
       this.vale_combustibles.sort = this.sort;
       this.vale_combustibles.paginator = this.paginator;
     });
-
   }
 
   applyFilter(filterValue: string) {

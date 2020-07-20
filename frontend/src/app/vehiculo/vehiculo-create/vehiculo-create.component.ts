@@ -6,6 +6,8 @@ import {VehiculoService} from '../vehiculo.service';
 import {MatDialog} from '@angular/material/dialog';
 import {TipoVehiculo} from '../../models/tipo-vehiculo';
 import {TipoVehiculoService} from '../../services/tipo-vehiculo.service';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-vehiculo-create',
@@ -13,10 +15,12 @@ import {TipoVehiculoService} from '../../services/tipo-vehiculo.service';
   styleUrls: ['./vehiculo-create.component.css']
 })
 export class VehiculoCreateComponent implements OnInit {
+  user: User;
   tipo_vehiculos: TipoVehiculo[];
   vehiculoGroup: FormGroup;
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private tipoVehiculoService: TipoVehiculoService,
     private vehiculoService: VehiculoService,
@@ -25,6 +29,10 @@ export class VehiculoCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.tipoVehiculoService.index()
       .subscribe((tipo_vehiculos: TipoVehiculo[]) => {
         this.tipo_vehiculos = tipo_vehiculos;
@@ -58,7 +66,8 @@ export class VehiculoCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/vehiculo/listar']);
+        const url = `/${this.user.tipo}/vehiculo/listar`;
+        this.router.navigate([url]);
       }
     });
   }

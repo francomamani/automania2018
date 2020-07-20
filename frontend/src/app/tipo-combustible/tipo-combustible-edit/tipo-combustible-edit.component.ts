@@ -4,6 +4,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {TipoCombustibleService} from '../tipo-combustible.service';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-tipo-combustible-edit',
@@ -11,10 +13,12 @@ import {TipoCombustibleService} from '../tipo-combustible.service';
   styleUrls: ['./tipo-combustible-edit.component.css']
 })
 export class TipoCombustibleEditComponent implements OnInit {
+  user: User;
   tipoCombustibleGroup: FormGroup;
   tipoCombustible: any = null;
 
   constructor(
+    private authService: AuthService,
     private tipoCombustibleService: TipoCombustibleService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -30,13 +34,17 @@ export class TipoCombustibleEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
   }
 
   createForm(tipoCombustible) {
     this.tipoCombustibleGroup = this.fb.group({
-      'id': new FormControl(tipoCombustible.id, Validators.required),
-      'nombre': new FormControl(tipoCombustible.nombre, Validators.required),
-      'importe': new FormControl(tipoCombustible.importe, Validators.required)
+      id: new FormControl(tipoCombustible.id, Validators.required),
+      nombre: new FormControl(tipoCombustible.nombre, Validators.required),
+      importe: new FormControl(tipoCombustible.importe, Validators.required)
     });
   }
 
@@ -51,7 +59,8 @@ export class TipoCombustibleEditComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['tipo-combustible/listar']);
+        const url = `/${this.user.tipo}/tipo-combustible/listar`;
+        this.router.navigate([url]);
       }
     });
 
@@ -60,7 +69,6 @@ export class TipoCombustibleEditComponent implements OnInit {
   update() {
     this.tipoCombustibleService
       .update(this.tipoCombustibleGroup.value, this.tipoCombustibleGroup.value.id).subscribe(res => {
-      console.log(res);
       this.openDialog(res);
     }, (error) => {
       this.openDialog(error.error);

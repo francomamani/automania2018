@@ -8,6 +8,8 @@ import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
 import {KilometrajeService} from '../kilometraje.service';
 import {SuministroCombustibleService} from '../../suministro-combustible/suministro-combustible.service';
+import {AuthService} from '../../auth.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-kilometraje-index',
@@ -16,6 +18,7 @@ import {SuministroCombustibleService} from '../../suministro-combustible/suminis
 })
 export class KilometrajeIndexComponent implements OnInit {
 
+  user: User;
   list: any = [];
   environment = environment;
   kilometrajes: MatTableDataSource<any[]>;
@@ -30,6 +33,7 @@ export class KilometrajeIndexComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private authService: AuthService,
     private kilometrajeService: KilometrajeService,
     private sumCombustibleService: SuministroCombustibleService,
     private dialog: MatDialog,
@@ -44,6 +48,10 @@ export class KilometrajeIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.kilometrajeService.index().subscribe(res => {
       this.list = res;
       this.kilometrajes = new MatTableDataSource(this.list);

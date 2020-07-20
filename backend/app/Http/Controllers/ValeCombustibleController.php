@@ -57,7 +57,7 @@ class ValeCombustibleController extends Controller
                 'kilometraje_id' => $kilometraje->id,
                 'asignacion_vehiculo_id' => $input['asignacion_vehiculo_id'],
                 'estacion_servicio_id' => $input['estacion_servicio_id'],
-                'numero_vale' => 1,
+                'numero_vale' => 1 . '/' . Carbon::now()->year,
                 'motivo_viaje' => $input['motivo_viaje'],
                 'litros' => $input['litros'],
                 'importe' => $input['importe'],

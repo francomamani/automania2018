@@ -8,6 +8,8 @@ import {VehiculoService} from '../../vehiculo/vehiculo.service';
 import {CombustibleService} from '../../services/combustible.service';
 import {Combustible} from '../../models/combustible';
 import {Vehiculo} from '../../models/vehiculo';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-suministro-combustible-edit',
@@ -15,12 +17,14 @@ import {Vehiculo} from '../../models/vehiculo';
   styleUrls: ['./suministro-combustible-edit.component.css']
 })
 export class SuministroCombustibleEditComponent implements OnInit {
+  user: User;
   vehiculos: Vehiculo[];
   combustibles: Combustible[];
   suministroCombustibleGroup: FormGroup;
   suministro: any = null;
 
   constructor(
+    private authService: AuthService,
     private suministroCombustibleService: SuministroCombustibleService,
     private vehiculoService: VehiculoService,
     private combustibleService: CombustibleService,
@@ -39,6 +43,10 @@ export class SuministroCombustibleEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      });
     this.vehiculoService.index()
       .subscribe((vehiculos: Vehiculo[]) => {
         this.vehiculos = vehiculos;
@@ -51,9 +59,9 @@ export class SuministroCombustibleEditComponent implements OnInit {
 
   createForm(suministro) {
     this.suministroCombustibleGroup = this.fb.group({
-      'id': new FormControl(suministro.id, Validators.required),
-      'vehiculo_id': new FormControl(suministro.vehiculo_id, Validators.required),
-      'combustible': new FormControl(suministro.combustible, Validators.required)
+      id: new FormControl(suministro.id, Validators.required),
+      vehiculo_id: new FormControl(suministro.vehiculo_id, Validators.required),
+      combustible: new FormControl(suministro.combustible, Validators.required)
     });
   }
 
@@ -63,13 +71,13 @@ export class SuministroCombustibleEditComponent implements OnInit {
       data: {
         info: res.mensaje,
         has_action: res.has_action
-
       }
     });
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/suministro-combustible/listar']);
+        const url = `/${this.user.tipo}/suministro-combustible/listar`;
+        this.router.navigate([url]);
       }
     });
 
@@ -80,7 +88,6 @@ export class SuministroCombustibleEditComponent implements OnInit {
       .subscribe(res => {
         this.openDialog(res);
       }, (error) => {
-        console.log(error.error);
         this.openDialog(error.error);
       });
 

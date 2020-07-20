@@ -4,6 +4,8 @@ import {UserService} from '../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MensajeDialogComponent} from '../../mensaje-dialog/mensaje-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import {User} from '../../models/user';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -11,10 +13,13 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit {
+
+  userAuth: User;
   userGroup: FormGroup;
   user: any = null;
 
   constructor(
+    private authService: AuthService,
     private userService: UserService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -30,15 +35,19 @@ export class UserEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$
+      .subscribe((user: User) => {
+        this.user = user;
+      })
   }
 
   createForm(user) {
     this.userGroup = this.fb.group({
-      'id': new FormControl(user.id, Validators.required),
-      'nombres': new FormControl(user.nombres, Validators.required),
-      'apellidos': new FormControl(user.apellidos, Validators.required),
-      'cuenta': new FormControl(user.cuenta, Validators.required),
-      'carnet': new FormControl(user.carnet, Validators.required)
+      id: new FormControl(user.id, Validators.required),
+      nombres: new FormControl(user.nombres, Validators.required),
+      apellidos: new FormControl(user.apellidos, Validators.required),
+      cuenta: new FormControl(user.cuenta, Validators.required),
+      carnet: new FormControl(user.carnet, Validators.required)
     });
   }
 
@@ -53,7 +62,8 @@ export class UserEditComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/usuario/listar']);
+        const url = `/${this.userAuth.tipo}/usuario/listar`;
+        this.router.navigate([url]);
       }
     });
 
@@ -63,10 +73,8 @@ export class UserEditComponent implements OnInit {
     this.userService
       .update(this.userGroup.value, this.userGroup.value.id)
       .subscribe(res => {
-        console.log(res);
         this.openDialog(res);
       }, (error) => {
-        console.log(error.error);
         this.openDialog(error.error);
       });
   }

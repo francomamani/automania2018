@@ -7,6 +7,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatDialog} from '@angular/material/dialog';
+import {AuthService} from '../../auth.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-user-index',
@@ -14,6 +16,7 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./user-index.component.css']
 })
 export class UserIndexComponent implements OnInit {
+  user: User;
   list: any = [];
   environment = environment;
   users: MatTableDataSource<any>;
@@ -23,6 +26,7 @@ export class UserIndexComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private authService: AuthService,
     private userService: UserService,
     private excelService: ExcelService,
     private dialog: MatDialog
@@ -42,6 +46,9 @@ export class UserIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.auth$.subscribe((user: User) => {
+      this.user = user;
+    });
   }
 
   openDialog(id, index) {
@@ -65,7 +72,6 @@ export class UserIndexComponent implements OnInit {
       this.users.data = this.list;
       this.users.sort = this.sort;
       this.users.paginator = this.paginator;
-      console.log(res);
     });
   }
 

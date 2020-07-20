@@ -20,11 +20,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthService) {
-
-    if (this.authService.isAuthenticated()) {
-      router.navigate(['usuario']);
-    }
-
     this.createForm();
   }
 
@@ -55,13 +50,18 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.loginGroup.value)
       .subscribe((res: any) => {
         if (res.autenticado) {
-          console.log(res.token);
           localStorage.setItem('token', btoa(res.token));
-          localStorage.setItem('user_id', res.user_id);
-          this.router.navigate(['usuario']);
+          localStorage.setItem('user_id', res.user.id);
+          switch (res.user.tipo) {
+            case 'servicio-general':
+              this.router.navigate(['servicio-general']);
+              break;
+            case 'administrador':
+              this.router.navigate(['administrador']);
+              break;
+          }
         }
       }, (error: any) => {
-        console.log(error);
         this.openDialog(error.error);
         this.loginGroup.reset();
       });
