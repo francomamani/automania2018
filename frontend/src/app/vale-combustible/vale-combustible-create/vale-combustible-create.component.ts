@@ -100,7 +100,8 @@ export class ValeCombustibleCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(response => {
       if (response === true) {
-        this.router.navigate(['/vale-combustible/listar']);
+        const url = `/${this.user.tipo}/vale-combustible/listar`;
+        this.router.navigate([url]);
       }
     });
   }
